@@ -1,0 +1,213 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-primary-hover: var(--primary-hover);
+
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+  --font-open-sans: var(--font-open-sans);
+}
+
+:root {
+  --background: #ffffff;
+  --foreground: #0f172a;
+
+  --card: #ffffff;
+  --card-foreground: #0f172a;
+
+  --popover: #ffffff;
+  --popover-foreground: #0f172a;
+
+  --primary: #036ca6;
+  --primary-foreground: #ffffff;
+  --primary-hover: #048cd5;
+
+  --secondary: #f1f5f9;
+  --secondary-foreground: #0f172a;
+
+  --muted: #f8fafc;
+  --muted-foreground: #64748b;
+
+  --accent: #f0f9ff;
+  --accent-foreground: #036ca6;
+
+  --destructive: #ef4444;
+  --destructive-foreground: #ffffff;
+
+  --border: #e2e8f0;
+  --input: #e2e8f0;
+  --ring: #036ca6;
+
+  --radius: 0.5rem;
+}
+
+.dark {
+  --background: #020817;
+  --foreground: #f8fafc;
+
+  --card: #020817;
+  --card-foreground: #f8fafc;
+
+  --popover: #020817;
+  --popover-foreground: #f8fafc;
+
+  --primary: #036ca6;
+  --primary-foreground: #ffffff;
+  --primary-hover: #048cd5;
+
+  --secondary: #1e293b;
+  --secondary-foreground: #f8fafc;
+
+  --muted: #1e293b;
+  --muted-foreground: #94a3b8;
+
+  --accent: #0c4a6e;
+  --accent-foreground: #f8fafc;
+
+  --destructive: #7f1d1d;
+  --destructive-foreground: #f8fafc;
+
+  --border: #1e293b;
+  --input: #1e293b;
+  --ring: #036ca6;
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-open-sans), Helvetica, sans-serif;
+}
+
+.primary-btn {
+  background-color: var(--primary);
+  border: 2px solid var(--primary);
+  color: var(--primary-foreground);
+  padding: 1rem;
+  /* border-radius: 10px; */
+  font-size: 1rem;
+}
+
+.primary-btn:hover,
+.consultation-btn:hover {
+  background-color: var(--primary-hover);
+  border: 2px solid var(--primary-hover);
+  color: var(--primary-foreground);
+}
+
+.consultation-btn {
+  background-color: var(--primary);
+  border: 2px solid var(--primary);
+  color: var(--primary-foreground);
+  padding: 0.5rem;
+  border-radius: 3px;
+  font-size: 0.8rem;
+}
+
+.consultation-ghost-btn {
+  border: 2px solid var(--primary);
+  color: var(--primary-foreground);
+  padding: 0.5rem;
+  border-radius: 3px;
+  font-size: 0.8rem;
+}
+
+.investor-btn {
+  background-color: var(--primary);
+  color: var(--primary-foreground);
+  border-radius: 100px;
+  font-size: 1.2rem;
+  margin-top: 3rem;
+  padding: 0.5rem 1.5rem;
+}
+
+.investor-ghost-btn {
+  color: var(--primary);
+  background-color: transparent;
+  border: 2px solid var(--primary);
+  border-radius: 100px;
+  font-size: 1.2rem;
+  margin-top: 2rem;
+  padding: 0.5rem 1.5rem;
+}
+
+.investor-absolute {
+  position: absolute;
+  z-index: 10;
+  bottom: 1rem;
+  left: 5rem;
+}
+
+.investment-section {
+  position: relative;
+}
+
+.ghost-btn,
+.bmv-ghost-btn {
+  color: var(--primary);
+  border: 2px solid var(--primary);
+  padding: 1rem;
+  /* border-radius: 10px; */
+  font-size: 1rem;
+}
+
+.ghost-btn:hover {
+  border: 2px solid var(--background);
+  color: var(--foreground);
+  background-color: var(--background);
+}
+
+.bmv-ghost-btn:hover {
+  border: 2px solid var(--accent);
+  color: var(--accent);
+}
+
+.btns .primary-btn,
+.btns .ghost-btn {
+  padding: 1rem;
+}
+
+.primary-line,
+.secondary-line {
+  height: 3px;
+  width: 20%;
+  margin: 1rem 0;
+}
+
+.primary-line {
+  color: #ffffff;
+  background: #ffffff;
+}
+
+.secondary-line {
+  color: #333333;
+  background: #333333;
+}
+
+.secondary-heading {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding-block-end: 2rem;
+}
