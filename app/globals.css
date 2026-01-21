@@ -103,8 +103,8 @@ body {
   background-color: var(--primary);
   border: 2px solid var(--primary);
   color: var(--primary-foreground);
-  padding: 1rem;
-  /* border-radius: 10px; */
+  padding: 0.5rem 1rem;
+  border-radius: 10px;
   font-size: 1rem;
 }
 
@@ -166,8 +166,8 @@ body {
 .bmv-ghost-btn {
   color: var(--primary);
   border: 2px solid var(--primary);
-  padding: 1rem;
-  /* border-radius: 10px; */
+  padding: 0.5rem 1rem;
+  border-radius: 10px;
   font-size: 1rem;
 }
 

@@ -25,7 +25,7 @@ export default function Home() {
           <div className="my-4 h-[3px] w-[20%] bg-white"></div>
           <p className="pb-8 text-center text-xl font-normal text-white">Connecting investors and motivated sellers through exclusive off-market and below market value opportunities
           </p>
-          <div className="flex gap-20">
+          <div className="flex gap-8">
             <Link href="property-listings" className="primary-btn">View Available Properties</Link>
             <Link href="free-consultation" className="ghost-btn">Book a Free Consultation</Link>
           </div>
@@ -278,7 +278,7 @@ export default function Home() {
 
         <div className="container mx-auto px-4 relative z-10">
           <div className="text-center max-w-3xl mx-auto mb-16">
-            <h2 className="text-3xl md:text-5xl font-bold text-white mb-6 uppercase tracking-tight">
+            <h2 className="text-3xl md:text-4xl font-bold text-white mb-6 uppercase tracking-tight">
               Why Choose Asancha Properties?
             </h2>
             <div className="h-1.5 w-24 bg-primary mx-auto rounded-full"></div>
