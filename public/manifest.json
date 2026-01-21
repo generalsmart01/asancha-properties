@@ -1,0 +1,21 @@
+{
+    "name": "Asancha Properties",
+    "short_name": "Asancha",
+    "description": "Expert property sourcing, investment opportunities, and below market value deals.",
+    "start_url": "/",
+    "display": "standalone",
+    "background_color": "#ffffff",
+    "theme_color": "#009e64",
+    "icons": [
+        {
+            "src": "/core-img/logo.png",
+            "sizes": "192x192",
+            "type": "image/png"
+        },
+        {
+            "src": "/core-img/logo.png",
+            "sizes": "512x512",
+            "type": "image/png"
+        }
+    ]
+}

@@ -86,7 +86,7 @@ export const Header = () => {
                 <div className="container mx-auto px-4">
                     <div className="flex items-center justify-between h-20">
                         {/* Logo */}
-                        <Link href="/" onClick={closeMenu} className="relative w-32 h-12 flex-shrink-0">
+                        <Link href="/" onClick={closeMenu} className="relative w-32 h-12 shrink-0">
                             <Image src="/core-img/logo.png" alt="Asancha Properties" fill className="object-contain" priority />
                         </Link>
 
@@ -189,7 +189,7 @@ export const Header = () => {
                         <div className="hidden lg:flex items-center gap-4">
                             <ModeToggle />
                             <Link href="/property-listings" className="primary-btn text-sm px-4 py-2">Available Properties</Link>
-                            {/* <Link href="/free-consultation" className="ghost-btn text-sm px-4 py-2">Free Consultation</Link> */}
+                            <Link href="/free-consultation" className="ghost-btn text-sm px-4 py-2">Free Consultation</Link>
                         </div>
 
                         {/* Mobile Menu Button */}

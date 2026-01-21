@@ -1,5 +1,6 @@
-import { CheckCircle } from "lucide-react";
+import { CheckCircle, Mail, ShieldCheck, BarChart3, Layers } from "lucide-react";
 import HowItWorks from "@/components/homepage/HowItWorks";
+import TestimonialsCarousel from "@/components/homepage/TestimonialsCarousel";
 import Image from "next/image";
 import Link from "next/link";
 import bmvImage from "@/app/assets/below-market.avif";
@@ -7,6 +8,7 @@ import bmvImage from "@/app/assets/below-market.avif";
 export default function Home() {
   return (
     <>
+      {/* Hero Section */}
       <section className="relative h-screen w-full overflow-hidden after:absolute after:inset-0 after:z-[3] after:bg-black/70 after:content-['']">
         <video
           className="absolute inset-0 h-full w-full object-cover"
@@ -30,6 +32,7 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Our Expertise */}
       <section className="container mx-auto px-4 py-16">
         <div className="flex flex-col items-center justify-center mb-12">
           <h2 className="text-3xl md:text-4xl font-[700] text-center text-foreground mb-4">
@@ -176,47 +179,7 @@ export default function Home() {
         </div>
       </section>
 
-      <HowItWorks
-        title="How Do We Work?"
-        steps={[
-          {
-            id: 1,
-            title: "Consultation & Strategy",
-            description: "We begin with a personalized consultation to understand your property goals. Whether you're looking to invest, buy, sell, or renovate, our experts tailor solutions to fit your needs.",
-            badge: "Step 1",
-            side: "left",
-          },
-          {
-            id: 2,
-            title: "Market Research & Property Selection",
-            description: "We conduct in-depth market analysis to identify high-value opportunities. Our team carefully selects the best properties based on your investment strategy or personal preferences.",
-            badge: "Step 2",
-            side: "right",
-          },
-          {
-            id: 3,
-            title: "Acquisition & Negotiation",
-            description: "Once we find the right property, we handle the negotiation process to secure the best deal, ensuring a seamless and profitable transaction..",
-            badge: "Step 3",
-            side: "left",
-          },
-          {
-            id: 4,
-            title: "Management & Enhancement",
-            description: "From tenant management to property refurbishment, we provide end-to-end solutions that maximize property value and rental income.",
-            badge: "Step 4",
-            side: "right",
-          },
-          {
-            id: 5,
-            title: "Growth & Long-Term Success",
-            description: "We stay connected with our clients, offering continuous support, insights, and opportunities to expand their real estate portfolio.",
-            badge: "Step 5",
-            side: "left",
-          },
-        ]}
-      />
-
+      {/* Below Market Value Market */}
       <section className="container mx-auto px-4 py-24">
         <div className="flex flex-col items-center justify-center pb-8">
           <h2 className="text-4xl font-bold text-center text-foreground">Below Market Value Properties</h2>
@@ -277,6 +240,147 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+      {/* About Asancha Properties */}
+      <section className="py-20 bg-background overflow-hidden">
+        <div className="container mx-auto px-4 flex flex-col-reverse lg:flex-row items-center gap-12">
+          {/* Content */}
+          <div className="flex-1 lg:pr-8 animate-in slide-in-from-left-5 duration-700">
+            <h3 className="text-primary font-medium mb-2 tracking-wide text-sm uppercase">ASANCHA PROPERTIES</h3>
+            <h2 className="text-3xl md:text-4xl font-bold text-foreground">Leading UK Property Investment Experts</h2>
+            <p className="text-muted-foreground leading-relaxed mb-8 text-lg">
+              At ASANCHA PROPERTIES, we specialise in property sourcing, investment, management, and refurbishment to maximise value for investors, homeowners, and landlords. With a commitment to integrity, expertise, and excellence, we simplify real estate investments, helping clients achieve financial success while creating beautiful, functional living spaces.
+            </p>
+            <a href="mailto:office@asancha.co.uk" className="flex items-center gap-3 text-foreground hover:text-primary transition-colors group">
+              <div className="bg-primary/10 p-3 rounded-full group-hover:bg-primary group-hover:text-white transition-colors">
+                <Mail size={20} />
+              </div>
+              <span className="font-medium">office@asancha.co.uk</span>
+            </a>
+          </div>
+          {/* Image */}
+          <div className="flex-1 w-full relative h-[400px] lg:h-[500px] rounded-2xl overflow-hidden shadow-2xl animate-in slide-in-from-right-5 duration-700">
+            <Image
+              src="/bg-img/about-us.jpg"
+              alt="Asancha Properties"
+              fill
+              className="object-cover hover:scale-105 transition-transform duration-700"
+              sizes="(max-width: 768px) 100vw, 50vw"
+            />
+          </div>
+        </div>
+      </section>
+
+      {/* Why Choose Us */}
+      <section className="relative py-24 bg-fixed bg-cover bg-center overflow-hidden" style={{ backgroundImage: "url('/bg-img/cta.jpg')" }}>
+        {/* Black Overlay */}
+        <div className="absolute inset-0 bg-black/70 z-0"></div>
+
+        <div className="container mx-auto px-4 relative z-10">
+          <div className="text-center max-w-3xl mx-auto mb-16">
+            <h2 className="text-3xl md:text-5xl font-bold text-white mb-6 uppercase tracking-tight">
+              Why Choose Asancha Properties?
+            </h2>
+            <div className="h-1.5 w-24 bg-primary mx-auto rounded-full"></div>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-12 text-center">
+            {/* Tailored Solutions */}
+            <div className="group animate-in fade-in slide-in-from-bottom-5 duration-700 delay-100">
+              <div className="bg-white/10 backdrop-blur-md p-6 rounded-2xl border border-white/20 hover:border-primary/50 transition-all duration-300">
+                <div className="bg-primary/20 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-6 text-primary group-hover:scale-110 transition-transform">
+                  <ShieldCheck size={32} />
+                </div>
+                <h3 className="text-xl font-bold text-white mb-4">Tailored Solutions</h3>
+                <p className="text-gray-300 leading-relaxed">
+                  Personalized real estate services designed specifically for your unique property goals and needs.
+                </p>
+              </div>
+            </div>
+
+            {/* Market Expertise */}
+            <div className="group animate-in fade-in slide-in-from-bottom-5 duration-700 delay-300">
+              <div className="bg-white/10 backdrop-blur-md p-6 rounded-2xl border border-white/20 hover:border-primary/50 transition-all duration-300">
+                <div className="bg-primary/20 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-6 text-primary group-hover:scale-110 transition-transform">
+                  <BarChart3 size={32} />
+                </div>
+                <h3 className="text-xl font-bold text-white mb-4">Market Expertise</h3>
+                <p className="text-gray-300 leading-relaxed">
+                  Deep industry knowledge and exclusive access to high-yield property deals across the UK.
+                </p>
+              </div>
+            </div>
+
+            {/* End-to-End Support */}
+            <div className="group animate-in fade-in slide-in-from-bottom-5 duration-700 delay-500">
+              <div className="bg-white/10 backdrop-blur-md p-6 rounded-2xl border border-white/20 hover:border-primary/50 transition-all duration-300">
+                <div className="bg-primary/20 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-6 text-primary group-hover:scale-110 transition-transform">
+                  <Layers size={32} />
+                </div>
+                <h3 className="text-xl font-bold text-white mb-4">End-to-End Support</h3>
+                <p className="text-gray-300 leading-relaxed">
+                  From sourcing and negotiation to management and refurbishment, we handle every step for you.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div className="mt-16 text-center">
+            <Link
+              href="/free-consultation"
+              className="inline-flex items-center justify-center bg-primary hover:bg-primary-hover text-white font-bold py-4 px-10 rounded-full transition-all duration-300 shadow-xl hover:shadow-primary/20 hover:-translate-y-1"
+            >
+              Request a Valuation
+            </Link>
+          </div>
+        </div>
+      </section>
+
+
+      <HowItWorks
+        title="How Do We Work?"
+        steps={[
+          {
+            id: 1,
+            title: "Consultation & Strategy",
+            description: "We begin with a personalized consultation to understand your property goals. Whether you're looking to invest, buy, sell, or renovate, our experts tailor solutions to fit your needs.",
+            badge: "Step 1",
+            side: "left",
+          },
+          {
+            id: 2,
+            title: "Market Research & Property Selection",
+            description: "We conduct in-depth market analysis to identify high-value opportunities. Our team carefully selects the best properties based on your investment strategy or personal preferences.",
+            badge: "Step 2",
+            side: "right",
+          },
+          {
+            id: 3,
+            title: "Acquisition & Negotiation",
+            description: "Once we find the right property, we handle the negotiation process to secure the best deal, ensuring a seamless and profitable transaction..",
+            badge: "Step 3",
+            side: "left",
+          },
+          {
+            id: 4,
+            title: "Management & Enhancement",
+            description: "From tenant management to property refurbishment, we provide end-to-end solutions that maximize property value and rental income.",
+            badge: "Step 4",
+            side: "right",
+          },
+          {
+            id: 5,
+            title: "Growth & Long-Term Success",
+            description: "We stay connected with our clients, offering continuous support, insights, and opportunities to expand their real estate portfolio.",
+            badge: "Step 5",
+            side: "left",
+          },
+        ]}
+      />
+
+      {/* <!-- ##### Testimonials Area Start ##### --> */}
+      <TestimonialsCarousel />
+
     </>
   );
 }

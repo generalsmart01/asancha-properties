@@ -38,7 +38,7 @@ export default function HowItWorks({
         <div className="text-center max-w-3xl mx-auto mb-12">
           <h2
             id="how-asancha-works-heading"
-            className="text-3xl md:text-4xl font-[700] text-foreground mb-4"
+            className="text-3xl md:text-4xl font-bold text-foreground mb-4"
           >
             <span className="capitalize text-outline text-foreground dark:text-white">{title}</span>
           </h2>
@@ -57,7 +57,7 @@ export default function HowItWorks({
               <div className="hidden md:flex md:w-1/2 px-4 md:pr-12 justify-end">
                 {step.side === "left" && (
                   <div
-                    className={`bg-card rounded-[8px] shadow-md p-6 border-r-[10px] border-primary max-w-md`}
+                    className={`bg-card rounded-[8px] shadow-md p-6 border-r-10 border-primary max-w-md`}
                   >
                     <h3 className="text-lg font-bold text-foreground">
                       {step.title}
@@ -129,7 +129,7 @@ export default function HowItWorks({
               <div className="hidden md:flex md:w-1/2 px-4 md:pl-12 justify-start mt-6 md:mt-0">
                 {step.side === "right" && (
                   <div
-                    className={`bg-card rounded-[8px] shadow-md p-6 border-l-[10px] border-green-600 max-w-md`}
+                    className={`bg-card rounded-[8px] shadow-md p-6 border-l-10 border-green-600 max-w-md`}
                   >
                     <h3 className="text-lg font-bold text-foreground">
                       {step.title}
