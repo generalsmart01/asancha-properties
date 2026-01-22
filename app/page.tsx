@@ -35,7 +35,7 @@ export default function Home() {
       {/* Our Expertise */}
       <section className="container mx-auto px-4 py-16">
         <div className="flex flex-col items-center justify-center mb-12">
-          <h2 className="text-3xl md:text-4xl font-[700] text-center text-foreground mb-4">
+          <h2 className="text-3xl md:text-4xl font-bold text-center text-foreground mb-4">
             <span className="capitalize text-outline text-foreground dark:text-white">Our Expertise</span>
           </h2>
           <span className="h-1 w-20 bg-primary rounded-full"></span>

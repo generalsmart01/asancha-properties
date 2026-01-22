@@ -102,7 +102,7 @@ export const Header = () => {
                                 </button>
                                 <div className="absolute top-full left-1/2 -translate-x-1/2 w-[600px] bg-card border border-border rounded-xl shadow-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 transform translate-y-2 group-hover:translate-y-0 overflow-hidden z-50">
                                     <div className="p-4 grid grid-cols-2 gap-2">
-                                        <Link href="/property-sourcing" className="flex items-start gap-3 p-3 rounded-lg hover:bg-muted group/item transition-colors">
+                                        <Link href="/services/property-sourcing" className="flex items-start gap-3 p-3 rounded-lg hover:bg-muted group/item transition-colors">
                                             <div className="p-2 rounded-md bg-primary/10 text-primary group-hover/item:bg-primary group-hover/item:text-white transition-colors mt-1">
                                                 <Search size={20} />
                                             </div>
@@ -111,7 +111,7 @@ export const Header = () => {
                                                 <p className="text-sm text-muted-foreground line-clamp-2">Find the best deals tailored to your needs.</p>
                                             </div>
                                         </Link>
-                                        <Link href="/property-investment" className="flex items-start gap-3 p-3 rounded-lg hover:bg-muted group/item transition-colors">
+                                        <Link href="/services/property-investment" className="flex items-start gap-3 p-3 rounded-lg hover:bg-muted group/item transition-colors">
                                             <div className="p-2 rounded-md bg-primary/10 text-primary group-hover/item:bg-primary group-hover/item:text-white transition-colors mt-1">
                                                 <TrendingUp size={20} />
                                             </div>
@@ -120,7 +120,7 @@ export const Header = () => {
                                                 <p className="text-sm text-muted-foreground line-clamp-2">Grow your portfolio with high-yield opportunities.</p>
                                             </div>
                                         </Link>
-                                        <Link href="/property-management" className="flex items-start gap-3 p-3 rounded-lg hover:bg-muted group/item transition-colors">
+                                        <Link href="/services/property-management" className="flex items-start gap-3 p-3 rounded-lg hover:bg-muted group/item transition-colors">
                                             <div className="p-2 rounded-md bg-primary/10 text-primary group-hover/item:bg-primary group-hover/item:text-white transition-colors mt-1">
                                                 <Home size={20} />
                                             </div>
@@ -138,7 +138,7 @@ export const Header = () => {
                                                 <p className="text-sm text-muted-foreground line-clamp-2">Exclusive Below Market Value deals.</p>
                                             </div>
                                         </Link>
-                                        <Link href="/property-refurbishment" className="flex items-start gap-3 p-3 rounded-lg hover:bg-muted group/item transition-colors">
+                                        <Link href="/services/property-refurbishment" className="flex items-start gap-3 p-3 rounded-lg hover:bg-muted group/item transition-colors">
                                             <div className="p-2 rounded-md bg-primary/10 text-primary group-hover/item:bg-primary group-hover/item:text-white transition-colors mt-1">
                                                 <PaintBucket size={20} />
                                             </div>
@@ -182,7 +182,7 @@ export const Header = () => {
                                 </div>
                             </div>
 
-                            <Link href="/contact" className="text-foreground hover:text-primary font-medium transition-colors">Contact Us</Link>
+                            <Link href="/contact-us" className="text-foreground hover:text-primary font-medium transition-colors">Contact Us</Link>
                         </nav>
 
                         {/* CTA Buttons - Desktop */}
@@ -237,19 +237,19 @@ export const Header = () => {
                                 Services <ChevronDown size={20} className={`transition-transform duration-200 ${openDropdown === "services" ? "rotate-180" : ""}`} />
                             </button>
                             <div className={`flex flex-col bg-muted/30 overflow-hidden transition-all duration-300 ${openDropdown === "services" ? "max-h-[500px]" : "max-h-0"}`}>
-                                <Link href="/property-sourcing" onClick={closeMenu} className="px-6 py-3 text-base text-muted-foreground hover:text-primary hover:bg-muted/50 flex items-center gap-3 transition-colors">
+                                <Link href="/services/property-sourcing" onClick={closeMenu} className="px-6 py-3 text-base text-muted-foreground hover:text-primary hover:bg-muted/50 flex items-center gap-3 transition-colors">
                                     <Search size={18} /> Property Sourcing
                                 </Link>
-                                <Link href="/property-investment" onClick={closeMenu} className="px-6 py-3 text-base text-muted-foreground hover:text-primary hover:bg-muted/50 flex items-center gap-3 transition-colors">
+                                <Link href="/services/property-investment" onClick={closeMenu} className="px-6 py-3 text-base text-muted-foreground hover:text-primary hover:bg-muted/50 flex items-center gap-3 transition-colors">
                                     <TrendingUp size={18} /> Property Investments
                                 </Link>
-                                <Link href="/property-management" onClick={closeMenu} className="px-6 py-3 text-base text-muted-foreground hover:text-primary hover:bg-muted/50 flex items-center gap-3 transition-colors">
+                                <Link href="/services/property-management" onClick={closeMenu} className="px-6 py-3 text-base text-muted-foreground hover:text-primary hover:bg-muted/50 flex items-center gap-3 transition-colors">
                                     <Home size={18} /> Property Management
                                 </Link>
                                 <Link href="/below-market-value-properties" onClick={closeMenu} className="px-6 py-3 text-base text-muted-foreground hover:text-primary hover:bg-muted/50 flex items-center gap-3 transition-colors">
                                     <Tag size={18} /> Below Market Value Properties
                                 </Link>
-                                <Link href="/property-refurbishment" onClick={closeMenu} className="px-6 py-3 text-base text-muted-foreground hover:text-primary hover:bg-muted/50 flex items-center gap-3 transition-colors">
+                                <Link href="/services/property-refurbishment" onClick={closeMenu} className="px-6 py-3 text-base text-muted-foreground hover:text-primary hover:bg-muted/50 flex items-center gap-3 transition-colors">
                                     <PaintBucket size={18} /> Property Refurbishment
                                 </Link>
                                 <Link href="/interior-design" onClick={closeMenu} className="px-6 py-3 text-base text-muted-foreground hover:text-primary hover:bg-muted/50 flex items-center gap-3 transition-colors">
