@@ -81,14 +81,14 @@ export default function ListingsPage() {
   return (
     <div className="space-y-8">
       {/* Header */}
-      <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between space-y-4 sm:space-y-0">
+      <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between space-y-4 sm:space-y-0 pb-6 border-b border-border/50">
         <div>
-          <h1 className="text-3xl font-bold text-gray-900">My Listings</h1>
-          <p className="text-gray-600">
+          <h1 className="text-3xl font-black text-foreground uppercase tracking-tight">My Listings</h1>
+          <p className="text-muted-foreground font-medium italic">
             Manage your property listings and create new ones
           </p>
         </div>
-        <Button asChild>
+        <Button asChild className="primary-btn rounded-xl font-bold uppercase tracking-widest text-xs px-6 py-2 shadow-lg shadow-primary/20">
           <Link href="/dashboard/listings/new">
             <Plus className="w-4 h-4 mr-2" />
             Post New Property
@@ -99,7 +99,7 @@ export default function ListingsPage() {
       {/* Listings Grid */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         {mockListings.map((listing) => (
-          <Card key={listing.id} className="group hover:shadow-lg transition-shadow duration-300 pt-0">
+          <Card key={listing.id} className="rounded-3xl border-border/50 shadow-xl overflow-hidden group hover:shadow-2xl transition-all duration-300 pt-0">
             <div className="relative overflow-hidden rounded-t-lg">
               <PropertyImage
                 src={listing.image}
@@ -132,11 +132,11 @@ export default function ListingsPage() {
             <CardContent className="px-6">
               <div className="space-y-3">
                 <div>
-                  <h3 className="text-base font-semibold text-gray-900 group-hover:text-blue-600 transition-colors">
+                  <h3 className="text-lg font-bold text-foreground group-hover:text-primary transition-colors uppercase tracking-tight">
                     {listing.title}
                   </h3>
-                  <p className="text-sm text-gray-600 flex items-center mt-1">
-                    <MapPin className="h-4 w-4 mr-1" />
+                  <p className="text-sm text-muted-foreground font-medium italic flex items-center mt-1">
+                    <MapPin className="h-4 w-4 mr-1 text-primary" />
                     {listing.address}
                   </p>
                 </div>
@@ -186,7 +186,7 @@ export default function ListingsPage() {
       </div>
 
       {mockListings.length === 0 && (
-        <Card>
+        <Card className="rounded-3xl border-border/50 shadow-xl overflow-hidden">
           <CardContent className="p-12 text-center">
             <Building2 className="w-12 h-12 text-gray-400 mx-auto mb-4" />
             <h3 className="text-lg font-medium text-gray-900 mb-2">

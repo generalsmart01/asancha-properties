@@ -150,7 +150,7 @@ export default function NewListingPage() {
                     <Label htmlFor="propertyType">Property Type *</Label>
                     <Select
                       value={formData.propertyType}
-                      onValueChange={(value) =>
+                      onValueChange={(value: string) =>
                         handleInputChange("propertyType", value)
                       }
                       required
@@ -272,7 +272,7 @@ export default function NewListingPage() {
                   <Label htmlFor="description">Description *</Label>
                   <QuillEditor
                     value={formData.description}
-                    onChange={(value) => handleInputChange("description", value)}
+                    onChange={(value: string) => handleInputChange("description", value)}
                     placeholder="Describe the property in detail..."
                   />
                 </div>
@@ -281,7 +281,7 @@ export default function NewListingPage() {
                   <Label htmlFor="status">Status</Label>
                   <Select
                     value={formData.status}
-                    onValueChange={(value) => handleInputChange("status", value)}
+                    onValueChange={(value: string) => handleInputChange("status", value)}
                   >
                     <SelectTrigger>
                       <SelectValue />

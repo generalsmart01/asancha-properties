@@ -1,10 +1,24 @@
+'use client'
 
 import Link from 'next/link';
 import Image from 'next/image';
 import { Phone, Mail, MapPin, Facebook, Instagram, Linkedin, Twitter } from 'lucide-react';
+import { disableHeaderWithFooter } from '@/utils/disableHeaderWithFooter';
+import { usePathname } from 'next/navigation';
 
 export const Footer = () => {
     const currentYear = new Date().getFullYear();
+    const pathname = usePathname();
+
+    // Early exits (no hooks below should be conditional)
+    if (pathname.startsWith("/dashboard")) return null;
+
+    const shouldHideHeader = disableHeaderWithFooter.some((path) => {
+        const pattern = path.replace(/\[.*\]/g, "[^/]+");
+        const regex = new RegExp(`^${pattern}$`);
+        return regex.test(pathname);
+    });
+    if (shouldHideHeader) return null;
 
     return (
         <footer className="relative bg-secondary-foreground/90 dark:bg-black/90 pt-24 pb-0 text-white">

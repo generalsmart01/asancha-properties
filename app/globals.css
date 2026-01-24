@@ -103,9 +103,15 @@ body {
   background-color: var(--primary);
   border: 2px solid var(--primary);
   color: var(--primary-foreground);
-  padding: 0.5rem 1rem;
-  border-radius: 10px;
+  padding: 0.75rem 2rem;
+  border-radius: 9999px;
   font-size: 1rem;
+  font-weight: 700;
+  transition: all 0.3s ease;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
 }
 
 .primary-btn:hover,
@@ -113,6 +119,8 @@ body {
   background-color: var(--primary-hover);
   border: 2px solid var(--primary-hover);
   color: var(--primary-foreground);
+  transform: translateY(-2px);
+  box-shadow: 0 10px 20px -10px rgba(3, 108, 166, 0.5);
 }
 
 .consultation-btn {
@@ -166,15 +174,23 @@ body {
 .bmv-ghost-btn {
   color: var(--primary);
   border: 2px solid var(--primary);
-  padding: 0.5rem 1rem;
-  border-radius: 10px;
+  padding: 0.75rem 2rem;
+  border-radius: 9999px;
   font-size: 1rem;
+  font-weight: 700;
+  transition: all 0.3s ease;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  background-color: transparent;
 }
 
 .ghost-btn:hover {
-  border: 2px solid var(--background);
-  color: var(--foreground);
-  background-color: var(--background);
+  border: 2px solid var(--primary);
+  color: var(--primary-foreground);
+  background-color: var(--primary);
+  transform: translateY(-2px);
 }
 
 .bmv-ghost-btn:hover {

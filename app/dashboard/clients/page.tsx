@@ -138,14 +138,14 @@ export default function ClientsPage() {
   return (
     <div className="space-y-6">
       {/* Header */}
-      <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between space-y-4 sm:space-y-0">
+      <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between space-y-4 sm:space-y-0 pb-6 border-b border-border/50">
         <div>
-          <h1 className="text-3xl font-bold text-gray-900">Clients</h1>
-          <p className="text-gray-600">
+          <h1 className="text-3xl font-black text-foreground uppercase tracking-tight">Clients</h1>
+          <p className="text-muted-foreground font-medium italic">
             Manage your client relationships and track their property interests
           </p>
         </div>
-        <Button>
+        <Button className="primary-btn rounded-xl font-bold uppercase tracking-widest text-xs px-6 py-2 shadow-lg shadow-primary/20">
           <Plus className="w-4 h-4 mr-2" />
           Add New Client
         </Button>
@@ -153,7 +153,7 @@ export default function ClientsPage() {
 
       {/* Stats Cards */}
       <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
-        <Card>
+        <Card className="rounded-3xl border-border/50 shadow-xl overflow-hidden">
           <CardHeader className="pb-2">
             <CardTitle className="text-sm font-medium text-gray-600">
               Total Clients
@@ -163,7 +163,7 @@ export default function ClientsPage() {
             <div className="text-2xl font-bold">{mockClients.length}</div>
           </CardContent>
         </Card>
-        <Card>
+        <Card className="rounded-3xl border-border/50 shadow-xl overflow-hidden">
           <CardHeader className="pb-2">
             <CardTitle className="text-sm font-medium text-gray-600">
               Active Clients
@@ -175,7 +175,7 @@ export default function ClientsPage() {
             </div>
           </CardContent>
         </Card>
-        <Card>
+        <Card className="rounded-3xl border-border/50 shadow-xl overflow-hidden">
           <CardHeader className="pb-2">
             <CardTitle className="text-sm font-medium text-gray-600">
               New Clients
@@ -187,7 +187,7 @@ export default function ClientsPage() {
             </div>
           </CardContent>
         </Card>
-        <Card>
+        <Card className="rounded-3xl border-border/50 shadow-xl overflow-hidden">
           <CardHeader className="pb-2">
             <CardTitle className="text-sm font-medium text-gray-600">
               Total Bookings
@@ -202,7 +202,7 @@ export default function ClientsPage() {
       </div>
 
       {/* Filters */}
-      <Card>
+      <Card className="rounded-3xl border-border/50 shadow-xl overflow-hidden">
         <CardContent className="p-6">
           <div className="flex flex-col lg:flex-row lg:items-center space-y-4 lg:space-y-0 lg:space-x-4">
             <div className="flex-1">
@@ -233,22 +233,22 @@ export default function ClientsPage() {
 
       {/* Clients Tabs */}
       <Tabs value={activeTab} onValueChange={setActiveTab}>
-        <TabsList className="grid w-full grid-cols-4">
-          <TabsTrigger value="all">
+        <TabsList className="grid w-full grid-cols-4 p-1 bg-muted/50 rounded-2xl h-12">
+          <TabsTrigger value="all" className="rounded-xl data-[state=active]:bg-white data-[state=active]:shadow-md font-bold text-xs uppercase tracking-widest">
             All ({mockClients.length})
           </TabsTrigger>
-          <TabsTrigger value="active">
+          <TabsTrigger value="active" className="rounded-xl data-[state=active]:bg-white data-[state=active]:shadow-md font-bold text-xs uppercase tracking-widest">
             Active ({activeClients.length})
           </TabsTrigger>
-          <TabsTrigger value="new">New ({newClients.length})</TabsTrigger>
-          <TabsTrigger value="inactive">
+          <TabsTrigger value="new" className="rounded-xl data-[state=active]:bg-white data-[state=active]:shadow-md font-bold text-xs uppercase tracking-widest">New ({newClients.length})</TabsTrigger>
+          <TabsTrigger value="inactive" className="rounded-xl data-[state=active]:bg-white data-[state=active]:shadow-md font-bold text-xs uppercase tracking-widest">
             Inactive ({inactiveClients.length})
           </TabsTrigger>
         </TabsList>
 
         <TabsContent value={activeTab} className="space-y-4">
           {filteredClients.length === 0 ? (
-            <Card>
+            <Card className="rounded-3xl border-border/50 shadow-xl overflow-hidden">
               <CardContent className="p-12 text-center">
                 <Users className="w-12 h-12 text-gray-400 mx-auto mb-4" />
                 <h3 className="text-lg font-medium text-gray-900 mb-2">
@@ -264,7 +264,7 @@ export default function ClientsPage() {
           ) : (
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
               {filteredClients.map((client) => (
-                <Card key={client.id} className="hover:shadow-lg transition-shadow">
+                <Card className="rounded-3xl border-border/50 shadow-xl overflow-hidden group hover:shadow-2xl transition-all duration-300">
                   <CardHeader>
                     <div className="flex items-start justify-between">
                       <div className="flex items-center space-x-3">
@@ -278,8 +278,8 @@ export default function ClientsPage() {
                               client.status === "active"
                                 ? "default"
                                 : client.status === "new"
-                                ? "secondary"
-                                : "outline"
+                                  ? "secondary"
+                                  : "outline"
                             }
                             className="mt-1"
                           >

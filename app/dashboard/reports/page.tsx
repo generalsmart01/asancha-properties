@@ -126,21 +126,21 @@ export default function ReportsPage() {
   return (
     <div className="space-y-6">
       {/* Header */}
-      <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between space-y-4 sm:space-y-0">
+      <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between space-y-4 sm:space-y-0 pb-6 border-b border-border/50">
         <div>
-          <h1 className="text-3xl font-bold text-gray-900">Reports</h1>
-          <p className="text-gray-600">
+          <h1 className="text-3xl font-black text-foreground uppercase tracking-tight">Reports</h1>
+          <p className="text-muted-foreground font-medium italic">
             Generate and download detailed reports about your business performance
           </p>
         </div>
-        <Button onClick={handleGenerateReport}>
+        <Button onClick={handleGenerateReport} className="primary-btn rounded-xl font-bold uppercase tracking-widest text-xs px-6 py-2 shadow-lg shadow-primary/20">
           <FileText className="w-4 h-4 mr-2" />
           Generate New Report
         </Button>
       </div>
 
       {/* Filters */}
-      <Card>
+      <Card className="rounded-3xl border-border/50 shadow-xl overflow-hidden">
         <CardContent className="p-6">
           <div className="flex flex-col lg:flex-row lg:items-center space-y-4 lg:space-y-0 lg:space-x-4">
             <Select value={reportType} onValueChange={setReportType}>
@@ -177,11 +177,13 @@ export default function ReportsPage() {
       {/* Reports List */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         {filteredReports.map((report) => (
-          <Card key={report.id} className="hover:shadow-lg transition-shadow">
+          <Card key={report.id} className="rounded-3xl border-border/50 shadow-xl overflow-hidden group hover:shadow-2xl transition-all duration-300">
             <CardHeader>
               <div className="flex items-start justify-between">
                 <div className="flex-1">
-                  <CardTitle className="text-lg mb-2">{report.title}</CardTitle>
+                  <CardTitle className="text-lg font-bold text-foreground mb-2 uppercase tracking-tight">
+                    {report.title}
+                  </CardTitle>
                   <div className="flex items-center space-x-2">
                     <Badge variant="outline">{report.type}</Badge>
                     <Badge
@@ -297,17 +299,17 @@ export default function ReportsPage() {
                 </div>
               )}
 
-              <div className="pt-4 border-t">
+              <div className="pt-4 border-t border-border/50">
                 {report.status === "completed" ? (
                   <Button
-                    className="w-full"
+                    className="primary-btn w-full rounded-xl font-bold uppercase tracking-widest text-xs shadow-lg shadow-primary/20"
                     onClick={() => handleDownloadReport(report.id)}
                   >
                     <Download className="w-4 h-4 mr-2" />
                     Download Report
                   </Button>
                 ) : (
-                  <Button variant="outline" className="w-full" disabled>
+                  <Button variant="outline" className="w-full rounded-xl border-border/50" disabled>
                     Generating...
                   </Button>
                 )}
@@ -318,7 +320,7 @@ export default function ReportsPage() {
       </div>
 
       {filteredReports.length === 0 && (
-        <Card>
+        <Card className="rounded-3xl border-border/50 shadow-xl overflow-hidden">
           <CardContent className="p-12 text-center">
             <FileText className="w-12 h-12 text-gray-400 mx-auto mb-4" />
             <h3 className="text-lg font-medium text-gray-900 mb-2">

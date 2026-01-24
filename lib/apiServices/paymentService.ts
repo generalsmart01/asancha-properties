@@ -24,8 +24,8 @@ import type {
   SavedPaymentMethod,
 } from "@/types/payment";
 import safeConsole from "../console";
-import { toMinor } from "../constants/currency";
-import { PriceModel } from "../constants/pricing";
+import { toMinor } from "@/lib/constants/currency";
+import { PriceModel } from "@/lib/constants/pricing";
 
 export class PaymentService {
   /* -------------------------------------------------------------- *

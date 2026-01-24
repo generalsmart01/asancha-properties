@@ -133,22 +133,23 @@ export default function AnalyticsPage() {
   }
 
   const isAgent = user.role === "agent";
-  const analytics = isAgent ? mockAgentAnalytics : mockInvestorAnalytics;
+  const agentAnalytics = mockAgentAnalytics;
+  const investorAnalytics = mockInvestorAnalytics;
 
   return (
     <div className="space-y-6">
       {/* Header */}
-      <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between space-y-4 sm:space-y-0">
+      <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between space-y-4 sm:space-y-0 pb-6 border-b border-border/50">
         <div>
-          <h1 className="text-3xl font-bold text-gray-900">Analytics</h1>
-          <p className="text-gray-600">
+          <h1 className="text-3xl font-black text-foreground uppercase tracking-tight">Analytics</h1>
+          <p className="text-muted-foreground font-medium italic">
             {isAgent
               ? "Track your property listings performance and client engagement"
               : "Monitor your investment portfolio performance and returns"}
           </p>
         </div>
         <Select value={timeRange} onValueChange={setTimeRange}>
-          <SelectTrigger className="w-40">
+          <SelectTrigger className="w-40 rounded-xl border-border/50 text-xs font-bold uppercase tracking-widest">
             <SelectValue />
           </SelectTrigger>
           <SelectContent>
@@ -165,64 +166,64 @@ export default function AnalyticsPage() {
         <>
           {/* Overview Stats */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-            <Card>
+            <Card className="rounded-3xl border-border/50 shadow-xl overflow-hidden hover:shadow-2xl transition-all duration-300">
               <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
                 <CardTitle className="text-sm font-medium">Total Views</CardTitle>
                 <Eye className="h-4 w-4 text-muted-foreground" />
               </CardHeader>
               <CardContent>
                 <div className="text-2xl font-bold">
-                  {analytics.overview.totalViews.toLocaleString()}
+                  {agentAnalytics.overview.totalViews.toLocaleString()}
                 </div>
                 <div className="flex items-center text-xs text-green-600 mt-1">
                   <ArrowUp className="w-3 h-3 mr-1" />
-                  {analytics.overview.viewsChange}% from last period
+                  {agentAnalytics.overview.viewsChange}% from last period
                 </div>
               </CardContent>
             </Card>
 
-            <Card>
+            <Card className="rounded-3xl border-border/50 shadow-xl overflow-hidden hover:shadow-2xl transition-all duration-300">
               <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
                 <CardTitle className="text-sm font-medium">Total Leads</CardTitle>
                 <Users className="h-4 w-4 text-muted-foreground" />
               </CardHeader>
               <CardContent>
-                <div className="text-2xl font-bold">{analytics.overview.totalLeads}</div>
+                <div className="text-2xl font-bold">{agentAnalytics.overview.totalLeads}</div>
                 <div className="flex items-center text-xs text-green-600 mt-1">
                   <ArrowUp className="w-3 h-3 mr-1" />
-                  {analytics.overview.leadsChange}% from last period
+                  {agentAnalytics.overview.leadsChange}% from last period
                 </div>
               </CardContent>
             </Card>
 
-            <Card>
+            <Card className="rounded-3xl border-border/50 shadow-xl overflow-hidden hover:shadow-2xl transition-all duration-300">
               <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
                 <CardTitle className="text-sm font-medium">Conversion Rate</CardTitle>
                 <TrendingUp className="h-4 w-4 text-muted-foreground" />
               </CardHeader>
               <CardContent>
                 <div className="text-2xl font-bold">
-                  {analytics.overview.conversionRate}%
+                  {agentAnalytics.overview.conversionRate}%
                 </div>
                 <div className="flex items-center text-xs text-red-600 mt-1">
                   <ArrowDown className="w-3 h-3 mr-1" />
-                  {Math.abs(analytics.overview.conversionChange)}% from last period
+                  {Math.abs(agentAnalytics.overview.conversionChange)}% from last period
                 </div>
               </CardContent>
             </Card>
 
-            <Card>
+            <Card className="rounded-3xl border-border/50 shadow-xl overflow-hidden hover:shadow-2xl transition-all duration-300">
               <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
                 <CardTitle className="text-sm font-medium">Revenue</CardTitle>
                 <PoundSterling className="h-4 w-4 text-muted-foreground" />
               </CardHeader>
               <CardContent>
                 <div className="text-2xl font-bold">
-                  {formatPrice(analytics.overview.revenue)}
+                  {formatPrice(agentAnalytics.overview.revenue)}
                 </div>
                 <div className="flex items-center text-xs text-green-600 mt-1">
                   <ArrowUp className="w-3 h-3 mr-1" />
-                  {analytics.overview.revenueChange}% from last period
+                  {agentAnalytics.overview.revenueChange}% from last period
                 </div>
               </CardContent>
             </Card>
@@ -235,7 +236,7 @@ export default function AnalyticsPage() {
             </CardHeader>
             <CardContent>
               <div className="space-y-4">
-                {analytics.propertyPerformance.map((property) => (
+                {agentAnalytics.propertyPerformance.map((property) => (
                   <div
                     key={property.id}
                     className="flex items-center justify-between p-4 border rounded-lg"
@@ -270,68 +271,68 @@ export default function AnalyticsPage() {
         <>
           {/* Overview Stats */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-            <Card>
+            <Card className="rounded-3xl border-border/50 shadow-xl overflow-hidden hover:shadow-2xl transition-all duration-300">
               <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-                <CardTitle className="text-sm font-medium">
+                <CardTitle className="text-xs font-black text-muted-foreground uppercase tracking-widest">
                   Portfolio Value
                 </CardTitle>
                 <TrendingUp className="h-4 w-4 text-muted-foreground" />
               </CardHeader>
               <CardContent>
                 <div className="text-2xl font-bold">
-                  {formatPrice(analytics.overview.totalPortfolioValue)}
+                  {formatPrice(investorAnalytics.overview.totalPortfolioValue)}
                 </div>
                 <div className="flex items-center text-xs text-green-600 mt-1">
                   <ArrowUp className="w-3 h-3 mr-1" />
-                  {analytics.overview.valueChange}% from last period
+                  {investorAnalytics.overview.valueChange}% from last period
                 </div>
               </CardContent>
             </Card>
 
-            <Card>
+            <Card className="rounded-3xl border-border/50 shadow-xl overflow-hidden hover:shadow-2xl transition-all duration-300">
               <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
                 <CardTitle className="text-sm font-medium">Monthly Returns</CardTitle>
                 <PoundSterling className="h-4 w-4 text-muted-foreground" />
               </CardHeader>
               <CardContent>
                 <div className="text-2xl font-bold">
-                  {formatPrice(analytics.overview.monthlyReturns)}
+                  {formatPrice(investorAnalytics.overview.monthlyReturns)}
                 </div>
                 <div className="flex items-center text-xs text-green-600 mt-1">
                   <ArrowUp className="w-3 h-3 mr-1" />
-                  {analytics.overview.returnsChange}% from last period
+                  {investorAnalytics.overview.returnsChange}% from last period
                 </div>
               </CardContent>
             </Card>
 
-            <Card>
+            <Card className="rounded-3xl border-border/50 shadow-xl overflow-hidden hover:shadow-2xl transition-all duration-300">
               <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
                 <CardTitle className="text-sm font-medium">Active Investments</CardTitle>
                 <Building2 className="h-4 w-4 text-muted-foreground" />
               </CardHeader>
               <CardContent>
                 <div className="text-2xl font-bold">
-                  {analytics.overview.activeInvestments}
+                  {investorAnalytics.overview.activeInvestments}
                 </div>
                 <div className="flex items-center text-xs text-green-600 mt-1">
                   <ArrowUp className="w-3 h-3 mr-1" />
-                  +{analytics.overview.investmentsChange} from last period
+                  +{investorAnalytics.overview.investmentsChange} from last period
                 </div>
               </CardContent>
             </Card>
 
-            <Card>
+            <Card className="rounded-3xl border-border/50 shadow-xl overflow-hidden hover:shadow-2xl transition-all duration-300">
               <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
                 <CardTitle className="text-sm font-medium">Average ROI</CardTitle>
                 <BarChart3 className="h-4 w-4 text-muted-foreground" />
               </CardHeader>
               <CardContent>
                 <div className="text-2xl font-bold">
-                  {analytics.overview.averageROI}%
+                  {investorAnalytics.overview.averageROI}%
                 </div>
                 <div className="flex items-center text-xs text-green-600 mt-1">
                   <ArrowUp className="w-3 h-3 mr-1" />
-                  +{analytics.overview.roiChange}% from last period
+                  +{investorAnalytics.overview.roiChange}% from last period
                 </div>
               </CardContent>
             </Card>
@@ -344,7 +345,7 @@ export default function AnalyticsPage() {
             </CardHeader>
             <CardContent>
               <div className="space-y-4">
-                {analytics.investmentPerformance.map((investment) => (
+                {investorAnalytics.investmentPerformance.map((investment) => (
                   <div
                     key={investment.id}
                     className="flex items-center justify-between p-4 border rounded-lg"

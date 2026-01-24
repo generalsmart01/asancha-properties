@@ -1,6 +1,7 @@
 // User and Authentication Types
 export interface User {
   id: string;
+  name: string;
   email: string;
   firstName: string;
   lastName: string;
@@ -233,11 +234,11 @@ export interface DashboardStats {
 export interface ActivityItem {
   id: string;
   type:
-    | "property_added"
-    | "property_sold"
-    | "user_registered"
-    | "bmv_analysis"
-    | "booking_created";
+  | "property_added"
+  | "property_sold"
+  | "user_registered"
+  | "bmv_analysis"
+  | "booking_created";
   description: string;
   timestamp: string;
   user?: string;
@@ -378,3 +379,4 @@ export interface MockProperty {
   createdAt: string;
   updatedAt: string;
 }
+export * from "./booking";

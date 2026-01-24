@@ -77,35 +77,21 @@ export function Sidebar({ mobileMenuOpen, onClose, collapsed, onToggleCollapse, 
 
   return (
     <aside
-      className={`fixed inset-y-0 left-0 z-50 bg-white border-r transform transition-all duration-300 ease-in-out ${
-        mobileMenuOpen ? "translate-x-0" : "-translate-x-full"
-      } md:translate-x-0 ${
-        collapsed ? "w-20" : "w-64"
-      }`}
+      className={`fixed inset-y-0 left-0 z-50 bg-white border-r border-border/50 transform transition-all duration-300 ease-in-out shadow-2xl shadow-slate-200/50 ${mobileMenuOpen ? "translate-x-0" : "-translate-x-full"
+        } md:translate-x-0 ${collapsed ? "w-20" : "w-64"
+        }`}
     >
       <div className="flex flex-col h-full">
         {/* Logo */}
-        <div className={`flex items-center justify-between h-16 border-b ${
-          collapsed ? "px-4" : "px-6"
-        }`}>
+        <div className={`flex items-center justify-between h-16 border-b ${collapsed ? "px-4" : "px-6"
+          }`}>
           {!collapsed ? (
             <Link href="/" className="flex items-center">
-              <Image
-                src="/noornest-logo.png"
-                alt="Noornest Properties logo"
-                width={100}
-                height={100}
-              />
+              <span className="text-xl font-black text-primary uppercase tracking-tighter">Asancha<span className="text-foreground italic">Properties</span></span>
             </Link>
           ) : (
             <Link href="/" className="flex items-center justify-center w-8 h-8">
-              <Image
-                src="/noornest-logo.png"
-                alt="Noornest Properties logo"
-                width={32}
-                height={32}
-                className="object-contain"
-              />
+              <span className="text-lg font-black text-primary">A</span>
             </Link>
           )}
           <div className="flex items-center gap-2">
@@ -129,17 +115,15 @@ export function Sidebar({ mobileMenuOpen, onClose, collapsed, onToggleCollapse, 
                 <li key={item.name}>
                   <Link
                     href={item.href}
-                    className={`flex items-center ${
-                      collapsed ? "justify-center px-2" : "space-x-3 px-3"
-                    } py-2 rounded-md text-sm font-medium transition-colors group relative ${
-                      isActive
-                        ? "bg-primary/10 text-primary"
-                        : "text-gray-600 hover:text-gray-900 hover:bg-gray-100"
-                    }`}
+                    className={`flex items-center ${collapsed ? "justify-center px-2" : "space-x-3 px-3"
+                      } py-2.5 rounded-xl text-sm font-bold transition-all group relative ${isActive
+                        ? "bg-primary text-white shadow-lg shadow-primary/30"
+                        : "text-muted-foreground hover:text-foreground hover:bg-muted"
+                      }`}
                     onClick={onClose}
                     title={collapsed ? item.name : undefined}
                   >
-                    <item.icon className="w-5 h-5 flex-shrink-0" />
+                    <item.icon className="w-5 h-5 shrink-0" />
                     {!collapsed && <span>{item.name}</span>}
                     {collapsed && (
                       <span className="absolute left-full ml-2 px-2 py-1 bg-gray-900 text-white text-xs rounded opacity-0 group-hover:opacity-100 pointer-events-none whitespace-nowrap z-50">

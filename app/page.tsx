@@ -3,7 +3,6 @@ import HowItWorks from "@/components/homepage/HowItWorks";
 import TestimonialsCarousel from "@/components/homepage/TestimonialsCarousel";
 import Image from "next/image";
 import Link from "next/link";
-import bmvImage from "@/app/assets/below-market.avif";
 
 export default function Home() {
   return (
@@ -20,8 +19,8 @@ export default function Home() {
           poster="/bg-img/hero1.jpg"
           src="./core-img/ASANCHA.mp4"
         />
-        <div className="absolute top-[15vh] z-10 flex h-full w-full flex-col items-center justify-center px-16">
-          <h1 className="pb-2 text-center text-5xl font-bold text-white shadow-[2px_2px_10px_rgba(0,0,0,0.7)] leading-16">The UK’s Trusted Partner for Off-Market & Below Market Value Property Deals.</h1>
+        <div className="absolute top-[5vh] z-10 flex h-full w-full flex-col items-center justify-center px-16">
+          <h1 className="pb-2 text-center text-5xl font-bold text-white leading-16">The UK’s Trusted Partner for Off-Market & Below Market Value Property Deals.</h1>
           <div className="my-4 h-[3px] w-[20%] bg-white"></div>
           <p className="pb-8 text-center text-xl font-normal text-white">Connecting investors and motivated sellers through exclusive off-market and below market value opportunities
           </p>
@@ -233,7 +232,7 @@ export default function Home() {
 
           <div className="h-full w-full">
             <div className="relative h-[50vh] w-full lg:h-[95vh]">
-              <Image src={bmvImage}
+              <Image src="/bg-img/Below-Market-Value-Properties-in-UK.avif"
                 alt="Below Market Value Property Investment Opportunities" className="rounded shadow-lg object-cover"
                 fill priority placeholder="blur" />
             </div>

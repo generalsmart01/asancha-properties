@@ -104,30 +104,30 @@ export default function SettingsPage() {
   return (
     <div className="space-y-6">
       {/* Header */}
-      <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between space-y-4 sm:space-y-0">
+      <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between space-y-4 sm:space-y-0 pb-6 border-b border-border/50">
         <div>
-          <h1 className="text-3xl font-bold text-gray-900">Settings</h1>
-          <p className="text-gray-600">
+          <h1 className="text-3xl font-black text-foreground uppercase tracking-tight">Settings</h1>
+          <p className="text-muted-foreground font-medium italic">
             Manage your account settings and preferences
           </p>
         </div>
-        <Button onClick={handleSave}>
+        <Button onClick={handleSave} className="primary-btn rounded-xl font-bold uppercase tracking-widest text-xs px-6 py-2 shadow-lg shadow-primary/20">
           <Save className="w-4 h-4 mr-2" />
           Save Changes
         </Button>
       </div>
 
       <Tabs defaultValue="notifications" className="space-y-6">
-        <TabsList className="grid w-full grid-cols-4">
-          <TabsTrigger value="notifications">Notifications</TabsTrigger>
-          <TabsTrigger value="privacy">Privacy</TabsTrigger>
-          <TabsTrigger value="preferences">Preferences</TabsTrigger>
-          <TabsTrigger value="security">Security</TabsTrigger>
+        <TabsList className="grid w-full grid-cols-4 p-1 bg-muted/50 rounded-2xl h-12">
+          <TabsTrigger value="notifications" className="rounded-xl data-[state=active]:bg-white data-[state=active]:shadow-md font-bold text-xs uppercase tracking-widest">Notifications</TabsTrigger>
+          <TabsTrigger value="privacy" className="rounded-xl data-[state=active]:bg-white data-[state=active]:shadow-md font-bold text-xs uppercase tracking-widest">Privacy</TabsTrigger>
+          <TabsTrigger value="preferences" className="rounded-xl data-[state=active]:bg-white data-[state=active]:shadow-md font-bold text-xs uppercase tracking-widest">Preferences</TabsTrigger>
+          <TabsTrigger value="security" className="rounded-xl data-[state=active]:bg-white data-[state=active]:shadow-md font-bold text-xs uppercase tracking-widest">Security</TabsTrigger>
         </TabsList>
 
         {/* Notifications Tab */}
         <TabsContent value="notifications" className="space-y-6">
-          <Card>
+          <Card className="rounded-3xl border-border/50 shadow-xl overflow-hidden">
             <CardHeader>
               <CardTitle>Notification Preferences</CardTitle>
               <CardDescription>
@@ -241,7 +241,7 @@ export default function SettingsPage() {
 
         {/* Privacy Tab */}
         <TabsContent value="privacy" className="space-y-6">
-          <Card>
+          <Card className="rounded-3xl border-border/50 shadow-xl overflow-hidden">
             <CardHeader>
               <CardTitle>Privacy Settings</CardTitle>
               <CardDescription>
@@ -254,7 +254,7 @@ export default function SettingsPage() {
                   <Label>Profile Visibility</Label>
                   <Select
                     value={privacySettings.profileVisibility}
-                    onValueChange={(value) =>
+                    onValueChange={(value: string) =>
                       handlePrivacyChange("profileVisibility", value)
                     }
                   >
@@ -320,7 +320,7 @@ export default function SettingsPage() {
 
         {/* Preferences Tab */}
         <TabsContent value="preferences" className="space-y-6">
-          <Card>
+          <Card className="rounded-3xl border-border/50 shadow-xl overflow-hidden">
             <CardHeader>
               <CardTitle>Search Preferences</CardTitle>
               <CardDescription>
@@ -448,7 +448,7 @@ export default function SettingsPage() {
 
         {/* Security Tab */}
         <TabsContent value="security" className="space-y-6">
-          <Card>
+          <Card className="rounded-3xl border-border/50 shadow-xl overflow-hidden">
             <CardHeader>
               <CardTitle>Change Password</CardTitle>
               <CardDescription>
@@ -510,8 +510,8 @@ export default function SettingsPage() {
                   />
                 </div>
               </div>
-              <div className="pt-4 border-t">
-                <Button onClick={handleSave}>
+              <div className="pt-4 border-t border-border/50">
+                <Button onClick={handleSave} className="primary-btn rounded-xl font-bold uppercase tracking-widest text-xs px-6 py-2 shadow-lg shadow-primary/20">
                   <Save className="w-4 h-4 mr-2" />
                   Update Password
                 </Button>

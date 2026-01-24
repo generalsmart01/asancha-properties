@@ -6,6 +6,9 @@ import { Footer } from "@/components/layout/Footer";
 
 import { Header } from "@/components/layout/Header";
 import { ThemeProvider } from "@/components/theme-provider";
+import { StickyConsultationButton } from "@/components/common/StickyConsultationButton";
+import { Toaster } from "sonner";
+import { UserProvider } from "@/contexts/UserContext";
 
 const openSans = Open_Sans({
   variable: "--font-open-sans",
@@ -135,16 +138,20 @@ export default function RootLayout({
       <body
         className={`${openSans.variable} antialiased`}
       >
-        <ThemeProvider
-          attribute="class"
-          defaultTheme="system"
-          enableSystem
-          disableTransitionOnChange
-        >
-          <Header />
-          {children}
-          <Footer />
-        </ThemeProvider>
+        <UserProvider>
+          <ThemeProvider
+            attribute="class"
+            defaultTheme="system"
+            enableSystem
+            disableTransitionOnChange
+          >
+            <Header />
+            {children}
+            <Footer />
+            <StickyConsultationButton />
+            <Toaster position="top-right" richColors />
+          </ThemeProvider>
+        </UserProvider>
 
         {/* EmailJS and Legacy Scripts */}
         <Script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js" strategy="afterInteractive" />

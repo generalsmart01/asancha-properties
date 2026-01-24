@@ -118,6 +118,7 @@ export const logoutUser = async (): Promise<ApiResponse<any>> => {
     safeConsole.error("Logout API error:", error);
     // Don't re-throw the error, just return a failed response
     return {
+      success: false,
       data: { success: false, message: "Logout failed" },
       status: 500,
       message: error instanceof Error ? error.message : "Unknown logout error",

@@ -1,0 +1,2 @@
+﻿lib/apiServices/authServices.ts(120,5): error TS2741: Property 'success' is missing in type '{ data: { success: boolean; message: string; }; status: number; message: string; }' but required in type 'ApiResponse<any>'.
+

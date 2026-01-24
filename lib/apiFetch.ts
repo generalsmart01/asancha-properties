@@ -18,9 +18,11 @@ const BASE_URL = process.env.NEXT_PUBLIC_API_URL; // Empty string for relative U
  * Generic API response type
  */
 export interface ApiResponse<T = any> {
+  success: boolean;
   data: T;
   status: number;
   message?: string;
+  errors?: string[];
 }
 
 /**
@@ -104,7 +106,12 @@ export const apiRequest = async <T = any>(
       throw data;
     }
 
-    return { data, status: response.status, message: data.message };
+    return {
+      success: response.ok,
+      data,
+      status: response.status,
+      message: data.message
+    };
   } catch (error: any) {
     // If error is already an object from backend, just throw it
     if (error && typeof error === "object") {

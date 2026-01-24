@@ -8,11 +8,14 @@ import {
     Search, TrendingUp, Home, Tag, PaintBucket, Palette, Calculator
 } from "lucide-react";
 import { ModeToggle } from "@/components/ModeToggle";
+import { disableHeaderWithFooter } from "@/utils/disableHeaderWithFooter";
+import { usePathname } from "next/navigation";
 
 export const Header = () => {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
     const [openDropdown, setOpenDropdown] = useState<string | null>(null);
     const [isSticky, setIsSticky] = useState(false);
+    const pathname = usePathname();
 
     useEffect(() => {
         const handleScroll = () => {
@@ -26,6 +29,16 @@ export const Header = () => {
         window.addEventListener("scroll", handleScroll);
         return () => window.removeEventListener("scroll", handleScroll);
     }, []);
+
+    // Early exits (no hooks below should be conditional)
+    if (pathname.startsWith("/dashboard")) return null;
+
+    const shouldHideHeader = disableHeaderWithFooter.some((path) => {
+        const pattern = path.replace(/\[.*\]/g, "[^/]+");
+        const regex = new RegExp(`^${pattern}$`);
+        return regex.test(pathname);
+    });
+    if (shouldHideHeader) return null;
 
     const toggleMenu = () => {
         setIsMenuOpen(!isMenuOpen);
@@ -147,7 +160,7 @@ export const Header = () => {
                                                 <p className="text-sm text-muted-foreground line-clamp-2">Add value through expert refurbishment.</p>
                                             </div>
                                         </Link>
-                                        <Link href="/interior-design" className="flex items-start gap-3 p-3 rounded-lg hover:bg-muted group/item transition-colors">
+                                        <Link href="/services/interior-design" className="flex items-start gap-3 p-3 rounded-lg hover:bg-muted group/item transition-colors">
                                             <div className="p-2 rounded-md bg-primary/10 text-primary group-hover/item:bg-primary group-hover/item:text-white transition-colors mt-1">
                                                 <Palette size={20} />
                                             </div>

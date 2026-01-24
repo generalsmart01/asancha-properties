@@ -17,11 +17,11 @@ const ContactUsPage = () => {
                     />
                 </div>
                 <div className="container mx-auto px-4 relative z-10 text-center">
-                    <h1 className="text-4xl md:text-6xl font-bold text-white mb-6 capitalize tracking-tight">Contact Us</h1>
-                    <div className="h-1.5 w-24 bg-primary mx-auto rounded-full mb-6"></div>
-                    {/* <p className="text-lg md:text-xl text-gray-200 max-w-2xl mx-auto">
-                        Get access to off-market properties and high-yield investment opportunities tailored to your goals.
-                    </p> */}
+                    <h1 className="text-4xl md:text-6xl font-bold text-white mb-6 uppercase tracking-tight drop-shadow-2xl">Contact Us</h1>
+                    <div className="my-4 h-[3px] w-[20%] bg-white mx-auto"></div>
+                    <p className="pb-8 text-center text-xl font-normal text-white max-w-3xl mx-auto">
+                        Get in touch with our expert team for personalized property solutions and investment guidance.
+                    </p>
                 </div>
             </section>
 
@@ -45,7 +45,12 @@ const ContactUsPage = () => {
                         {/* Contact Info Sidebar */}
                         <div className="lg:col-span-4 space-y-12 animate-in fade-in slide-in-from-left-5 duration-700">
                             <div>
-                                <h3 className="text-3xl font-bold text-foreground mb-6">Contact Info</h3>
+                                <div className="flex flex-col items-start justify-start mb-8">
+                                    <h3 className="text-3xl font-bold text-foreground mb-4">
+                                        <span className="capitalize text-outline text-foreground dark:text-white text-left">Contact Info</span>
+                                    </h3>
+                                    <span className="h-1 w-20 bg-primary rounded-full"></span>
+                                </div>
                                 <p className="text-muted-foreground leading-relaxed">
                                     We&apos;re here to help with all your property sourcing, investment, management, refurbishment and interior design needs. Whether you&apos;re an investor, homeowner, or landlord, reach out to us for expert guidance and seamless real estate solutions.
                                 </p>
@@ -126,7 +131,12 @@ const ContactUsPage = () => {
                         {/* Contact Form Area */}
                         <div className="lg:col-span-8 animate-in fade-in slide-in-from-right-5 duration-700 delay-200" id="contact-form">
                             <div className="bg-card p-8 md:p-12 rounded-4xl shadow-xl border border-border/50">
-                                <h3 className="text-3xl font-bold text-foreground mb-8">Send us a Message</h3>
+                                <div className="flex flex-col items-start justify-start mb-8">
+                                    <h3 className="text-3xl font-bold text-foreground mb-4">
+                                        <span className="capitalize text-outline text-foreground dark:text-white text-left">Send us a Message</span>
+                                    </h3>
+                                    <span className="h-1 w-20 bg-primary rounded-full"></span>
+                                </div>
                                 <form id="contactForm" className="grid grid-cols-1 md:grid-cols-2 gap-6">
                                     <div className="space-y-2">
                                         <label htmlFor="contact-name" className="text-sm font-semibold text-muted-foreground">Full Name</label>

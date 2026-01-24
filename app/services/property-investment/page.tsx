@@ -106,7 +106,7 @@ const PropertyInvestmentPage = () => {
     return (
         <main className="grow">
             {/* Hero Section */}
-            <section className="relative h-[70vh] flex items-center justify-center overflow-hidden">
+            <section className="relative h-[100vh] flex items-center justify-center overflow-hidden">
                 <Image
                     src="/bg-img/investment-property.jpg"
                     alt="Property Investment"
@@ -114,22 +114,22 @@ const PropertyInvestmentPage = () => {
                     className="object-cover"
                     priority
                 />
-                <div className="absolute inset-0 bg-gradient-to-b from-black/70 to-black/40" />
+                <div className="absolute inset-0 bg-linear-to-b from-black/70 to-black/40" />
                 <div className="container relative z-10 mx-auto px-4 text-center">
-                    <h1 className="text-4xl md:text-6xl font-black text-white mb-6 uppercase tracking-tight drop-shadow-2xl">
+                    <h1 className="text-4xl md:text-6xl font-bold text-white mb-6 drop-shadow-2xl uppercase tracking-tight">
                         Secure <span className="text-primary">High-Yield</span> <br className="hidden md:block" />
                         Real Estate Investments
                     </h1>
-                    <div className="w-24 h-1.5 bg-primary mx-auto mb-8 rounded-full" />
-                    <p className="text-xl md:text-2xl text-white/90 max-w-3xl mx-auto mb-12 font-medium leading-relaxed">
+                    <div className="my-4 h-[3px] w-[20%] bg-white mx-auto"></div>
+                    <p className="pb-8 text-center text-xl font-normal text-white max-w-3xl mx-auto">
                         Expert guidance to help you identify, acquire, and maximize returns on high-performing property assets across the UK.
                     </p>
                     <div className="flex flex-col sm:flex-row items-center justify-center gap-6">
-                        <Link href="/property-listings" className="group flex items-center gap-2 bg-primary hover:bg-primary-hover text-white px-8 py-4 rounded-xl font-bold transition-all shadow-[0_10px_30px_-10px_rgba(3,108,166,0.5)] hover:scale-105 uppercase tracking-widest text-sm">
+                        <Link href="/property-listings" className="primary-btn">
                             Explore Opportunities
-                            <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                            <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
                         </Link>
-                        <Link href="/contact-us#contact-form" className="bg-white/10 hover:bg-white/20 text-white border-2 border-white/50 px-8 py-4 rounded-xl font-bold transition-all backdrop-blur-md uppercase tracking-widest text-sm hover:border-white">
+                        <Link href="/contact-us#contact-form" className="ghost-btn text-white! border-white/50! hover:bg-white/20!">
                             Get Expert Advice
                         </Link>
                     </div>
@@ -141,10 +141,12 @@ const PropertyInvestmentPage = () => {
                 <div className="container mx-auto px-4">
                     <div className="flex flex-col lg:flex-row items-center gap-16">
                         <div className="w-full lg:w-1/2">
-                            <h2 className="text-3xl md:text-4xl font-black text-foreground capitalize mb-6 leading-tight">
-                                Why Invest with <br />Asancha Properties?
-                            </h2>
-                            <div className="w-20 h-1.5 bg-primary mb-10 rounded-full" />
+                            <div className="flex flex-col items-start justify-start mb-8">
+                                <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
+                                    <span className="capitalize text-outline text-foreground dark:text-white text-left">Why Invest with Asancha Properties?</span>
+                                </h2>
+                                <span className="h-1 w-20 bg-primary rounded-full"></span>
+                            </div>
 
                             <div className="space-y-8">
                                 {investmentBenefits.map((benefit, idx) => (
@@ -180,9 +182,11 @@ const PropertyInvestmentPage = () => {
             {/* Invest Earn Learn */}
             <section className="py-24 bg-black text-white relative overflow-hidden">
                 <div className="container mx-auto px-4 relative z-10">
-                    <div className="text-center mb-16">
-                        <h2 className="text-3xl md:text-5xl font-black uppercase tracking-tighter mb-6 italic">Invest. Earn. Learn.</h2>
-                        <div className="w-24 h-1.5 bg-primary mx-auto rounded-full" />
+                    <div className="flex flex-col items-center justify-center mb-12">
+                        <h2 className="text-3xl md:text-5xl font-bold text-white mb-6 uppercase italic tracking-tighter">
+                            Invest. Earn. Learn.
+                        </h2>
+                        <span className="h-1 w-20 bg-primary rounded-full"></span>
                     </div>
 
                     <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
@@ -218,8 +222,8 @@ const PropertyInvestmentPage = () => {
                                     </li>
                                 ))}
                             </ul>
-                            <div className="mt-12">
-                                <Link href="/contact-us#contact-form" className="inline-block w-full text-center bg-primary hover:bg-primary-hover text-white px-8 py-4 rounded-xl font-bold transition-all uppercase tracking-widest text-sm">
+                            <div className="mt-12 text-center">
+                                <Link href="/contact-us#contact-form" className="primary-btn w-full">
                                     Register as an Investor
                                 </Link>
                             </div>
@@ -237,8 +241,12 @@ const PropertyInvestmentPage = () => {
                 <div className="container mx-auto px-4">
                     <div className="max-w-4xl mx-auto bg-card rounded-[3rem] p-12 md:p-20 shadow-2xl border border-border/50 text-center relative overflow-hidden">
                         <div className="relative z-10">
-                            <h2 className="text-3xl md:text-4xl font-black text-foreground mb-4 leading-tight uppercase tracking-tight">Investment Products to <br />Suit Your Goals</h2>
-                            <div className="w-20 h-1.5 bg-primary mx-auto mb-12 rounded-full" />
+                            <div className="flex flex-col items-center justify-center mb-12">
+                                <h2 className="text-3xl md:text-4xl font-bold text-center text-foreground mb-4 uppercase tracking-tight">
+                                    <span className="capitalize text-outline text-foreground dark:text-white">Investment Products to Suit Your Goals</span>
+                                </h2>
+                                <span className="h-1 w-20 bg-primary rounded-full"></span>
+                            </div>
 
                             <div className="relative mb-12 transform hover:scale-[1.02] transition-transform duration-500">
                                 <Image
@@ -250,9 +258,9 @@ const PropertyInvestmentPage = () => {
                                 />
                             </div>
 
-                            <Link href="/contact-us#contact-form" className="inline-flex items-center gap-2 bg-primary hover:bg-primary-hover text-white px-10 py-5 rounded-xl font-black transition-all shadow-xl hover:scale-105 uppercase tracking-widest">
+                            <Link href="/contact-us#contact-form" className="primary-btn text-lg! py-5! px-10!">
                                 Get Started Today
-                                <ArrowRight className="w-6 h-6" />
+                                <ArrowRight className="ml-2 w-6 h-6" />
                             </Link>
                         </div>
                     </div>
@@ -262,22 +270,24 @@ const PropertyInvestmentPage = () => {
             {/* Power Teams */}
             <section className="py-24 bg-black text-white relative">
                 <div className="container mx-auto px-4">
-                    <div className="text-center mb-16">
-                        <h2 className="text-3xl md:text-4xl font-black uppercase mb-6 tracking-tight">Expert Power Teams</h2>
-                        <div className="w-24 h-1.5 bg-primary mx-auto mb-8 rounded-full" />
-                        <p className="text-white/60 text-lg max-w-2xl mx-auto italic font-medium">
-                            Asancha provides access to a hand-picked network of trusted professionals for every stage of your investment journey.
-                        </p>
+                    <div className="flex flex-col items-center justify-center mb-12">
+                        <h2 className="text-3xl md:text-4xl font-bold text-center text-white mb-4 uppercase tracking-tight">
+                            Expert Power Teams
+                        </h2>
+                        <span className="h-1 w-24 bg-primary rounded-full"></span>
                     </div>
+                    <p className="text-white/60 text-lg max-w-2xl mx-auto italic font-medium">
+                        Asancha provides access to a hand-picked network of trusted professionals for every stage of your investment journey.
+                    </p>
+                </div>
 
-                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-                        {powerTeams.map((team, idx) => (
-                            <div key={idx} className="flex items-center justify-between p-8 bg-white/5 border border-white/10 rounded-2xl group hover:border-primary/50 transition-all">
-                                <span className="text-xl font-bold group-hover:text-primary transition-colors uppercase tracking-tight">{team}</span>
-                                <CheckCircle2 className="w-8 h-8 text-primary opacity-50 group-hover:opacity-100 transition-opacity" />
-                            </div>
-                        ))}
-                    </div>
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                    {powerTeams.map((team, idx) => (
+                        <div key={idx} className="flex items-center justify-between p-8 bg-white/5 border border-white/10 rounded-2xl group hover:border-primary/50 transition-all">
+                            <span className="text-xl font-bold group-hover:text-primary transition-colors uppercase tracking-tight">{team}</span>
+                            <CheckCircle2 className="w-8 h-8 text-primary opacity-50 group-hover:opacity-100 transition-opacity" />
+                        </div>
+                    ))}
                 </div>
             </section>
 
@@ -287,9 +297,11 @@ const PropertyInvestmentPage = () => {
             {/* Who Benefits */}
             <section className="py-24 bg-background">
                 <div className="container mx-auto px-4">
-                    <div className="text-center mb-20 max-w-3xl mx-auto">
-                        <h2 className="text-3xl md:text-4xl font-black text-foreground capitalize mb-6 italic tracking-tight">Who Benefits From Our Expertise?</h2>
-                        <div className="w-20 h-1.5 bg-primary mx-auto rounded-full" />
+                    <div className="flex flex-col items-center justify-center mb-12">
+                        <h2 className="text-3xl md:text-4xl font-bold text-center text-foreground mb-4 italic tracking-tight">
+                            <span className="capitalize text-outline text-foreground dark:text-white">Who Benefits From Our Expertise?</span>
+                        </h2>
+                        <span className="h-1 w-20 bg-primary rounded-full"></span>
                     </div>
 
                     <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
@@ -307,7 +319,7 @@ const PropertyInvestmentPage = () => {
                                         fill
                                         className="object-cover group-hover:scale-110 transition-transform duration-700"
                                     />
-                                    <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
+                                    <div className="absolute inset-0 bg-linear-to-t from-black/80 via-black/20 to-transparent" />
                                     <h3 className="absolute bottom-6 left-8 text-2xl font-black text-white uppercase tracking-tighter">{target.title}</h3>
                                 </div>
                                 <div className="p-8">
@@ -318,14 +330,14 @@ const PropertyInvestmentPage = () => {
                     </div>
 
                     <div className="mt-20 text-center">
-                        <Link href="/contact-us#contact-form" className="group inline-flex items-center gap-3 bg-primary hover:bg-primary-hover text-white px-12 py-5 rounded-2xl font-black transition-all shadow-2xl hover:scale-105 active:scale-95 uppercase tracking-widest">
+                        <Link href="/contact-us#contact-form" className="primary-btn text-lg! py-5! px-12!">
                             Start Investing Today
-                            <ArrowRight className="w-6 h-6 group-hover:translate-x-1 transition-transform" />
+                            <ArrowRight className="ml-2 w-6 h-6 group-hover:translate-x-1 transition-transform" />
                         </Link>
                     </div>
                 </div>
             </section>
-        </main>
+        </main >
     )
 }
 

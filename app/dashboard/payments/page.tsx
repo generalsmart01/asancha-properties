@@ -280,7 +280,7 @@ export default function PaymentsPage() {
     const StatusIcon = paymentStatusConfig.icon;
 
     return (
-      <Card className="hover:shadow-md transition-shadow">
+      <Card className="rounded-3xl border-border/50 shadow-xl overflow-hidden group hover:shadow-2xl transition-all duration-300">
         <CardContent className="p-6">
           <div className="flex items-start justify-between">
             <div className="flex-1 space-y-4">
@@ -327,7 +327,7 @@ export default function PaymentsPage() {
                   <p className="text-sm font-medium text-gray-900">
                     {
                       methodConfig[
-                        payment.method as keyof typeof methodConfig
+                      payment.method as keyof typeof methodConfig
                       ]
                     }
                   </p>
@@ -380,16 +380,16 @@ export default function PaymentsPage() {
   return (
     <div className="space-y-8">
       {/* Page Header */}
-      <div>
-        <h1 className="text-3xl font-bold text-gray-900">My Payments</h1>
-        <p className="text-gray-500 mt-2">
+      <div className="pb-6 border-b border-border/50">
+        <h1 className="text-3xl font-black text-foreground uppercase tracking-tight">My Payments</h1>
+        <p className="text-muted-foreground font-medium italic mt-2">
           View and manage all your payment transactions
         </p>
       </div>
 
       {/* Summary Cards */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-        <Card>
+        <Card className="rounded-3xl border-border/50 shadow-xl overflow-hidden">
           <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
             <CardTitle className="text-sm font-medium">Total Paid</CardTitle>
             <PoundSterling className="h-4 w-4 text-muted-foreground" />
@@ -403,7 +403,7 @@ export default function PaymentsPage() {
           </CardContent>
         </Card>
 
-        <Card>
+        <Card className="rounded-3xl border-border/50 shadow-xl overflow-hidden">
           <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
             <CardTitle className="text-sm font-medium">Pending</CardTitle>
             <Clock className="h-4 w-4 text-muted-foreground" />
@@ -419,7 +419,7 @@ export default function PaymentsPage() {
           </CardContent>
         </Card>
 
-        <Card>
+        <Card className="rounded-3xl border-border/50 shadow-xl overflow-hidden">
           <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
             <CardTitle className="text-sm font-medium">Refunded</CardTitle>
             <AlertCircle className="h-4 w-4 text-muted-foreground" />
@@ -435,7 +435,7 @@ export default function PaymentsPage() {
           </CardContent>
         </Card>
 
-        <Card>
+        <Card className="rounded-3xl border-border/50 shadow-xl overflow-hidden">
           <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
             <CardTitle className="text-sm font-medium">Total Transactions</CardTitle>
             <Building2 className="h-4 w-4 text-muted-foreground" />
@@ -448,7 +448,7 @@ export default function PaymentsPage() {
       </div>
 
       {/* Filters and Search */}
-      <Card>
+      <Card className="rounded-3xl border-border/50 shadow-xl overflow-hidden">
         <CardHeader>
           <CardTitle>Payment History</CardTitle>
           <CardDescription>
@@ -505,20 +505,20 @@ export default function PaymentsPage() {
 
           {/* Tabs */}
           <Tabs value={activeTab} onValueChange={setActiveTab}>
-            <TabsList className="grid w-full grid-cols-4">
-              <TabsTrigger value="all">All ({allPayments.length})</TabsTrigger>
-              <TabsTrigger value="deposits">
+            <TabsList className="grid w-full grid-cols-4 p-1 bg-muted/50 rounded-2xl h-12">
+              <TabsTrigger value="all" className="rounded-xl data-[state=active]:bg-white data-[state=active]:shadow-md font-bold text-xs uppercase tracking-widest">All ({allPayments.length})</TabsTrigger>
+              <TabsTrigger value="deposits" className="rounded-xl data-[state=active]:bg-white data-[state=active]:shadow-md font-bold text-xs uppercase tracking-widest">
                 Deposits ({deposits.length})
               </TabsTrigger>
-              <TabsTrigger value="installments">
+              <TabsTrigger value="installments" className="rounded-xl data-[state=active]:bg-white data-[state=active]:shadow-md font-bold text-xs uppercase tracking-widest">
                 Installments ({installments.length})
               </TabsTrigger>
-              <TabsTrigger value="fees">Fees ({fees.length})</TabsTrigger>
+              <TabsTrigger value="fees" className="rounded-xl data-[state=active]:bg-white data-[state=active]:shadow-md font-bold text-xs uppercase tracking-widest">Fees ({fees.length})</TabsTrigger>
             </TabsList>
 
             <TabsContent value="all" className="mt-6">
               {allPayments.length === 0 ? (
-                <Card>
+                <Card className="rounded-3xl border-border/50 shadow-xl overflow-hidden">
                   <CardContent className="p-12 text-center">
                     <CreditCard className="w-12 h-12 text-gray-400 mx-auto mb-4" />
                     <h3 className="text-lg font-medium text-gray-900 mb-2">
@@ -542,7 +542,7 @@ export default function PaymentsPage() {
 
             <TabsContent value="deposits" className="mt-6">
               {deposits.length === 0 ? (
-                <Card>
+                <Card className="rounded-3xl border-border/50 shadow-xl overflow-hidden">
                   <CardContent className="p-12 text-center">
                     <CreditCard className="w-12 h-12 text-gray-400 mx-auto mb-4" />
                     <h3 className="text-lg font-medium text-gray-900 mb-2">
@@ -564,7 +564,7 @@ export default function PaymentsPage() {
 
             <TabsContent value="installments" className="mt-6">
               {installments.length === 0 ? (
-                <Card>
+                <Card className="rounded-3xl border-border/50 shadow-xl overflow-hidden">
                   <CardContent className="p-12 text-center">
                     <CreditCard className="w-12 h-12 text-gray-400 mx-auto mb-4" />
                     <h3 className="text-lg font-medium text-gray-900 mb-2">
@@ -586,7 +586,7 @@ export default function PaymentsPage() {
 
             <TabsContent value="fees" className="mt-6">
               {fees.length === 0 ? (
-                <Card>
+                <Card className="rounded-3xl border-border/50 shadow-xl overflow-hidden">
                   <CardContent className="p-12 text-center">
                     <CreditCard className="w-12 h-12 text-gray-400 mx-auto mb-4" />
                     <h3 className="text-lg font-medium text-gray-900 mb-2">

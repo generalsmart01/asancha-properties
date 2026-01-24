@@ -100,10 +100,12 @@ const PropertyListingPage = () => {
             {/* ##### Featured Properties Area Start ##### */}
             <section className="py-24 bg-background">
                 <div className="container mx-auto px-4">
-                    <div className="text-center max-w-3xl mx-auto mb-16">
-                        <h1 className="text-3xl md:text-5xl font-bold text-foreground mb-6 capitalize tracking-tight">Featured Property Investments</h1>
-                        <div className="h-1.5 w-24 bg-primary mx-auto rounded-full"></div>
-                        <p className="mt-6 text-muted-foreground text-lg italic">Discover our curated selection of high-yield and exclusive opportunities.</p>
+                    <div className="flex flex-col items-center justify-center mb-16 text-center">
+                        <h1 className="text-3xl md:text-5xl font-bold text-foreground mb-4">
+                            <span className="capitalize text-outline text-foreground dark:text-white">Featured Property Investments</span>
+                        </h1>
+                        <span className="h-1 w-24 bg-primary rounded-full"></span>
+                        <p className="mt-8 text-muted-foreground text-lg italic max-w-2xl">Discover our curated selection of high-yield and exclusive opportunities.</p>
                     </div>
 
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -175,11 +177,16 @@ const PropertyListingPage = () => {
                     <div className="max-w-6xl mx-auto">
                         <div className="bg-card p-8 md:p-12 rounded-4xl shadow-2xl border border-border/50">
                             <div className="flex items-center justify-between mb-10">
-                                <div className="flex items-center gap-4">
-                                    <div className="h-12 w-12 rounded-2xl bg-primary/10 flex items-center justify-center text-primary">
-                                        <Search size={24} />
+                                <div className="flex flex-col items-start justify-start mb-2">
+                                    <div className="flex flex-row items-center gap-4 mb-4">
+                                        <div className="h-12 w-12 rounded-2xl bg-primary/10 flex items-center justify-center text-primary">
+                                            <Search size={24} />
+                                        </div>
+                                        <h2 className="text-3xl font-bold text-foreground">
+                                            <span className="capitalize text-outline text-foreground dark:text-white text-left">Find Your Ideal Investment</span>
+                                        </h2>
                                     </div>
-                                    <h2 className="text-3xl font-bold text-foreground">Find Your Ideal Investment</h2>
+                                    <span className="h-1 w-20 bg-primary rounded-full mb-6 ml-16"></span>
                                 </div>
                                 <button
                                     onClick={handleClearFilters}

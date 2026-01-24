@@ -1,12 +1,12 @@
 "use client";
 
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, Suspense } from "react";
 import { useSearchParams, useRouter } from "next/navigation";
 import { CheckCircle, AlertCircle, Loader2 } from "lucide-react";
 import Link from "next/link";
 import { resendVerificationEmail, verifyEmail } from "@/lib/apiServices/authServices";
 
-const VerifyEmailPage = () => {
+const VerifyEmailContent = () => {
   const searchParams = useSearchParams();
   const router = useRouter();
   const [status, setStatus] = useState<"pending" | "success" | "error">(
@@ -19,7 +19,6 @@ const VerifyEmailPage = () => {
 
   useEffect(() => {
     const token = searchParams.get("token");
-    const role = searchParams.get("role");
     if (!token) {
       setStatus("error");
       setMessage("Invalid or missing verification token.");
@@ -27,7 +26,7 @@ const VerifyEmailPage = () => {
     }
     const verify = async () => {
       try {
-        const { data, message } = await verifyEmail(token);
+        const { message } = await verifyEmail(token);
         setStatus("success");
         setMessage(message || "Your email has been successfully verified!");
         setTimeout(() => router.push("/login"), 3000);
@@ -35,7 +34,7 @@ const VerifyEmailPage = () => {
         setStatus("error");
         setMessage(
           error.message ||
-            "Verification failed. Please try again or contact support."
+          "Verification failed. Please try again or contact support."
         );
       }
     };
@@ -54,7 +53,6 @@ const VerifyEmailPage = () => {
       setResendSuccess(
         res.message || "Verification email sent. Please check your inbox."
       );
-      ;
     } catch (err: any) {
       setResendError(
         process.env.NEXT_PUBLIC_NODE_ENV === "production"
@@ -90,13 +88,6 @@ const VerifyEmailPage = () => {
             <h2 className="text-2xl font-bold mb-2 text-green-800">
               Email Verified Successfully!
             </h2>
-            {/* <p className="text-gray-700 mb-6">redirect</p> */}
-            {/* <Link
-              href="/login"
-              className="bg-[#0D1140] text-white px-6 py-2 rounded-[10px] font-medium hover:bg-blue-700"
-            >
-              Go to Login
-            </Link> */}
           </>
         )}
         {status === "error" && (
@@ -109,9 +100,8 @@ const VerifyEmailPage = () => {
             </h2>
             <p className="text-gray-700 mb-6">{message}</p>
             <button
-          type="submit"
-          className="w-full bg-primary text-background text-lg font-medium py-3 rounded-md hover:bg-primary/90 focus:outline-none focus:ring-2 focus:ring-primary"
-        
+              type="button"
+              className="w-full bg-primary text-background text-lg font-medium py-3 rounded-md hover:bg-primary/90 focus:outline-none focus:ring-2 focus:ring-primary"
               onClick={handleResend}
               disabled={resendLoading}
             >
@@ -130,4 +120,21 @@ const VerifyEmailPage = () => {
   );
 };
 
-export default VerifyEmailPage;
+export default function VerifyEmailPage() {
+  return (
+    <Suspense fallback={
+      <section className="min-h-screen flex items-center justify-center bg-gray-50 px-4">
+        <div className="w-full max-w-md bg-white rounded-[10px] shadow-xl p-8 text-center">
+          <div className="mb-6 animate-pulse">
+            <Loader2 className="w-12 h-12 text-blue-500 mx-auto animate-spin" />
+          </div>
+          <h2 className="text-2xl font-bold mb-2 text-gray-900">
+            Loading...
+          </h2>
+        </div>
+      </section>
+    }>
+      <VerifyEmailContent />
+    </Suspense>
+  );
+}

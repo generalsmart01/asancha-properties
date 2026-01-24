@@ -250,12 +250,12 @@ export default function BookingsPage() {
     const StatusIcon = bookingStatusConfig.icon;
 
     return (
-      <Card className="group hover:shadow-lg transition-shadow">
+      <Card className="rounded-3xl border-border/50 shadow-xl overflow-hidden group hover:shadow-2xl transition-all duration-300">
         <CardContent className="p-6">
           <div className="flex items-start space-x-4">
             {/* Property Image */}
-            <div className="w-20 h-20 bg-gray-200 rounded-lg overflow-hidden flex-shrink-0">
-              <div className="w-full h-full bg-gradient-to-br from-blue-100 to-blue-200 flex items-center justify-center">
+            <div className="w-20 h-20 bg-gray-200 rounded-lg overflow-hidden shrink-0">
+              <div className="w-full h-full bg-linear-to-br from-blue-100 to-blue-200 flex items-center justify-center">
                 <MapPin className="w-8 h-8 text-blue-400" />
               </div>
             </div>
@@ -375,11 +375,11 @@ export default function BookingsPage() {
                       </DropdownMenuItem>
                       {(booking.status === "pending" ||
                         booking.status === "confirmed") && (
-                        <DropdownMenuItem className="text-red-600">
-                          <XCircle className="w-4 h-4 mr-2" />
-                          Cancel Booking
-                        </DropdownMenuItem>
-                      )}
+                          <DropdownMenuItem className="text-red-600">
+                            <XCircle className="w-4 h-4 mr-2" />
+                            Cancel Booking
+                          </DropdownMenuItem>
+                        )}
                     </DropdownMenuContent>
                   </DropdownMenu>
                 </div>
@@ -394,15 +394,15 @@ export default function BookingsPage() {
   return (
     <div className="space-y-6">
       {/* Header */}
-      <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between space-y-4 sm:space-y-0">
+      <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between space-y-4 sm:space-y-0 pb-6 border-b border-border/50">
         <div>
-          <h1 className="text-3xl font-bold text-gray-900">My Bookings</h1>
-          <p className="text-gray-600">
+          <h1 className="text-3xl font-black text-foreground uppercase tracking-tight">My Bookings</h1>
+          <p className="text-muted-foreground font-medium italic">
             Manage your property viewing appointments
           </p>
         </div>
 
-        <Button asChild>
+        <Button asChild className="primary-btn rounded-xl font-bold uppercase tracking-widest text-xs px-6 py-2 shadow-lg shadow-primary/20">
           <Link href="/dashboard/bookings/new">
             <Plus className="w-4 h-4 mr-2" />
             Schedule Viewing
@@ -411,7 +411,7 @@ export default function BookingsPage() {
       </div>
 
       {/* Filters */}
-      <Card>
+      <Card className="rounded-3xl border-border/50 shadow-xl overflow-hidden">
         <CardContent className="p-6">
           <div className="flex flex-col lg:flex-row lg:items-center space-y-4 lg:space-y-0 lg:space-x-4">
             {/* Search */}
@@ -459,16 +459,16 @@ export default function BookingsPage() {
 
       {/* Bookings Tabs */}
       <Tabs value={activeTab} onValueChange={setActiveTab}>
-        <TabsList className="grid w-full grid-cols-2">
-          <TabsTrigger value="upcoming">
+        <TabsList className="grid w-full grid-cols-2 p-1 bg-muted/50 rounded-2xl h-12">
+          <TabsTrigger value="upcoming" className="rounded-xl data-[state=active]:bg-white data-[state=active]:shadow-md font-bold text-xs uppercase tracking-widest">
             Upcoming ({upcomingBookings.length})
           </TabsTrigger>
-          <TabsTrigger value="past">Past ({pastBookings.length})</TabsTrigger>
+          <TabsTrigger value="past" className="rounded-xl data-[state=active]:bg-white data-[state=active]:shadow-md font-bold text-xs uppercase tracking-widest">Past ({pastBookings.length})</TabsTrigger>
         </TabsList>
 
         <TabsContent value="upcoming" className="space-y-4">
           {upcomingBookings.length === 0 ? (
-            <Card>
+            <Card className="rounded-3xl border-border/50 shadow-xl overflow-hidden">
               <CardContent className="p-12 text-center">
                 <Calendar className="w-12 h-12 text-gray-400 mx-auto mb-4" />
                 <h3 className="text-lg font-medium text-gray-900 mb-2">
@@ -501,7 +501,7 @@ export default function BookingsPage() {
 
         <TabsContent value="past" className="space-y-4">
           {pastBookings.length === 0 ? (
-            <Card>
+            <Card className="rounded-3xl border-border/50 shadow-xl overflow-hidden">
               <CardContent className="p-12 text-center">
                 <Calendar className="w-12 h-12 text-gray-400 mx-auto mb-4" />
                 <h3 className="text-lg font-medium text-gray-900 mb-2">

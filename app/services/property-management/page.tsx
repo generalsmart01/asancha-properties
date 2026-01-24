@@ -109,7 +109,7 @@ const PropertyManagementPage = () => {
     return (
         <main className="grow">
             {/* Hero Section */}
-            <section className="relative h-[70vh] flex items-center justify-center overflow-hidden">
+            <section className="relative h-[100vh] flex items-center justify-center overflow-hidden">
                 <Image
                     src="/bg-img/property-management.jpg"
                     alt="Property Management"
@@ -119,20 +119,20 @@ const PropertyManagementPage = () => {
                 />
                 <div className="absolute inset-0 bg-gradient-to-b from-black/70 to-black/40" />
                 <div className="container relative z-10 mx-auto px-4 text-center">
-                    <h1 className="text-4xl md:text-6xl font-black text-white mb-6 uppercase tracking-tight drop-shadow-2xl">
+                    <h1 className="text-4xl md:text-6xl font-bold text-white mb-6 drop-shadow-2xl uppercase tracking-tight">
                         Stress-Free <span className="text-primary">Property Management</span> <br className="hidden md:block" />
                         Maximize Your Rental Income
                     </h1>
-                    <div className="w-24 h-1.5 bg-primary mx-auto mb-8 rounded-full" />
-                    <p className="text-xl md:text-2xl text-white/90 max-w-3xl mx-auto mb-12 font-medium leading-relaxed">
+                    <div className="my-4 h-[3px] w-[20%] bg-white mx-auto"></div>
+                    <p className="pb-8 text-center text-xl font-normal text-white max-w-3xl mx-auto">
                         We handle everything from tenant sourcing to legal compliance, ensuring your investment stays profitable and protected.
                     </p>
                     <div className="flex flex-col sm:flex-row items-center justify-center gap-6">
-                        <Link href="/contact-us#contact-form" className="group flex items-center gap-2 bg-primary hover:bg-primary-hover text-white px-8 py-4 rounded-xl font-bold transition-all shadow-[0_10px_30px_-10px_rgba(3,108,166,0.5)] hover:scale-105 uppercase tracking-widest text-sm">
+                        <Link href="/contact-us#contact-form" className="primary-btn">
                             Property Assessment
-                            <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                            <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
                         </Link>
-                        <a href="tel:+447404799254" className="bg-white/10 hover:bg-white/20 text-white border-2 border-white/50 px-8 py-4 rounded-xl font-bold transition-all backdrop-blur-md uppercase tracking-widest text-sm hover:border-white">
+                        <a href="tel:+447404799254" className="ghost-btn text-white! border-white/50! hover:bg-white/20!">
                             Manager: +44 7404 799254
                         </a>
                     </div>
@@ -144,10 +144,12 @@ const PropertyManagementPage = () => {
                 <div className="container mx-auto px-4">
                     <div className="flex flex-col lg:flex-row items-center gap-16">
                         <div className="w-full lg:w-1/2">
-                            <h2 className="text-3xl md:text-4xl font-black text-foreground capitalize mb-6 leading-tight">
-                                Why Choose Asancha <br />Property Management?
-                            </h2>
-                            <div className="w-20 h-1.5 bg-primary mb-10 rounded-full" />
+                            <div className="flex flex-col items-start justify-start mb-8">
+                                <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
+                                    <span className="capitalize text-outline text-foreground dark:text-white text-left">Why Choose Asancha Property Management?</span>
+                                </h2>
+                                <span className="h-1 w-20 bg-primary rounded-full"></span>
+                            </div>
 
                             <div className="space-y-8">
                                 {managementBenefits.map((benefit, idx) => (
@@ -183,9 +185,11 @@ const PropertyManagementPage = () => {
             {/* Our Services */}
             <section className="py-24 bg-muted/30 relative overflow-hidden">
                 <div className="container mx-auto px-4 relative z-10">
-                    <div className="text-center mb-20">
-                        <h2 className="text-3xl md:text-4xl font-black text-foreground capitalize mb-6">Our Management Services</h2>
-                        <div className="w-20 h-1.5 bg-primary mx-auto rounded-full" />
+                    <div className="flex flex-col items-center justify-center mb-12">
+                        <h2 className="text-3xl md:text-4xl font-bold text-center text-foreground mb-4 capitalize">
+                            <span className="capitalize text-outline text-foreground dark:text-white">Our Management Services</span>
+                        </h2>
+                        <span className="h-1 w-20 bg-primary rounded-full"></span>
                     </div>
 
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
@@ -208,9 +212,11 @@ const PropertyManagementPage = () => {
             {/* Who Benefits */}
             <section className="py-24 bg-background">
                 <div className="container mx-auto px-4">
-                    <div className="text-center mb-20 max-w-3xl mx-auto">
-                        <h2 className="text-3xl md:text-4xl font-black text-foreground capitalize mb-6">Who Benefits From Our Services?</h2>
-                        <div className="w-20 h-1.5 bg-primary mx-auto rounded-full" />
+                    <div className="flex flex-col items-center justify-center mb-12">
+                        <h2 className="text-3xl md:text-4xl font-bold text-center text-foreground mb-4">
+                            <span className="capitalize text-outline text-foreground dark:text-white">Who Benefits From Our Services?</span>
+                        </h2>
+                        <span className="h-1 w-20 bg-primary rounded-full"></span>
                     </div>
 
                     <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
@@ -229,7 +235,7 @@ const PropertyManagementPage = () => {
                                         className="object-cover group-hover:scale-110 transition-transform duration-500"
                                     />
                                     <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
-                                    <h3 className="absolute bottom-4 left-6 text-xl font-black text-white uppercase tracking-wider">{target.title}</h3>
+                                    <h3 className="absolute bottom-4 left-6 text-xl font-bold text-white uppercase tracking-wider">{target.title}</h3>
                                 </div>
                                 <div className="p-6">
                                     <p className="text-muted-foreground mb-6 leading-relaxed">{target.desc}</p>
@@ -239,9 +245,9 @@ const PropertyManagementPage = () => {
                     </div>
 
                     <div className="mt-20 text-center">
-                        <Link href="/contact-us#contact-form" className="group inline-flex items-center gap-3 bg-primary hover:bg-primary-hover text-white px-10 py-5 rounded-xl font-black transition-all shadow-2xl hover:scale-105 active:scale-95 uppercase tracking-widest">
+                        <Link href="/contact-us#contact-form" className="primary-btn text-lg! py-5! px-10!">
                             Get Started Today
-                            <ArrowRight className="w-6 h-6 group-hover:translate-x-1 transition-transform" />
+                            <ArrowRight className="ml-2 w-6 h-6 group-hover:translate-x-1 transition-transform" />
                         </Link>
                     </div>
                 </div>
@@ -250,13 +256,16 @@ const PropertyManagementPage = () => {
             {/* Final CTA */}
             <section className="py-24 bg-black text-white relative overflow-hidden">
                 <div className="container mx-auto px-4 relative z-10 text-center">
-                    <h2 className="text-3xl md:text-5xl font-black mb-8 uppercase tracking-tighter">
-                        Protect Your Asset. <span className="text-primary">Protect Your Time.</span>
-                    </h2>
+                    <div className="flex flex-col items-center justify-center mb-8">
+                        <h2 className="text-3xl md:text-5xl font-bold text-white mb-4 uppercase tracking-tighter">
+                            Protect Your Asset. <span className="text-primary">Protect Your Time.</span>
+                        </h2>
+                        <span className="h-1 w-20 bg-primary rounded-full"></span>
+                    </div>
                     <p className="text-white/70 text-lg max-w-2xl mx-auto mb-12 leading-relaxed">
                         Join hundreds of satisfied property owners who trust Asancha for professional management across the UK.
                     </p>
-                    <Link href="/free-consultation" className="inline-block bg-white text-black hover:bg-primary hover:text-white px-12 py-5 rounded-xl font-black transition-all shadow-2xl hover:scale-105 uppercase tracking-[0.2em]">
+                    <Link href="/free-consultation" className="primary-btn bg-white! text-black! hover:bg-primary! hover:text-white! px-12! py-5!">
                         Book Consultation
                     </Link>
                 </div>

@@ -118,7 +118,7 @@ const PropertySourcingPage = () => {
     return (
         <main className="grow">
             {/* Hero Section */}
-            <section className="relative h-[70vh] flex items-center justify-center overflow-hidden">
+            <section className="relative h-[100vh] flex items-center justify-center overflow-hidden">
                 <Image
                     src="/bg-img/property-sourcing.jpg"
                     alt="Property Sourcing"
@@ -128,20 +128,20 @@ const PropertySourcingPage = () => {
                 />
                 <div className="absolute inset-0 bg-gradient-to-b from-black/60 to-black/40" />
                 <div className="container relative z-10 mx-auto px-4 text-center">
-                    <h1 className="text-4xl md:text-6xl font-black text-white mb-6 uppercase tracking-tight drop-shadow-2xl">
+                    <h1 className="text-4xl md:text-6xl font-bold text-white mb-6 drop-shadow-2xl uppercase tracking-tight">
                         Find High-Yield <span className="text-primary">Property Deals</span> <br className="hidden md:block" />
                         Before Anyone Else
                     </h1>
-                    <div className="w-24 h-1.5 bg-primary mx-auto mb-8 rounded-full" />
-                    <p className="text-xl md:text-2xl text-white/90 max-w-3xl mx-auto mb-12 font-medium leading-relaxed">
+                    <div className="my-4 h-[3px] w-[20%] bg-white mx-auto"></div>
+                    <p className="pb-8 text-center text-xl font-normal text-white max-w-3xl mx-auto">
                         We source exclusive off-market properties with high returns for investors, landlords, and first-time buyers.
                     </p>
                     <div className="flex flex-col sm:flex-row items-center justify-center gap-6">
-                        <Link href="/property-listings" className="group flex items-center gap-2 bg-primary hover:bg-primary-hover text-white px-8 py-4 rounded-xl font-bold transition-all shadow-[0_10px_30px_-10px_rgba(3,108,166,0.5)] hover:scale-105 uppercase tracking-widest text-sm">
+                        <Link href="/property-listings" className="primary-btn">
                             View Available Properties
-                            <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                            <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
                         </Link>
-                        <Link href="/free-consultation#consultation-form" className="bg-white/10 hover:bg-white/20 text-white border-2 border-white/50 px-8 py-4 rounded-xl font-bold transition-all backdrop-blur-md uppercase tracking-widest text-sm hover:border-white">
+                        <Link href="/free-consultation#consultation-form" className="ghost-btn !text-white !border-white/50 hover:!bg-white/20">
                             Book a Free Consultation
                         </Link>
                     </div>
@@ -151,11 +151,13 @@ const PropertySourcingPage = () => {
             {/* Property Types We Work With */}
             <section className="py-24 bg-background">
                 <div className="container mx-auto px-4">
-                    <div className="text-center mb-16 max-w-3xl mx-auto">
-                        <h2 className="text-3xl md:text-4xl font-black text-foreground capitalize mb-6">Property Sectors We Cover</h2>
-                        <div className="w-20 h-1.5 bg-primary mx-auto mb-8 rounded-full" />
-                        <p className="text-muted-foreground text-lg">We maintain a diverse network of opportunities across multiple real estate sectors.</p>
+                    <div className="flex flex-col items-center justify-center mb-12">
+                        <h2 className="text-3xl md:text-4xl font-bold text-center text-foreground mb-4">
+                            <span className="capitalize text-outline text-foreground dark:text-white">Property Sectors We Cover</span>
+                        </h2>
+                        <span className="h-1 w-20 bg-primary rounded-full"></span>
                     </div>
+                    <p className="text-muted-foreground text-center text-lg max-w-3xl mx-auto mb-12 leading-relaxed">We maintain a diverse network of opportunities across multiple real estate sectors.</p>
 
                     <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
                         {[
@@ -175,9 +177,11 @@ const PropertySourcingPage = () => {
             {/* What We Can Source */}
             <section className="py-24 bg-muted/30 relative overflow-hidden">
                 <div className="container mx-auto px-4 relative z-10">
-                    <div className="text-center mb-20">
-                        <h2 className="text-3xl md:text-4xl font-black text-foreground capitalize mb-6">Our Sourcing Capabilities</h2>
-                        <div className="w-20 h-1.5 bg-primary mx-auto rounded-full" />
+                    <div className="flex flex-col items-center justify-center mb-12">
+                        <h2 className="text-3xl md:text-4xl font-bold text-center text-foreground mb-4">
+                            <span className="capitalize text-outline text-foreground dark:text-white">Our Sourcing Capabilities</span>
+                        </h2>
+                        <span className="h-1 w-20 bg-primary rounded-full"></span>
                     </div>
 
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -201,9 +205,11 @@ const PropertySourcingPage = () => {
             {/* Why Work With Us */}
             <section className="py-24 bg-background">
                 <div className="container mx-auto px-4">
-                    <div className="text-center mb-20 max-w-3xl mx-auto">
-                        <h2 className="text-3xl md:text-4xl font-black text-foreground capitalize mb-6">Why Partner With Us?</h2>
-                        <div className="w-20 h-1.5 bg-primary mx-auto rounded-full" />
+                    <div className="flex flex-col items-center justify-center mb-12">
+                        <h2 className="text-3xl md:text-4xl font-bold text-center text-foreground mb-4">
+                            <span className="capitalize text-outline text-foreground dark:text-white">Why Partner With Us?</span>
+                        </h2>
+                        <span className="h-1 w-20 bg-primary rounded-full"></span>
                     </div>
 
                     <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-12">
@@ -226,16 +232,16 @@ const PropertySourcingPage = () => {
                     <div className="max-w-5xl mx-auto">
                         <div className="grid lg:grid-cols-2 gap-16 items-center">
                             <div>
-                                <h2 className="text-3xl md:text-4xl font-black mb-6 uppercase leading-tight">
+                                <h2 className="text-3xl md:text-4xl font-bold mb-6 uppercase leading-tight">
                                     Access Our <br /><span className="text-primary-hover">Elite Power Team</span>
                                 </h2>
-                                <div className="w-20 h-1.5 bg-white/20 mb-8 rounded-full" />
+                                <div className="my-4 h-[3px] w-[20%] bg-white mb-8"></div>
                                 <p className="text-white/80 text-lg mb-12 leading-relaxed">
                                     Asancha has curated a network of industry-leading experts and trusted partners to support every stage of your investment journey. You don't just get a property; you get a complete infrastructure.
                                 </p>
-                                <Link href="/contact-us#contact-form" className="group inline-flex items-center gap-3 bg-primary hover:bg-primary-hover text-white px-10 py-5 rounded-xl text-xl font-bold transition-all shadow-2xl hover:scale-105 active:scale-95 uppercase tracking-widest">
+                                <Link href="/contact-us#contact-form" className="primary-btn !text-xl !py-5 !px-10">
                                     Register as an investor
-                                    <ChevronRight className="w-6 h-6 group-hover:translate-x-1 transition-transform" />
+                                    <ChevronRight className="ml-2 w-6 h-6 group-hover:translate-x-1 transition-transform" />
                                 </Link>
                             </div>
 
@@ -264,10 +270,15 @@ const PropertySourcingPage = () => {
             {/* Final CTA */}
             <section className="py-24 bg-muted/20 border-t border-border/50">
                 <div className="container mx-auto px-4 text-center">
-                    <h2 className="text-3xl font-black mb-8 uppercase">Start Building Your Future Today</h2>
-                    <Link href="/property-listings" className="group inline-flex items-center gap-3 bg-foreground hover:bg-primary text-background hover:text-white px-12 py-6 rounded-2xl text-lg font-black transition-all shadow-2xl hover:scale-105 uppercase tracking-[0.2em]">
+                    <div className="flex flex-col items-center justify-center mb-12">
+                        <h2 className="text-3xl md:text-4xl font-bold text-center text-foreground mb-4">
+                            <span className="capitalize text-outline text-foreground dark:text-white">Start Building Your Future Today</span>
+                        </h2>
+                        <span className="h-1 w-20 bg-primary rounded-full"></span>
+                    </div>
+                    <Link href="/property-listings" className="primary-btn !text-lg !py-6 !px-12">
                         Enter the properties
-                        <ArrowRight className="w-6 h-6 group-hover:translate-x-1 transition-transform" />
+                        <ArrowRight className="ml-2 w-6 h-6 group-hover:translate-x-1 transition-transform" />
                     </Link>
                 </div>
             </section>

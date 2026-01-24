@@ -4,7 +4,7 @@ import { useState } from "react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import {
-  User,
+  User as UserIcon,
   Settings,
   LogOut,
   Bell,
@@ -50,7 +50,7 @@ function DashboardLayoutContent({ children }: ClientDashboardLayoutProps) {
   };
 
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen bg-[#F8FAFC]">
       {/* Sidebar */}
       {user && (
         <Sidebar
@@ -66,7 +66,7 @@ function DashboardLayoutContent({ children }: ClientDashboardLayoutProps) {
       <div className={`flex flex-col min-h-screen transition-all duration-300 ${sidebarCollapsed ? "md:ml-20" : "md:ml-64"
         }`}>
         {/* Top Navigation Bar */}
-        <header className="bg-white shadow-sm border-b">
+        <header className="bg-white/80 backdrop-blur-md sticky top-0 z-30 shadow-sm border-b border-border/50">
           <div className="flex justify-between items-center h-16 px-4 sm:px-6 lg:px-8">
             {/* Mobile menu button and Desktop sidebar toggle */}
             <div className="flex items-center gap-2">
@@ -139,7 +139,7 @@ function DashboardLayoutContent({ children }: ClientDashboardLayoutProps) {
                     <DropdownMenuSeparator />
                     <DropdownMenuItem asChild>
                       <Link href="/dashboard/profile" className="flex items-center">
-                        <User className="mr-2 h-4 w-4" />
+                        <UserIcon className="mr-2 h-4 w-4" />
                         <span>Profile</span>
                       </Link>
                     </DropdownMenuItem>
@@ -168,8 +168,10 @@ function DashboardLayoutContent({ children }: ClientDashboardLayoutProps) {
         </header>
 
         {/* Main Content */}
-        <main className="flex-1 px-4 sm:px-6 lg:px-8 py-8">
-          {children}
+        <main className="flex-1 px-4 sm:px-6 lg:px-10 py-10">
+          <div className="max-w-7xl mx-auto">
+            {children}
+          </div>
         </main>
       </div>
 

@@ -1,0 +1,75 @@
+﻿app/dashboard/layout.tsx(123,66): error TS2339: Property 'name' does not exist on type 'User'.
+app/dashboard/layout.tsx(124,47): error TS2339: Property 'name' does not exist on type 'User'.
+app/dashboard/layout.tsx(132,33): error TS2339: Property 'name' does not exist on type 'User'.
+app/dashboard/settings/page.tsx(257,37): error TS7006: Parameter 'value' implicitly has an 'any' type.
+components/layout/MegaMenu.tsx(31,8): error TS2307: Cannot find module '@/components/ui/navigation-menu' or its corresponding type declarations.
+components/layout/Newsletter.tsx(4,29): error TS2307: Cannot find module '@/components/ui/AnimatedSection' or its corresponding type declarations.
+components/layout/Newsletter.tsx(5,26): error TS2307: Cannot find module '@/components/ui/AnimatedText' or its corresponding type declarations.
+components/layout/Newsletter.tsx(6,28): error TS2307: Cannot find module '@/components/ui/NewsletterForm' or its corresponding type declarations.
+lib/api.ts(1,19): error TS2307: Cannot find module 'axios' or its corresponding type declarations.
+lib/api.ts(14,4): error TS7006: Parameter 'config' implicitly has an 'any' type.
+lib/api.ts(23,4): error TS7006: Parameter 'error' implicitly has an 'any' type.
+lib/api.ts(30,4): error TS7006: Parameter 'response' implicitly has an 'any' type.
+lib/api.ts(31,4): error TS7006: Parameter 'error' implicitly has an 'any' type.
+lib/apiServices/bookingService.ts(9,3): error TS2305: Module '"@/types"' has no exported member 'BookingRequest'.
+lib/apiServices/bookingService.ts(10,3): error TS2305: Module '"@/types"' has no exported member 'BookingResponse'.
+lib/apiServices/bookingService.ts(11,3): error TS2305: Module '"@/types"' has no exported member 'Instructor'.
+lib/apiServices/bookingService.ts(12,3): error TS2305: Module '"@/types"' has no exported member 'InstructorAvailability'.
+lib/apiServices/bookingService.ts(13,3): error TS2305: Module '"@/types"' has no exported member 'ServiceCategory'.
+lib/apiServices/bookingService.ts(14,3): error TS2305: Module '"@/types"' has no exported member 'ServiceLevel'.
+lib/apiServices/bookingService.ts(16,3): error TS2305: Module '"@/types"' has no exported member 'RescheduleRequest'.
+lib/apiServices/bookingService.ts(17,3): error TS2305: Module '"@/types"' has no exported member 'RescheduleRequestResponse'.
+lib/apiServices/bookingService.ts(18,3): error TS2305: Module '"@/types"' has no exported member 'CreateRescheduleRequestData'.
+lib/apiServices/bookingService.ts(31,5): error TS2741: Property 'success' is missing in type 'ApiResponse<any>' but required in type 'ApiResponse<BookingResponse>'.
+lib/apiServices/bookingService.ts(55,5): error TS2741: Property 'success' is missing in type 'ApiResponse<any>' but required in type 'ApiResponse<{ bookings: Booking[]; totalCount: number; totalPages: number; }>'.
+lib/apiServices/bookingService.ts(65,5): error TS2741: Property 'success' is missing in type 'ApiResponse<any>' but required in type 'ApiResponse<Booking>'.
+lib/apiServices/bookingService.ts(76,5): error TS2741: Property 'success' is missing in type 'ApiResponse<any>' but required in type 'ApiResponse<BookingResponse>'.
+lib/apiServices/bookingService.ts(90,5): error TS2741: Property 'success' is missing in type 'ApiResponse<any>' but required in type 'ApiResponse<{ message: string; }>'.
+lib/apiServices/bookingService.ts(105,5): error TS2741: Property 'success' is missing in type 'ApiResponse<any>' but required in type 'ApiResponse<BookingResponse>'.
+lib/apiServices/bookingService.ts(119,5): error TS2741: Property 'success' is missing in type 'ApiResponse<any>' but required in type 'ApiResponse<RescheduleRequestResponse>'.
+lib/apiServices/bookingService.ts(132,5): error TS2741: Property 'success' is missing in type 'ApiResponse<any>' but required in type 'ApiResponse<RescheduleRequestResponse>'.
+lib/apiServices/bookingService.ts(146,5): error TS2741: Property 'success' is missing in type 'ApiResponse<any>' but required in type 'ApiResponse<RescheduleRequestResponse>'.
+lib/apiServices/bookingService.ts(160,5): error TS2741: Property 'success' is missing in type 'ApiResponse<any>' but required in type 'ApiResponse<RescheduleRequestResponse>'.
+lib/apiServices/bookingService.ts(180,5): error TS2741: Property 'success' is missing in type 'ApiResponse<any>' but required in type 'ApiResponse<{ requests: RescheduleRequest[]; totalCount: number; totalPages: number; }>'.
+lib/apiServices/bookingService.ts(201,5): error TS2741: Property 'success' is missing in type 'ApiResponse<any>' but required in type 'ApiResponse<{ requests: RescheduleRequest[]; totalCount: number; totalPages: number; }>'.
+lib/apiServices/bookingService.ts(216,5): error TS2741: Property 'success' is missing in type 'ApiResponse<any>' but required in type 'ApiResponse<Instructor[]>'.
+lib/apiServices/bookingService.ts(225,5): error TS2741: Property 'success' is missing in type 'ApiResponse<any>' but required in type 'ApiResponse<Instructor>'.
+lib/apiServices/bookingService.ts(235,5): error TS2741: Property 'success' is missing in type 'ApiResponse<any>' but required in type 'ApiResponse<InstructorAvailability>'.
+lib/apiServices/bookingService.ts(257,5): error TS2741: Property 'success' is missing in type 'ApiResponse<any>' but required in type 'ApiResponse<{ schedule: any[]; totalBookings: number; }>'.
+lib/apiServices/bookingService.ts(271,5): error TS2741: Property 'success' is missing in type 'ApiResponse<any>' but required in type 'ApiResponse<ServiceCategory[]>'.
+lib/apiServices/bookingService.ts(278,5): error TS2741: Property 'success' is missing in type 'ApiResponse<any>' but required in type 'ApiResponse<ServiceLevel[]>'.
+lib/apiServices/bookingService.ts(298,5): error TS2741: Property 'success' is missing in type 'ApiResponse<any>' but required in type 'ApiResponse<{ timeSlots: { startTime: string; endTime: string; isAvailable: boolean; }[]; }>'.
+lib/apiServices/bookingService.ts(320,5): error TS2741: Property 'success' is missing in type 'ApiResponse<any>' but required in type 'ApiResponse<{ totalBookings: number; completedBookings: number; cancelledBookings: number; averageRating: number; totalRevenue: number; }>'.
+lib/apiServices/bookingService.ts(341,5): error TS2741: Property 'success' is missing in type 'ApiResponse<any>' but required in type 'ApiResponse<{ bookings: Booking[]; totalCount: number; totalPages: number; }>'.
+lib/apiServices/bookingService.ts(359,5): error TS2741: Property 'success' is missing in type 'ApiResponse<any>' but required in type 'ApiResponse<{ message: string; }>'.
+lib/apiServices/bookingService.ts(382,5): error TS2741: Property 'success' is missing in type 'ApiResponse<any>' but required in type 'ApiResponse<{ calendar: any[]; events: any[]; }>'.
+lib/apiServices/bookingService.ts(392,5): error TS2741: Property 'success' is missing in type 'ApiResponse<any>' but required in type 'ApiResponse<{ message: string; }>'.
+lib/apiServices/bookingService.ts(420,5): error TS2741: Property 'success' is missing in type 'ApiResponse<any>' but required in type 'ApiResponse<{ totalBookings: number; totalRevenue: number; averageBookingValue: number; popularServices: any[]; bookingTrends: any[]; instructorPerformance: any[]; }>'.
+lib/apiServices/paymentService.ts(27,25): error TS2307: Cannot find module '../constants/currency' or its corresponding type declarations.
+lib/apiServices/paymentService.ts(28,28): error TS2307: Cannot find module '../constants/pricing' or its corresponding type declarations.
+lib/apiServices/paymentService.ts(63,5): error TS2741: Property 'success' is missing in type 'ApiResponse<any>' but required in type 'ApiResponse<PaymentResponse>'.
+lib/apiServices/paymentService.ts(124,5): error TS2741: Property 'success' is missing in type 'ApiResponse<any>' but required in type 'ApiResponse<PaymentResponse>'.
+lib/apiServices/paymentService.ts(131,5): error TS2741: Property 'success' is missing in type 'ApiResponse<any>' but required in type 'ApiResponse<PaymentIntent>'.
+lib/apiServices/paymentService.ts(138,5): error TS2741: Property 'success' is missing in type 'ApiResponse<any>' but required in type 'ApiResponse<PaymentResponse>'.
+lib/apiServices/paymentService.ts(149,5): error TS2741: Property 'success' is missing in type 'ApiResponse<any>' but required in type 'ApiResponse<{ message: string; }>'.
+lib/apiServices/paymentService.ts(160,5): error TS2741: Property 'success' is missing in type 'ApiResponse<any>' but required in type 'ApiResponse<Payment>'.
+lib/apiServices/paymentService.ts(168,5): error TS2741: Property 'success' is missing in type 'ApiResponse<any>' but required in type 'ApiResponse<PaymentsResponse>'.
+lib/apiServices/paymentService.ts(176,5): error TS2741: Property 'success' is missing in type 'ApiResponse<any>' but required in type 'ApiResponse<Payment>'.
+lib/apiServices/paymentService.ts(198,5): error TS2741: Property 'success' is missing in type 'ApiResponse<any>' but required in type 'ApiResponse<{ totalPayments: number; totalAmount: number; successfulPayments: number; failedPayments: number; averageAmount: number; currency: string; }>'.
+lib/apiServices/paymentService.ts(204,5): error TS2741: Property 'success' is missing in type 'ApiResponse<any>' but required in type 'ApiResponse<{ message: string; }>'.
+lib/apiServices/paymentService.ts(212,5): error TS2741: Property 'success' is missing in type 'ApiResponse<any>' but required in type 'ApiResponse<PaymentRefund>'.
+lib/apiServices/paymentService.ts(221,5): error TS2741: Property 'success' is missing in type 'ApiResponse<any>' but required in type 'ApiResponse<PaymentRefund>'.
+lib/apiServices/paymentService.ts(228,5): error TS2741: Property 'success' is missing in type 'ApiResponse<any>' but required in type 'ApiResponse<PaymentRefund[]>'.
+lib/apiServices/paymentService.ts(237,5): error TS2741: Property 'success' is missing in type 'ApiResponse<any>' but required in type 'ApiResponse<{ paymentMethods: SavedPaymentMethod[]; defaultMethod?: SavedPaymentMethod | undefined; }>'.
+lib/apiServices/paymentService.ts(244,5): error TS2741: Property 'success' is missing in type 'ApiResponse<any>' but required in type 'ApiResponse<{ message: string; }>'.
+lib/apiServices/paymentService.ts(253,5): error TS2741: Property 'success' is missing in type 'ApiResponse<any>' but required in type 'ApiResponse<{ message: string; }>'.
+lib/apiServices/paymentService.ts(264,5): error TS2741: Property 'success' is missing in type 'ApiResponse<any>' but required in type 'ApiResponse<{ message: string; }>'.
+lib/apiServices/paymentService.ts(292,5): error TS2741: Property 'success' is missing in type 'ApiResponse<any>' but required in type 'ApiResponse<{ totalRevenue: number; totalTransactions: number; averageTransactionValue: number; successRate: number; refundRate: number; revenueByProductType: any[]; revenueByMonth: any[]; topProducts: any[]; }>'.
+lib/apiServices/paymentService.ts(306,5): error TS2741: Property 'success' is missing in type 'ApiResponse<any>' but required in type 'ApiResponse<{ downloadUrl: string; }>'.
+lib/apiServices/paymentService.ts(322,5): error TS2741: Property 'success' is missing in type 'import("C:/my-projects/asancha-properties/lib/apiFetch").ApiResponse<any>' but required in type 'import("C:/my-projects/asancha-properties/types/index").ApiResponse<any>'.
+lib/apiServices/paymentService.ts(337,5): error TS2741: Property 'success' is missing in type 'ApiResponse<any>' but required in type 'ApiResponse<InstallmentsStartResponse>'.
+lib/apiServices/paymentService.ts(346,5): error TS2741: Property 'success' is missing in type 'ApiResponse<any>' but required in type 'ApiResponse<InstallmentsConfirmResponse>'.
+lib/apiServices/paymentService.ts(355,5): error TS2741: Property 'success' is missing in type 'ApiResponse<any>' but required in type 'ApiResponse<SubscriptionConfirmResponse>'.
+lib/apiServices/paymentService.ts(364,5): error TS2741: Property 'success' is missing in type 'ApiResponse<any>' but required in type 'ApiResponse<EarlyPayoffResponse>'.
+types/booking.ts(1,35): error TS2307: Cannot find module '@/lib/constants/pricing' or its corresponding type declarations.
+

@@ -18,8 +18,11 @@ const AboutUsPage = () => {
                     />
                 </div>
                 <div className="container mx-auto px-4 relative z-10 text-center">
-                    <h1 className="text-4xl md:text-6xl font-bold text-white mb-6 capitalize tracking-tight">About Us</h1>
-                    <div className="h-1.5 w-24 bg-primary mx-auto rounded-full"></div>
+                    <h1 className="text-4xl md:text-6xl font-bold text-white mb-6 uppercase tracking-tight drop-shadow-2xl">About Us</h1>
+                    <div className="my-4 h-[3px] w-[20%] bg-white mx-auto"></div>
+                    <p className="pb-8 text-center text-xl font-normal text-white max-w-3xl mx-auto">
+                        Learn about our mission, values, and the expert team behind Asancha Properties.
+                    </p>
                 </div>
             </section>
             {/* ##### Breadcrumb Area End ##### */}
@@ -30,9 +33,11 @@ const AboutUsPage = () => {
                     <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
                         {/* Who We Are */}
                         <div className="animate-in fade-in slide-in-from-left-5 duration-700">
-                            <div className="mb-8 flex flex-col items-start">
-                                <h2 className="text-3xl font-bold text-foreground mb-4 capitalize tracking-tight">Who We Are</h2>
-                                <div className="h-1 w-20 bg-primary rounded-full"></div>
+                            <div className="flex flex-col items-start justify-start mb-8">
+                                <h2 className="text-3xl font-bold text-foreground mb-4">
+                                    <span className="capitalize text-outline text-foreground dark:text-white text-left">Who We Are</span>
+                                </h2>
+                                <span className="h-1 w-20 bg-primary rounded-full"></span>
                             </div>
                             <div className="relative h-[300px] md:h-[400px] rounded-3xl overflow-hidden shadow-2xl mb-8">
                                 <Image
@@ -49,9 +54,11 @@ const AboutUsPage = () => {
 
                         {/* Our Values */}
                         <div className="animate-in fade-in slide-in-from-right-5 duration-700 delay-200">
-                            <div className="mb-8 flex flex-col items-start">
-                                <h2 className="text-3xl font-bold text-foreground mb-4 capitalize tracking-tight">Our Values</h2>
-                                <div className="h-1 w-20 bg-primary rounded-full"></div>
+                            <div className="flex flex-col items-start justify-start mb-8">
+                                <h2 className="text-3xl font-bold text-foreground mb-4">
+                                    <span className="capitalize text-outline text-foreground dark:text-white text-left">Our Values</span>
+                                </h2>
+                                <span className="h-1 w-20 bg-primary rounded-full"></span>
                             </div>
                             <div className="grid gap-8">
                                 {[
@@ -84,10 +91,12 @@ const AboutUsPage = () => {
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-16 text-center max-w-5xl mx-auto">
                         {/* Mission */}
                         <div className="flex flex-col items-center animate-in fade-in slide-in-from-bottom-5 duration-700">
-                            <div className="mb-6 flex flex-col items-center">
-                                <Target size={48} className="text-primary mb-4" />
-                                <h2 className="text-3xl md:text-4xl font-bold text-white mb-4 capitalize tracking-tight">Our Mission</h2>
-                                <div className="h-1 w-20 bg-primary rounded-full"></div>
+                            <Target size={48} className="text-primary mb-6" />
+                            <div className="flex flex-col items-center justify-center mb-8">
+                                <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
+                                    <span className="capitalize text-outline text-white">Our Mission</span>
+                                </h2>
+                                <span className="h-1 w-20 bg-primary rounded-full"></span>
                             </div>
                             <p className="text-lg text-gray-300 leading-relaxed max-w-md">
                                 Helping clients secure the best property deals with expert insights and personalized service.
@@ -96,10 +105,12 @@ const AboutUsPage = () => {
 
                         {/* Vision */}
                         <div className="flex flex-col items-center animate-in fade-in slide-in-from-bottom-5 duration-700 delay-300">
-                            <div className="mb-6 flex flex-col items-center">
-                                <Eye size={48} className="text-primary mb-4" />
-                                <h2 className="text-3xl md:text-4xl font-bold text-white mb-4 capitalize tracking-tight">Our Vision</h2>
-                                <div className="h-1 w-20 bg-primary rounded-full"></div>
+                            <Eye size={48} className="text-primary mb-6" />
+                            <div className="flex flex-col items-center justify-center mb-8">
+                                <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
+                                    <span className="capitalize text-outline text-white">Our Vision</span>
+                                </h2>
+                                <span className="h-1 w-20 bg-primary rounded-full"></span>
                             </div>
                             <p className="text-lg text-gray-300 leading-relaxed max-w-md">
                                 Becoming the leading property sourcing and investment firm, revitalizing communities and transforming properties.
@@ -113,9 +124,11 @@ const AboutUsPage = () => {
             {/* ##### Meet Our Team Area Start ##### */}
             <section className="py-24 bg-background">
                 <div className="container mx-auto px-4">
-                    <div className="text-center max-w-3xl mx-auto mb-16">
-                        <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-6 capitalize tracking-tight">Meet Our Team</h2>
-                        <div className="h-1.5 w-24 bg-primary mx-auto rounded-full"></div>
+                    <div className="flex flex-col items-center justify-center mb-16 text-center">
+                        <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
+                            <span className="capitalize text-outline text-foreground dark:text-white">Meet Our Team</span>
+                        </h2>
+                        <span className="h-1 w-24 bg-primary rounded-full"></span>
                     </div>
 
                     <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
@@ -155,12 +168,16 @@ const AboutUsPage = () => {
             <section className="relative py-24 bg-fixed bg-cover bg-center overflow-hidden" style={{ backgroundImage: "url('/bg-img/cta.jpg')" }}>
                 <div className="absolute inset-0 bg-black/80 z-0"></div>
                 <div className="container mx-auto px-4 relative z-10">
-                    <div className="text-center max-w-3xl mx-auto mb-16">
-                        <h2 className="text-3xl md:text-4xl font-bold text-white mb-6 capitalize tracking-tight">Our Partners</h2>
-                        <div className="h-1.5 w-24 bg-primary mx-auto rounded-full"></div>
-                        <p className="text-gray-400 mt-6 md:text-lg">We work with the UK's leading property portals and regulatory bodies.</p>
+                    <div className="flex flex-col items-center justify-center mb-12 text-center">
+                        <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
+                            <span className="capitalize text-outline text-white">Our Partners</span>
+                        </h2>
+                        <span className="h-1 w-24 bg-primary rounded-full"></span>
                     </div>
+                    <p className="text-gray-400 mt-6 md:text-lg">We work with the UK's leading property portals and regulatory bodies.</p>
+                </div>
 
+                <div className="container mx-auto px-4 relative z-10">
                     <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-7 gap-8 items-center justify-center opacity-70 hover:opacity-100 transition-opacity duration-500 max-w-6xl mx-auto">
                         {[
                             { src: "/icons/rightmove.jpg", alt: "Rightmove" },

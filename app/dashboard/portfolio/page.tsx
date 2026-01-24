@@ -150,12 +150,12 @@ export default function PortfolioPage() {
   return (
     <div className="space-y-6">
       {/* Header */}
-      <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between space-y-4 sm:space-y-0">
+      <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between space-y-4 sm:space-y-0 pb-6 border-b border-border/50">
         <div>
-          <h1 className="text-3xl font-bold text-gray-900">
+          <h1 className="text-3xl font-black text-foreground uppercase tracking-tight">
             Investment Portfolio
           </h1>
-          <p className="text-gray-600">
+          <p className="text-muted-foreground font-medium italic">
             Manage and track your property investments
           </p>
         </div>
@@ -163,7 +163,7 @@ export default function PortfolioPage() {
 
       {/* Portfolio Summary */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-        <Card>
+        <Card className="rounded-3xl border-border/50 shadow-xl overflow-hidden">
           <CardHeader className="pb-2">
             <CardTitle className="text-sm font-medium text-gray-600">
               Total Investment
@@ -173,7 +173,7 @@ export default function PortfolioPage() {
             <div className="text-2xl font-bold">{formatPrice(totalInvestment)}</div>
           </CardContent>
         </Card>
-        <Card>
+        <Card className="rounded-3xl border-border/50 shadow-xl overflow-hidden">
           <CardHeader className="pb-2">
             <CardTitle className="text-sm font-medium text-gray-600">
               Current Value
@@ -188,7 +188,7 @@ export default function PortfolioPage() {
             </div>
           </CardContent>
         </Card>
-        <Card>
+        <Card className="rounded-3xl border-border/50 shadow-xl overflow-hidden">
           <CardHeader className="pb-2">
             <CardTitle className="text-sm font-medium text-gray-600">
               Total Returns
@@ -198,7 +198,7 @@ export default function PortfolioPage() {
             <div className="text-2xl font-bold">{formatPrice(totalReturns)}</div>
           </CardContent>
         </Card>
-        <Card>
+        <Card className="rounded-3xl border-border/50 shadow-xl overflow-hidden">
           <CardHeader className="pb-2">
             <CardTitle className="text-sm font-medium text-gray-600">
               Average ROI
@@ -211,7 +211,7 @@ export default function PortfolioPage() {
       </div>
 
       {/* Filters */}
-      <Card>
+      <Card className="rounded-3xl border-border/50 shadow-xl overflow-hidden">
         <CardContent className="p-6">
           <div className="flex flex-col lg:flex-row lg:items-center space-y-4 lg:space-y-0 lg:space-x-4">
             <div className="flex-1">
@@ -253,7 +253,7 @@ export default function PortfolioPage() {
 
       {/* Portfolio Items */}
       {filteredPortfolio.length === 0 ? (
-        <Card>
+        <Card className="rounded-3xl border-border/50 shadow-xl overflow-hidden">
           <CardContent className="p-12 text-center">
             <Briefcase className="w-12 h-12 text-gray-400 mx-auto mb-4" />
             <h3 className="text-lg font-medium text-gray-900 mb-2">
@@ -269,13 +269,15 @@ export default function PortfolioPage() {
       ) : (
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
           {filteredPortfolio.map((item) => (
-            <Card key={item.id} className="hover:shadow-lg transition-shadow">
+            <Card key={item.id} className="rounded-3xl border-border/50 shadow-xl overflow-hidden group hover:shadow-2xl transition-all duration-300">
               <CardHeader>
                 <div className="flex items-start justify-between">
                   <div className="flex-1">
-                    <CardTitle className="text-lg mb-2">{item.property}</CardTitle>
-                    <div className="flex items-center text-gray-600 mb-2">
-                      <MapPin className="w-4 h-4 mr-1" />
+                    <CardTitle className="text-lg font-bold text-foreground mb-2 uppercase tracking-tight">
+                      {item.property}
+                    </CardTitle>
+                    <div className="flex items-center text-muted-foreground font-medium italic mb-2">
+                      <MapPin className="w-4 h-4 mr-1 text-primary" />
                       {item.location}
                     </div>
                     <div className="flex items-center space-x-2">
@@ -354,12 +356,12 @@ export default function PortfolioPage() {
                   <div className="text-sm">{formatDate(item.purchaseDate)}</div>
                 </div>
 
-                <div className="flex space-x-2 pt-2">
-                  <Button variant="outline" className="flex-1" size="sm">
+                <div className="flex space-x-2 pt-4 border-t border-border/50 mt-4">
+                  <Button variant="outline" className="flex-1 rounded-xl border-border/50 hover:bg-primary/5 hover:border-primary/50 transition-all font-bold uppercase tracking-widest text-[10px]" size="sm">
                     <Eye className="w-4 h-4 mr-2" />
                     View Details
                   </Button>
-                  <Button variant="outline" className="flex-1" size="sm">
+                  <Button variant="outline" className="flex-1 rounded-xl border-border/50 hover:bg-primary/5 hover:border-primary/50 transition-all font-bold uppercase tracking-widest text-[10px]" size="sm">
                     <TrendingUp className="w-4 h-4 mr-2" />
                     Analytics
                   </Button>

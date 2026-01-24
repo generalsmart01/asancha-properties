@@ -161,7 +161,7 @@ export default function SavedPropertiesPage() {
   const [searchTerm, setSearchTerm] = useState("");
   const [sortBy, setSortBy] = useState("savedDate");
   const [filterType, setFilterType] = useState("all");
-  
+
   // API State Management
   const [properties, setProperties] = useState<any[]>([]);
   const [loading, setLoading] = useState(true);
@@ -174,7 +174,7 @@ export default function SavedPropertiesPage() {
       try {
         setLoading(true);
         setError(null);
-        
+
         // TODO: Replace with actual API call
         // const response = await clientDashboardApi.getSavedProperties({
         //   page: 1,
@@ -182,7 +182,7 @@ export default function SavedPropertiesPage() {
         //   search: searchTerm,
         // });
         // setProperties(response.data);
-        
+
         // Temporary: Use mock data
         const mockData = getSavedProperties();
         setProperties(mockData);
@@ -220,17 +220,17 @@ export default function SavedPropertiesPage() {
 
   const handleRemoveSelected = async () => {
     if (selectedProperties.length === 0) return;
-    
+
     try {
       setRemoving(true);
-      
+
       // TODO: Replace with actual API call
       // await Promise.all(
       //   selectedProperties.map((id) =>
       //     clientDashboardApi.toggleSaveProperty(id)
       //   )
       // );
-      
+
       // Temporary: Remove from local state
       setProperties((prev) =>
         prev.filter((p) => !selectedProperties.includes(p.id))
@@ -313,7 +313,7 @@ export default function SavedPropertiesPage() {
   if (error && properties.length === 0) {
     return (
       <div className="space-y-6">
-        <Card>
+        <Card className="rounded-3xl border-border/50 shadow-xl overflow-hidden">
           <CardContent className="p-12 text-center">
             <AlertCircle className="w-12 h-12 text-red-400 mx-auto mb-4" />
             <h3 className="text-lg font-medium text-gray-900 mb-2">
@@ -333,10 +333,10 @@ export default function SavedPropertiesPage() {
   return (
     <div className="space-y-6">
       {/* Header */}
-      <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between space-y-4 sm:space-y-0">
+      <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between space-y-4 sm:space-y-0 pb-6 border-b border-border/50">
         <div>
-          <h1 className="text-3xl font-bold text-gray-900">Saved Properties</h1>
-          <p className="text-gray-600">
+          <h1 className="text-3xl font-black text-foreground uppercase tracking-tight">Saved Properties</h1>
+          <p className="text-muted-foreground font-medium italic">
             {loading ? (
               <span className="flex items-center">
                 <RefreshCw className="w-4 h-4 animate-spin mr-2" />
@@ -388,7 +388,7 @@ export default function SavedPropertiesPage() {
       )}
 
       {/* Filters and Search */}
-      <Card>
+      <Card className="rounded-3xl border-border/50 shadow-xl overflow-hidden">
         <CardContent className="p-6">
           <div className="flex flex-col lg:flex-row lg:items-center space-y-4 lg:space-y-0 lg:space-x-4">
             {/* Search */}
@@ -469,7 +469,7 @@ export default function SavedPropertiesPage() {
 
       {/* Properties Grid/List */}
       {filteredProperties.length === 0 ? (
-        <Card>
+        <Card className="rounded-3xl border-border/50 shadow-xl overflow-hidden">
           <CardContent className="p-12 text-center">
             <Heart className="w-12 h-12 text-gray-400 mx-auto mb-4" />
             <h3 className="text-lg font-medium text-gray-900 mb-2">
@@ -494,14 +494,11 @@ export default function SavedPropertiesPage() {
           }
         >
           {filteredProperties.map((property) => (
-            <Card
-              key={property.id}
-              className="group hover:shadow-lg transition-shadow"
-            >
+            <Card className="rounded-3xl border-border/50 shadow-xl overflow-hidden group hover:shadow-2xl transition-all duration-300">
               <div className="relative">
                 {/* Property Image */}
                 <div className="aspect-video bg-gray-200 rounded-t-lg overflow-hidden">
-                  <div className="w-full h-full bg-gradient-to-br from-blue-100 to-blue-200 flex items-center justify-center">
+                  <div className="w-full h-full bg-linear-to-br from-blue-100 to-blue-200 flex items-center justify-center">
                     <MapPin className="w-12 h-12 text-blue-400" />
                   </div>
                 </div>
@@ -513,8 +510,8 @@ export default function SavedPropertiesPage() {
                     property.bmvScore >= 80
                       ? "default"
                       : property.bmvScore >= 60
-                      ? "secondary"
-                      : "destructive"
+                        ? "secondary"
+                        : "destructive"
                   }
                 >
                   BMV: {property.bmvScore}
@@ -571,13 +568,13 @@ export default function SavedPropertiesPage() {
                 <div className="space-y-3">
                   {/* Price and Title */}
                   <div>
-                    <div className="text-2xl font-bold text-gray-900">
+                    <div className="text-2xl font-black text-primary">
                       {formatPrice(property.price)}
                     </div>
-                    <div className="text-sm text-gray-500">
+                    <div className="text-[10px] font-bold text-muted-foreground uppercase tracking-widest mt-1">
                       ${property.pricePerSqft}/sqft
                     </div>
-                    <h3 className="text-lg font-semibold text-gray-900 mt-1">
+                    <h3 className="text-lg font-bold text-foreground mt-2 uppercase tracking-tight">
                       {property.title}
                     </h3>
                   </div>
@@ -606,14 +603,14 @@ export default function SavedPropertiesPage() {
 
                   {/* Features */}
                   <div className="flex flex-wrap gap-1">
-                    {property.features.slice(0, 3).map((feature, index) => (
+                    {property.features?.slice(0, 3).map((feature: any, index: number) => (
                       <Badge key={index} variant="outline" className="text-xs">
                         {feature}
                       </Badge>
                     ))}
-                    {property.features.length > 3 && (
+                    {(property.features?.length || 0) > 3 && (
                       <Badge variant="outline" className="text-xs">
-                        +{property.features.length - 3} more
+                        +{(property.features?.length || 0) - 3} more
                       </Badge>
                     )}
                   </div>
@@ -631,14 +628,14 @@ export default function SavedPropertiesPage() {
                   </div>
 
                   {/* Action Buttons */}
-                  <div className="flex space-x-2 pt-2">
-                    <Button asChild className="flex-1">
+                  <div className="flex space-x-2 pt-4 border-t border-border/50 mt-4">
+                    <Button asChild className="primary-btn flex-1 rounded-xl font-bold uppercase tracking-widest text-xs shadow-lg shadow-primary/20">
                       <Link href={`/properties/${property.id}`}>
                         <Eye className="w-4 h-4 mr-2" />
                         View Details
                       </Link>
                     </Button>
-                    <Button variant="outline" asChild>
+                    <Button variant="outline" asChild className="rounded-xl border-border/50 hover:bg-primary/5 hover:border-primary/50 transition-all">
                       <Link
                         href={`/dashboard/bookings/new?property=${property.id}`}
                       >

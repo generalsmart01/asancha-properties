@@ -38,9 +38,10 @@ function ClientDashboard() {
   return (
     <div className="space-y-8">
       {/* Welcome Section */}
-      <div className="bg-gradient-to-r from-primary to-gold-800 rounded-lg p-6 text-white">
-        <h1 className="text-3xl font-bold mb-2">Welcome back!</h1>
-        <p className="text-gray-200">
+      <div className="bg-primary rounded-3xl p-8 text-white shadow-xl shadow-primary/20 relative overflow-hidden">
+        <div className="absolute top-0 right-0 h-32 w-32 bg-white/5 rounded-full -mr-16 -mt-16" />
+        <h1 className="text-3xl font-bold mb-2 uppercase tracking-tight">Welcome back!</h1>
+        <p className="text-white/80 font-medium italic">
           Here&apos;s what&apos;s happening with your property search and
           investments.
         </p>
@@ -48,50 +49,50 @@ function ClientDashboard() {
 
       {/* Quick Stats */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-        <Card>
+        <Card className="rounded-3xl border-border/50 shadow-lg hover:shadow-xl transition-all">
           <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-            <CardTitle className="text-sm font-medium">
+            <CardTitle className="text-xs font-black text-muted-foreground uppercase tracking-widest">
               Saved Properties
             </CardTitle>
-            <Heart className="h-4 w-4 text-muted-foreground" />
+            <Heart className="h-4 w-4 text-primary" />
           </CardHeader>
           <CardContent>
-            <div className="text-2xl font-bold">{mockData.savedProperties}</div>
-            <p className="text-xs text-muted-foreground">+2 from last week</p>
+            <div className="text-3xl font-black text-foreground">{mockData.savedProperties}</div>
+            <p className="text-[10px] font-bold text-green-600 uppercase mt-1">+2 from last week</p>
           </CardContent>
         </Card>
 
-        <Card>
+        <Card className="rounded-3xl border-border/50 shadow-lg hover:shadow-xl transition-all">
           <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-            <CardTitle className="text-sm font-medium">
+            <CardTitle className="text-xs font-black text-muted-foreground uppercase tracking-widest">
               Upcoming Bookings
             </CardTitle>
             <Calendar className="h-4 w-4 text-muted-foreground" />
           </CardHeader>
           <CardContent>
-            <div className="text-2xl font-bold">
+            <div className="text-3xl font-black text-foreground">
               {mockData.upcomingBookingsCount}
             </div>
             <p className="text-xs text-muted-foreground">Next: Jan 15, 2024</p>
           </CardContent>
         </Card>
 
-        <Card>
+        <Card className="rounded-3xl border-border/50 shadow-lg hover:shadow-xl transition-all">
           <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
             <CardTitle className="text-sm font-medium">BMV Analyses</CardTitle>
             <Search className="h-4 w-4 text-muted-foreground" />
           </CardHeader>
           <CardContent>
-            <div className="text-2xl font-bold">
+            <div className="text-3xl font-black text-foreground">
               {mockData.bmvAnalysesCount}
             </div>
             <p className="text-xs text-muted-foreground">This month</p>
           </CardContent>
         </Card>
 
-        <Card>
+        <Card className="rounded-3xl border-border/50 shadow-lg hover:shadow-xl transition-all">
           <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-            <CardTitle className="text-sm font-medium">
+            <CardTitle className="text-xs font-black text-muted-foreground uppercase tracking-widest">
               Recent Searches
             </CardTitle>
             <TrendingUp className="h-4 w-4 text-muted-foreground" />
@@ -105,12 +106,12 @@ function ClientDashboard() {
 
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
         {/* Recent Properties */}
-        <Card>
+        <Card className="rounded-3xl border-border/50 shadow-lg hover:shadow-xl transition-all">
           <CardHeader>
             <div className="flex items-center justify-between">
-              <CardTitle>Recent Properties</CardTitle>
-              <Button variant="outline" size="sm" asChild>
-                <Link href="/properties">View All</Link>
+              <CardTitle className="text-xl font-bold text-foreground uppercase tracking-tight">Recent Properties</CardTitle>
+              <Button variant="ghost" size="sm" className="text-primary font-black uppercase tracking-widest text-[10px]" asChild>
+                <Link href="/properties">View All <Plus size={12} className="ml-1" /></Link>
               </Button>
             </div>
             <CardDescription>
@@ -121,7 +122,7 @@ function ClientDashboard() {
             {mockData.recentProperties.map((property) => (
               <div
                 key={property.id}
-                className="flex items-center space-x-4 p-4 border rounded-lg hover:bg-gray-50"
+                className="flex items-center space-x-4 p-4 border border-border/50 rounded-2xl hover:bg-muted/50 transition-all group"
               >
                 <div className="w-16 h-16 bg-gray-200 rounded-lg flex items-center justify-center">
                   <MapPin className="w-6 h-6 text-gray-400" />
@@ -144,14 +145,14 @@ function ClientDashboard() {
                   </div>
                 </div>
                 <div className="flex flex-col items-end space-y-1">
-                  <div className="text-sm font-medium text-gray-900">
+                  <div className="text-sm font-black text-primary">
                     {property.price}
                   </div>
                   <div className="flex items-center space-x-2">
                     {property.saved && (
                       <Heart className="w-4 h-4 text-red-500 fill-current" />
                     )}
-                    <span className="text-xs text-gray-500">
+                    <span className="text-[10px] font-bold text-muted-foreground uppercase">
                       {property.viewed}
                     </span>
                   </div>
@@ -162,7 +163,7 @@ function ClientDashboard() {
         </Card>
 
         {/* Upcoming Bookings */}
-        <Card>
+        <Card className="rounded-3xl border-border/50 shadow-lg hover:shadow-xl transition-all">
           <CardHeader>
             <div className="flex items-center justify-between">
               <CardTitle>Upcoming Bookings</CardTitle>
@@ -209,7 +210,7 @@ function ClientDashboard() {
       </div>
 
       {/* BMV Analysis Summary */}
-      <Card>
+      <Card className="rounded-3xl border-border/50 shadow-lg hover:shadow-xl transition-all">
         <CardHeader>
           <div className="flex items-center justify-between">
             <CardTitle>Recent BMV Analyses</CardTitle>
@@ -268,14 +269,14 @@ function ClientDashboard() {
       </Card>
 
       {/* Quick Actions */}
-      <Card>
+      <Card className="rounded-3xl border-border/50 shadow-lg hover:shadow-xl transition-all">
         <CardHeader>
           <CardTitle>Quick Actions</CardTitle>
           <CardDescription>Common tasks and shortcuts</CardDescription>
         </CardHeader>
         <CardContent>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-            <Button asChild className="h-20 flex flex-col space-y-2">
+            <Button asChild className="primary-btn h-20 flex flex-col space-y-2 rounded-2xl shadow-lg shadow-primary/20">
               <Link href="/properties">
                 <Search className="w-6 h-6" />
                 <span>Search Properties</span>
@@ -284,7 +285,7 @@ function ClientDashboard() {
             <Button
               asChild
               variant="outline"
-              className="h-20 flex flex-col space-y-2"
+              className="h-20 flex flex-col space-y-2 rounded-2xl border-border/50 hover:border-primary/50 hover:bg-primary/5 transition-all"
             >
               <Link href="/tools/bmv-analyzer">
                 <TrendingUp className="w-6 h-6" />
@@ -294,7 +295,7 @@ function ClientDashboard() {
             <Button
               asChild
               variant="outline"
-              className="h-20 flex flex-col space-y-2"
+              className="h-20 flex flex-col space-y-2 rounded-2xl border-border/50 hover:border-primary/50 hover:bg-primary/5 transition-all"
             >
               <Link href="/dashboard/saved">
                 <Heart className="w-6 h-6" />
@@ -313,16 +314,17 @@ function AgentDashboard() {
   return (
     <div className="space-y-8">
       {/* Welcome Section */}
-      <div className="bg-gradient-to-r from-blue-600 to-blue-800 rounded-lg p-6 text-white">
-        <h1 className="text-3xl font-bold mb-2">Welcome back, Agent!</h1>
-        <p className="text-blue-100">
+      <div className="bg-primary rounded-3xl p-8 text-white shadow-xl shadow-primary/20 relative overflow-hidden">
+        <div className="absolute top-0 right-0 h-32 w-32 bg-white/5 rounded-full -mr-16 -mt-16" />
+        <h1 className="text-3xl font-bold mb-2 uppercase tracking-tight">Welcome back, Agent!</h1>
+        <p className="text-white/80 font-medium italic">
           Manage your listings, bookings, and client relationships
         </p>
       </div>
 
       {/* Quick Stats */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-        <Card>
+        <Card className="rounded-3xl border-border/50 shadow-lg hover:shadow-xl transition-all">
           <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
             <CardTitle className="text-sm font-medium">Active Listings</CardTitle>
             <Building2 className="h-4 w-4 text-muted-foreground" />
@@ -333,7 +335,7 @@ function AgentDashboard() {
           </CardContent>
         </Card>
 
-        <Card>
+        <Card className="rounded-3xl border-border/50 shadow-lg hover:shadow-xl transition-all">
           <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
             <CardTitle className="text-sm font-medium">Upcoming Bookings</CardTitle>
             <Calendar className="h-4 w-4 text-muted-foreground" />
@@ -344,7 +346,7 @@ function AgentDashboard() {
           </CardContent>
         </Card>
 
-        <Card>
+        <Card className="rounded-3xl border-border/50 shadow-lg hover:shadow-xl transition-all">
           <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
             <CardTitle className="text-sm font-medium">Total Clients</CardTitle>
             <Users className="h-4 w-4 text-muted-foreground" />
@@ -355,7 +357,7 @@ function AgentDashboard() {
           </CardContent>
         </Card>
 
-        <Card>
+        <Card className="rounded-3xl border-border/50 shadow-lg hover:shadow-xl transition-all">
           <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
             <CardTitle className="text-sm font-medium">Monthly Revenue</CardTitle>
             <DollarSign className="h-4 w-4 text-muted-foreground" />
@@ -369,7 +371,7 @@ function AgentDashboard() {
 
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
         {/* Recent Listings */}
-        <Card>
+        <Card className="rounded-3xl border-border/50 shadow-lg hover:shadow-xl transition-all">
           <CardHeader>
             <div className="flex items-center justify-between">
               <CardTitle>Recent Listings</CardTitle>
@@ -412,7 +414,7 @@ function AgentDashboard() {
         </Card>
 
         {/* Upcoming Bookings */}
-        <Card>
+        <Card className="rounded-3xl border-border/50 shadow-lg hover:shadow-xl transition-all">
           <CardHeader>
             <div className="flex items-center justify-between">
               <CardTitle>Upcoming Bookings</CardTitle>
@@ -455,14 +457,14 @@ function AgentDashboard() {
       </div>
 
       {/* Quick Actions */}
-      <Card>
+      <Card className="rounded-3xl border-border/50 shadow-lg hover:shadow-xl transition-all">
         <CardHeader>
           <CardTitle>Quick Actions</CardTitle>
           <CardDescription>Common tasks and shortcuts</CardDescription>
         </CardHeader>
         <CardContent>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-            <Button asChild className="h-20 flex flex-col space-y-2">
+            <Button asChild className="primary-btn h-20 flex flex-col space-y-2 rounded-2xl shadow-lg shadow-primary/20">
               <Link href="/dashboard/listings">
                 <Plus className="w-6 h-6" />
                 <span>Add New Listing</span>
@@ -471,7 +473,7 @@ function AgentDashboard() {
             <Button
               asChild
               variant="outline"
-              className="h-20 flex flex-col space-y-2"
+              className="h-20 flex flex-col space-y-2 rounded-2xl border-border/50 hover:border-primary/50 hover:bg-primary/5 transition-all"
             >
               <Link href="/dashboard/clients">
                 <Users className="w-6 h-6" />
@@ -481,7 +483,7 @@ function AgentDashboard() {
             <Button
               asChild
               variant="outline"
-              className="h-20 flex flex-col space-y-2"
+              className="h-20 flex flex-col space-y-2 rounded-2xl border-border/50 hover:border-primary/50 hover:bg-primary/5 transition-all"
             >
               <Link href="/dashboard/analytics">
                 <BarChart3 className="w-6 h-6" />
@@ -500,16 +502,17 @@ function InvestorDashboard() {
   return (
     <div className="space-y-8">
       {/* Welcome Section */}
-      <div className="bg-gradient-to-r from-green-600 to-green-800 rounded-lg p-6 text-white">
-        <h1 className="text-3xl font-bold mb-2">Welcome back, Investor!</h1>
-        <p className="text-green-100">
+      <div className="bg-primary rounded-3xl p-8 text-white shadow-xl shadow-primary/20 relative overflow-hidden">
+        <div className="absolute top-0 right-0 h-32 w-32 bg-white/5 rounded-full -mr-16 -mt-16" />
+        <h1 className="text-3xl font-bold mb-2 uppercase tracking-tight">Welcome back, Investor!</h1>
+        <p className="text-white/80 font-medium italic">
           Track your investments, returns, and opportunities
         </p>
       </div>
 
       {/* Quick Stats */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-        <Card>
+        <Card className="rounded-3xl border-border/50 shadow-lg hover:shadow-xl transition-all">
           <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
             <CardTitle className="text-sm font-medium">Total Portfolio Value</CardTitle>
             <Briefcase className="h-4 w-4 text-muted-foreground" />
@@ -520,7 +523,7 @@ function InvestorDashboard() {
           </CardContent>
         </Card>
 
-        <Card>
+        <Card className="rounded-3xl border-border/50 shadow-lg hover:shadow-xl transition-all">
           <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
             <CardTitle className="text-sm font-medium">Active Investments</CardTitle>
             <Building2 className="h-4 w-4 text-muted-foreground" />
@@ -531,7 +534,7 @@ function InvestorDashboard() {
           </CardContent>
         </Card>
 
-        <Card>
+        <Card className="rounded-3xl border-border/50 shadow-lg hover:shadow-xl transition-all">
           <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
             <CardTitle className="text-sm font-medium">Monthly Returns</CardTitle>
             <TrendingUp className="h-4 w-4 text-muted-foreground" />
@@ -542,7 +545,7 @@ function InvestorDashboard() {
           </CardContent>
         </Card>
 
-        <Card>
+        <Card className="rounded-3xl border-border/50 shadow-lg hover:shadow-xl transition-all">
           <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
             <CardTitle className="text-sm font-medium">BMV Analyses</CardTitle>
             <Calculator className="h-4 w-4 text-muted-foreground" />
@@ -556,7 +559,7 @@ function InvestorDashboard() {
 
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
         {/* Investment Opportunities */}
-        <Card>
+        <Card className="rounded-3xl border-border/50 shadow-lg hover:shadow-xl transition-all">
           <CardHeader>
             <div className="flex items-center justify-between">
               <CardTitle>Investment Opportunities</CardTitle>
@@ -598,7 +601,7 @@ function InvestorDashboard() {
         </Card>
 
         {/* Recent Payouts */}
-        <Card>
+        <Card className="rounded-3xl border-border/50 shadow-lg hover:shadow-xl transition-all">
           <CardHeader>
             <div className="flex items-center justify-between">
               <CardTitle>Recent Payouts</CardTitle>
@@ -639,14 +642,14 @@ function InvestorDashboard() {
       </div>
 
       {/* Quick Actions */}
-      <Card>
+      <Card className="rounded-3xl border-border/50 shadow-lg hover:shadow-xl transition-all">
         <CardHeader>
           <CardTitle>Quick Actions</CardTitle>
           <CardDescription>Common tasks and shortcuts</CardDescription>
         </CardHeader>
         <CardContent>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-            <Button asChild className="h-20 flex flex-col space-y-2">
+            <Button asChild className="primary-btn h-20 flex flex-col space-y-2 rounded-2xl shadow-lg shadow-primary/20">
               <Link href="/dashboard/opportunities">
                 <TrendingUp className="w-6 h-6" />
                 <span>Find Opportunities</span>
@@ -655,7 +658,7 @@ function InvestorDashboard() {
             <Button
               asChild
               variant="outline"
-              className="h-20 flex flex-col space-y-2"
+              className="h-20 flex flex-col space-y-2 rounded-2xl border-border/50 hover:border-primary/50 hover:bg-primary/5 transition-all"
             >
               <Link href="/dashboard/bmv">
                 <Calculator className="w-6 h-6" />
@@ -665,7 +668,7 @@ function InvestorDashboard() {
             <Button
               asChild
               variant="outline"
-              className="h-20 flex flex-col space-y-2"
+              className="h-20 flex flex-col space-y-2 rounded-2xl border-border/50 hover:border-primary/50 hover:bg-primary/5 transition-all"
             >
               <Link href="/dashboard/portfolio">
                 <Briefcase className="w-6 h-6" />
@@ -684,16 +687,17 @@ function SuperAdminDashboard() {
   return (
     <div className="space-y-8">
       {/* Welcome Section */}
-      <div className="bg-gradient-to-r from-purple-600 to-purple-800 rounded-lg p-6 text-white">
-        <h1 className="text-3xl font-bold mb-2">Super Admin Dashboard</h1>
-        <p className="text-purple-100">
+      <div className="bg-primary rounded-3xl p-8 text-white shadow-xl shadow-primary/20 relative overflow-hidden">
+        <div className="absolute top-0 right-0 h-32 w-32 bg-white/5 rounded-full -mr-16 -mt-16" />
+        <h1 className="text-3xl font-bold mb-2 uppercase tracking-tight">Super Admin Dashboard</h1>
+        <p className="text-white/80 font-medium italic">
           Full system control and management
         </p>
       </div>
 
       {/* Quick Stats */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-        <Card>
+        <Card className="rounded-3xl border-border/50 shadow-lg hover:shadow-xl transition-all">
           <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
             <CardTitle className="text-sm font-medium">Total Users</CardTitle>
             <Users className="h-4 w-4 text-muted-foreground" />
@@ -704,7 +708,7 @@ function SuperAdminDashboard() {
           </CardContent>
         </Card>
 
-        <Card>
+        <Card className="rounded-3xl border-border/50 shadow-lg hover:shadow-xl transition-all">
           <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
             <CardTitle className="text-sm font-medium">Total Properties</CardTitle>
             <Building2 className="h-4 w-4 text-muted-foreground" />
@@ -715,7 +719,7 @@ function SuperAdminDashboard() {
           </CardContent>
         </Card>
 
-        <Card>
+        <Card className="rounded-3xl border-border/50 shadow-lg hover:shadow-xl transition-all">
           <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
             <CardTitle className="text-sm font-medium">System Revenue</CardTitle>
             <DollarSign className="h-4 w-4 text-muted-foreground" />
@@ -726,7 +730,7 @@ function SuperAdminDashboard() {
           </CardContent>
         </Card>
 
-        <Card>
+        <Card className="rounded-3xl border-border/50 shadow-lg hover:shadow-xl transition-all">
           <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
             <CardTitle className="text-sm font-medium">Active Agents</CardTitle>
             <Briefcase className="h-4 w-4 text-muted-foreground" />
@@ -739,14 +743,14 @@ function SuperAdminDashboard() {
       </div>
 
       {/* System Management */}
-      <Card>
+      <Card className="rounded-3xl border-border/50 shadow-lg hover:shadow-xl transition-all">
         <CardHeader>
           <CardTitle>System Management</CardTitle>
           <CardDescription>Control all aspects of the platform</CardDescription>
         </CardHeader>
         <CardContent>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-            <Button asChild className="h-20 flex flex-col space-y-2">
+            <Button asChild className="primary-btn h-20 flex flex-col space-y-2 rounded-2xl shadow-lg shadow-primary/20">
               <Link href="/admin/users">
                 <Users className="w-6 h-6" />
                 <span>Manage Users</span>
@@ -776,16 +780,17 @@ function AdminDashboard() {
   return (
     <div className="space-y-8">
       {/* Welcome Section */}
-      <div className="bg-gradient-to-r from-blue-600 to-blue-800 rounded-lg p-6 text-white">
-        <h1 className="text-3xl font-bold mb-2">Admin Dashboard</h1>
-        <p className="text-blue-100">
+      <div className="bg-primary rounded-3xl p-8 text-white shadow-xl shadow-primary/20 relative overflow-hidden">
+        <div className="absolute top-0 right-0 h-32 w-32 bg-white/5 rounded-full -mr-16 -mt-16" />
+        <h1 className="text-3xl font-bold mb-2 uppercase tracking-tight">Admin Dashboard</h1>
+        <p className="text-white/80 font-medium italic">
           Manage properties, users, and platform content
         </p>
       </div>
 
       {/* Quick Stats */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-        <Card>
+        <Card className="rounded-3xl border-border/50 shadow-lg hover:shadow-xl transition-all">
           <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
             <CardTitle className="text-sm font-medium">Total Properties</CardTitle>
             <Building2 className="h-4 w-4 text-muted-foreground" />
@@ -796,7 +801,7 @@ function AdminDashboard() {
           </CardContent>
         </Card>
 
-        <Card>
+        <Card className="rounded-3xl border-border/50 shadow-lg hover:shadow-xl transition-all">
           <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
             <CardTitle className="text-sm font-medium">Active Listings</CardTitle>
             <FileText className="h-4 w-4 text-muted-foreground" />
@@ -807,7 +812,7 @@ function AdminDashboard() {
           </CardContent>
         </Card>
 
-        <Card>
+        <Card className="rounded-3xl border-border/50 shadow-lg hover:shadow-xl transition-all">
           <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
             <CardTitle className="text-sm font-medium">Total Users</CardTitle>
             <Users className="h-4 w-4 text-muted-foreground" />
@@ -818,7 +823,7 @@ function AdminDashboard() {
           </CardContent>
         </Card>
 
-        <Card>
+        <Card className="rounded-3xl border-border/50 shadow-lg hover:shadow-xl transition-all">
           <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
             <CardTitle className="text-sm font-medium">Pending Reviews</CardTitle>
             <Eye className="h-4 w-4 text-muted-foreground" />
@@ -831,14 +836,14 @@ function AdminDashboard() {
       </div>
 
       {/* Quick Actions */}
-      <Card>
+      <Card className="rounded-3xl border-border/50 shadow-lg hover:shadow-xl transition-all">
         <CardHeader>
           <CardTitle>Quick Actions</CardTitle>
           <CardDescription>Common administrative tasks</CardDescription>
         </CardHeader>
         <CardContent>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-            <Button asChild className="h-20 flex flex-col space-y-2">
+            <Button asChild className="primary-btn h-20 flex flex-col space-y-2 rounded-2xl shadow-lg shadow-primary/20">
               <Link href="/admin/properties">
                 <Building2 className="w-6 h-6" />
                 <span>Manage Properties</span>
@@ -868,7 +873,7 @@ function GuestDashboard() {
   return (
     <div className="space-y-8">
       {/* Welcome Section */}
-      <div className="bg-gradient-to-r from-gray-600 to-gray-800 rounded-lg p-6 text-white">
+      <div className="bg-linear-to-r from-gray-600 to-gray-800 rounded-lg p-6 text-white">
         <h1 className="text-3xl font-bold mb-2">Welcome, Guest!</h1>
         <p className="text-gray-100">
           Explore our properties and create an account for full access
@@ -891,7 +896,7 @@ function GuestDashboard() {
       </Card>
 
       {/* Quick Actions */}
-      <Card>
+      <Card className="rounded-3xl border-border/50 shadow-lg hover:shadow-xl transition-all">
         <CardHeader>
           <CardTitle>What You Can Do</CardTitle>
           <CardDescription>Available features for guest users</CardDescription>

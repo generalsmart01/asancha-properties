@@ -61,7 +61,7 @@ const SinglePropertyPage = async ({ params }: PageProps) => {
                                     {property.propertyType}
                                 </span>
                             </div>
-                            <h1 className="text-3xl md:text-5xl lg:text-6xl font-black text-white mb-4 tracking-tight leading-tight uppercase">
+                            <h1 className="text-3xl md:text-5xl lg:text-6xl font-bold text-white mb-4 tracking-tight leading-tight uppercase drop-shadow-2xl">
                                 {property.title}
                             </h1>
                             <div className="flex items-center gap-2 text-white/80 text-lg uppercase tracking-wider font-medium">
@@ -123,11 +123,13 @@ const SinglePropertyPage = async ({ params }: PageProps) => {
 
                             {/* Description */}
                             <div className="space-y-8 mb-16">
-                                <h2 className="text-4xl font-black text-foreground uppercase tracking-tight flex items-center gap-4">
-                                    <Building2 className="text-primary" size={32} />
-                                    Description
-                                </h2>
-                                <div className="h-1.5 w-24 bg-primary rounded-full"></div>
+                                <div className="flex flex-col items-start justify-start mb-8">
+                                    <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4 flex items-center gap-4">
+                                        <Building2 className="text-primary" size={32} />
+                                        <span className="capitalize text-outline text-foreground dark:text-white text-left">Description</span>
+                                    </h2>
+                                    <span className="h-1 w-24 bg-primary rounded-full"></span>
+                                </div>
                                 <p className="text-lg text-muted-foreground leading-relaxed italic border-l-4 border-primary/20 pl-8">
                                     {property.description}
                                 </p>
@@ -149,9 +151,14 @@ const SinglePropertyPage = async ({ params }: PageProps) => {
 
                             {/* Features */}
                             <div className="space-y-12 mb-20">
-                                <div className="flex items-center gap-4">
-                                    <h2 className="text-4xl font-black text-foreground uppercase tracking-tight">Key Features</h2>
-                                    <div className="h-px grow bg-border"></div>
+                                <div className="flex flex-col items-start justify-start mb-12">
+                                    <div className="flex items-center gap-4 mb-4">
+                                        <h2 className="text-3xl md:text-4xl font-bold text-foreground">
+                                            <span className="capitalize text-outline text-foreground dark:text-white text-left">Key Features</span>
+                                        </h2>
+                                        <div className="h-px grow bg-border"></div>
+                                    </div>
+                                    <span className="h-1 w-24 bg-primary rounded-full"></span>
                                 </div>
                                 <div className="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-6">
                                     {property.features.map((feature, idx) => (
@@ -169,9 +176,14 @@ const SinglePropertyPage = async ({ params }: PageProps) => {
 
                             {/* Nearby Section */}
                             <div className="space-y-12 pb-12">
-                                <div className="flex items-center gap-4">
-                                    <h2 className="text-2xl font-black text-foreground uppercase tracking-tight">Nearby Amenities</h2>
-                                    <div className="h-px grow bg-border"></div>
+                                <div className="flex flex-col items-start justify-start mb-12">
+                                    <div className="flex items-center gap-4 mb-4">
+                                        <h2 className="text-2xl font-bold text-foreground">
+                                            <span className="capitalize text-outline text-foreground dark:text-white text-left">Nearby Amenities</span>
+                                        </h2>
+                                        <div className="h-px grow bg-border"></div>
+                                    </div>
+                                    <span className="h-1 w-20 bg-primary rounded-full"></span>
                                 </div>
                                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                                     {property.nearby.map((place, idx) => (

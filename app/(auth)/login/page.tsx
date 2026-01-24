@@ -4,13 +4,11 @@ import Link from "next/link";
 import AuthLayout from "../App-layout";
 import { useState } from "react";
 import { useRouter } from "next/navigation";
-import { useUser } from "@/components/providers/UserProvider";
-import { DUMMY_USERS } from "@/constants/users";
-import { Button } from "@/components/ui/button";
+import { useUser, DUMMY_USERS } from "@/contexts/UserContext";
 
 export default function LoginPage() {
   const router = useRouter();
-  const { setUser, setRole } = useUser();
+  const { login } = useUser();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
@@ -21,37 +19,23 @@ export default function LoginPage() {
     setLoading(true);
     setError("");
 
-    // Simulate API delay
-    await new Promise((resolve) => setTimeout(resolve, 800));
+    const result = await login(email, password);
 
-    const foundUser = DUMMY_USERS.find(
-      (u) => u.email === email && u.password === password
-    );
-
-    if (foundUser) {
-      const [firstName, lastName] = foundUser.name.split(" ");
-      setUser({
-        id: foundUser.id,
-        email: foundUser.email,
-        firstName: firstName || "User",
-        lastName: lastName || "",
-        role: foundUser.role,
-        avatar: foundUser.avatar,
-        isActive: true,
-        createdAt: new Date().toISOString(),
-        updatedAt: new Date().toISOString(),
-        phone: "",
-      });
-      setRole(foundUser.role);
-
-      // Redirect based on role
-      if (foundUser.role === 'client' || foundUser.role === 'guest') {
-        router.push('/dashboard');
-      } else {
-        router.push('/admin/dashboard');
+    if (result.success) {
+      // Get the user from local storage or context if needed, 
+      // but the login method handles setting the user.
+      const storedUser = localStorage.getItem("currentUser");
+      if (storedUser) {
+        const user = JSON.parse(storedUser);
+        // Redirect based on role
+        if (user.role === 'client' || user.role === 'guest') {
+          router.push('/dashboard');
+        } else {
+          router.push('/dashboard');
+        }
       }
     } else {
-      setError("Invalid credentials. check constants/users.ts");
+      setError(result.message || "Invalid credentials.");
       setLoading(false);
     }
   };
@@ -140,7 +124,7 @@ export default function LoginPage() {
       <div className="mt-8 border-t pt-6">
         <p className="text-sm text-gray-500 mb-3 text-center">Quick Login (Dev Only)</p>
         <div className="grid grid-cols-2 gap-2">
-          {DUMMY_USERS.map(u => (
+          {DUMMY_USERS.map((u: typeof DUMMY_USERS[0]) => (
             <button
               key={u.id}
               type="button"

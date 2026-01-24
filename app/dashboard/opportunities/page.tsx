@@ -137,19 +137,19 @@ export default function OpportunitiesPage() {
   return (
     <div className="space-y-6">
       {/* Header */}
-      <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between space-y-4 sm:space-y-0">
+      <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between space-y-4 sm:space-y-0 pb-6 border-b border-border/50">
         <div>
-          <h1 className="text-3xl font-bold text-gray-900">
+          <h1 className="text-3xl font-black text-foreground uppercase tracking-tight">
             Investment Opportunities
           </h1>
-          <p className="text-gray-600">
+          <p className="text-muted-foreground font-medium italic">
             Discover high-potential properties for your investment portfolio
           </p>
         </div>
       </div>
 
       {/* Filters */}
-      <Card>
+      <Card className="rounded-3xl border-border/50 shadow-xl overflow-hidden">
         <CardContent className="p-6">
           <div className="flex flex-col lg:flex-row lg:items-center space-y-4 lg:space-y-0 lg:space-x-4">
             <div className="flex-1">
@@ -191,7 +191,7 @@ export default function OpportunitiesPage() {
 
       {/* Opportunities Grid */}
       {filteredOpportunities.length === 0 ? (
-        <Card>
+        <Card className="rounded-3xl border-border/50 shadow-xl overflow-hidden">
           <CardContent className="p-12 text-center">
             <TrendingUp className="w-12 h-12 text-gray-400 mx-auto mb-4" />
             <h3 className="text-lg font-medium text-gray-900 mb-2">
@@ -207,13 +207,15 @@ export default function OpportunitiesPage() {
       ) : (
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
           {filteredOpportunities.map((opportunity) => (
-            <Card key={opportunity.id} className="hover:shadow-lg transition-shadow">
+            <Card key={opportunity.id} className="rounded-3xl border-border/50 shadow-xl overflow-hidden group hover:shadow-2xl transition-all duration-300">
               <CardHeader>
                 <div className="flex items-start justify-between">
                   <div className="flex-1">
-                    <CardTitle className="text-lg mb-2">{opportunity.property}</CardTitle>
-                    <div className="flex items-center text-gray-600 mb-2">
-                      <MapPin className="w-4 h-4 mr-1" />
+                    <CardTitle className="text-lg font-bold text-foreground mb-2 uppercase tracking-tight">
+                      {opportunity.property}
+                    </CardTitle>
+                    <div className="flex items-center text-muted-foreground font-medium italic mb-2">
+                      <MapPin className="w-4 h-4 mr-1 text-primary" />
                       {opportunity.location}
                     </div>
                     <div className="flex items-center space-x-2">
@@ -222,8 +224,8 @@ export default function OpportunitiesPage() {
                           opportunity.riskLevel === "Low"
                             ? "default"
                             : opportunity.riskLevel === "Medium"
-                            ? "secondary"
-                            : "destructive"
+                              ? "secondary"
+                              : "destructive"
                         }
                       >
                         {opportunity.riskLevel} Risk
@@ -287,12 +289,12 @@ export default function OpportunitiesPage() {
                   <div className="text-sm">{formatDate(opportunity.postedDate)}</div>
                 </div>
 
-                <div className="flex space-x-2 pt-2">
-                  <Button variant="outline" className="flex-1" size="sm">
+                <div className="flex space-x-2 pt-4 border-t border-border/50 mt-4">
+                  <Button variant="outline" className="flex-1 rounded-xl border-border/50 hover:bg-primary/5 hover:border-primary/50 transition-all font-bold uppercase tracking-widest text-[10px]" size="sm">
                     <Eye className="w-4 h-4 mr-2" />
                     View Details
                   </Button>
-                  <Button className="flex-1" size="sm">
+                  <Button className="primary-btn flex-1 rounded-xl font-bold uppercase tracking-widest text-[10px] shadow-lg shadow-primary/20" size="sm">
                     <Calculator className="w-4 h-4 mr-2" />
                     Analyze
                     <ArrowRight className="w-4 h-4 ml-2" />
