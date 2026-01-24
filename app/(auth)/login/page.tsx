@@ -5,6 +5,7 @@ import AuthLayout from "../App-layout";
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 import { useUser, DUMMY_USERS } from "@/contexts/UserContext";
+import { toast } from "sonner";
 
 export default function LoginPage() {
   const router = useRouter();
@@ -22,6 +23,9 @@ export default function LoginPage() {
     const result = await login(email, password);
 
     if (result.success) {
+      toast.success("Login successful!", {
+        description: "Welcome back to your dashboard.",
+      });
       // Get the user from local storage or context if needed, 
       // but the login method handles setting the user.
       const storedUser = localStorage.getItem("currentUser");
@@ -35,7 +39,11 @@ export default function LoginPage() {
         }
       }
     } else {
-      setError(result.message || "Invalid credentials.");
+      const errorMessage = result.message || "Invalid credentials.";
+      setError(errorMessage);
+      toast.error("Login failed", {
+        description: errorMessage,
+      });
       setLoading(false);
     }
   };
@@ -121,22 +129,26 @@ export default function LoginPage() {
         </button>
       </form>
 
-      <div className="mt-8 border-t pt-6">
-        <p className="text-sm text-gray-500 mb-3 text-center">Quick Login (Dev Only)</p>
-        <div className="grid grid-cols-2 gap-2">
-          {DUMMY_USERS.map((u: typeof DUMMY_USERS[0]) => (
-            <button
-              key={u.id}
-              type="button"
-              onClick={() => fillCredentials(u)}
-              className="text-xs p-2 border rounded hover:bg-gray-50 text-left truncate"
-            >
-              <span className="font-semibold block">{u.role}</span>
-              {u.email}
-            </button>
-          ))}
+      {process.env.NODE_ENV !== "production" && (
+        <div className="mt-8 border-t pt-6">
+          <p className="text-sm text-gray-500 mb-3 text-center">
+            Quick Login (Dev Only)
+          </p>
+          <div className="grid grid-cols-2 gap-2">
+            {DUMMY_USERS.map((u: (typeof DUMMY_USERS)[0]) => (
+              <button
+                key={u.id}
+                type="button"
+                onClick={() => fillCredentials(u)}
+                className="text-xs p-2 border rounded hover:bg-gray-50 text-left truncate"
+              >
+                <span className="font-semibold block">{u.role}</span>
+                {u.email}
+              </button>
+            ))}
+          </div>
         </div>
-      </div>
+      )}
 
       <p className="mt-4 text-xs text-gray-500">
         Secure login—your data is protected with bank-level encryption.
