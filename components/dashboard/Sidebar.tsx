@@ -87,11 +87,11 @@ export function Sidebar({ mobileMenuOpen, onClose, collapsed, onToggleCollapse, 
           }`}>
           {!collapsed ? (
             <Link href="/" className="flex items-center">
-              <span className="text-xl font-black text-primary uppercase tracking-tighter">Asancha<span className="text-foreground italic">Properties</span></span>
+              <Image src="/logo.png" alt="Logo" width={80} height={80} />
             </Link>
           ) : (
             <Link href="/" className="flex items-center justify-center w-8 h-8">
-              <span className="text-lg font-black text-primary">A</span>
+              <Image src="/logo.png" alt="Logo" width={100} height={100} />
             </Link>
           )}
           <div className="flex items-center gap-2">

@@ -118,8 +118,8 @@ const FreeConsultationPage = () => {
 
             {/* Why Book Section */}
             <section className="py-24 bg-background">
-                <div className="container mx-auto px-4">
-                    <div className="grid lg:grid-cols-2 gap-20 items-center">
+                <div className="container mx-auto px-4 grid lg:grid-cols-2 gap-20 items-center">
+                    <div className="">
                         <div>
                             <div className="flex flex-col items-start justify-start mb-8">
                                 <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">

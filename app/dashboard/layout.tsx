@@ -120,7 +120,7 @@ function DashboardLayoutContent({ children }: ClientDashboardLayoutProps) {
                   <DropdownMenuTrigger asChild>
                     <button className="relative h-8 w-8 rounded-full border-0 hover:bg-none hover:shadow-lg cursor-pointer">
                       <Avatar className="h-8 w-8">
-                        <AvatarImage src={user.avatar} alt={user.name} />
+                        <AvatarImage src={user.avatar || "/avatar/"} alt={user.name} />
                         <AvatarFallback>{user.name.charAt(0)}</AvatarFallback>
                       </Avatar>
                     </button>
