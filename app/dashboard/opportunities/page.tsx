@@ -149,7 +149,7 @@ export default function OpportunitiesPage() {
       </div>
 
       {/* Filters */}
-      <Card className="rounded-3xl border-border/50 shadow-xl overflow-hidden">
+      <Card className="rounded-3xl border-border/50 shadow-xl">
         <CardContent className="p-6">
           <div className="flex flex-col lg:flex-row lg:items-center space-y-4 lg:space-y-0 lg:space-x-4">
             <div className="flex-1">

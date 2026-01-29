@@ -388,7 +388,7 @@ export default function SavedPropertiesPage() {
       )}
 
       {/* Filters and Search */}
-      <Card className="rounded-3xl border-border/50 shadow-xl overflow-hidden">
+      <Card className="rounded-3xl border-border/50 shadow-xl">
         <CardContent className="p-6">
           <div className="flex flex-col lg:flex-row lg:items-center space-y-4 lg:space-y-0 lg:space-x-4">
             {/* Search */}
@@ -494,7 +494,7 @@ export default function SavedPropertiesPage() {
           }
         >
           {filteredProperties.map((property) => (
-            <Card className="rounded-3xl border-border/50 shadow-xl overflow-hidden group hover:shadow-2xl transition-all duration-300">
+            <Card className="rounded-3xl border-border/50 shadow-xl group hover:shadow-2xl transition-all duration-300">
               <div className="relative">
                 {/* Property Image */}
                 <div className="aspect-video bg-gray-200 rounded-t-lg overflow-hidden">

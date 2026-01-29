@@ -211,12 +211,12 @@ export default function PortfolioPage() {
       </div>
 
       {/* Filters */}
-      <Card className="rounded-3xl border-border/50 shadow-xl overflow-hidden">
+      <Card className="rounded-3xl border-border/50 shadow-xl">
         <CardContent className="p-6">
           <div className="flex flex-col lg:flex-row lg:items-center space-y-4 lg:space-y-0 lg:space-x-4">
             <div className="flex-1">
               <div className="relative">
-                <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-4 h-4" />
+                <Search className="absolute z-50 left-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-4 h-4" />
                 <Input
                   placeholder="Search properties..."
                   value={searchTerm}
@@ -269,7 +269,7 @@ export default function PortfolioPage() {
       ) : (
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
           {filteredPortfolio.map((item) => (
-            <Card key={item.id} className="rounded-3xl border-border/50 shadow-xl overflow-hidden group hover:shadow-2xl transition-all duration-300">
+            <Card key={item.id} className="rounded-3xl border-border/50 shadow-xl group hover:shadow-2xl transition-all duration-300">
               <CardHeader>
                 <div className="flex items-start justify-between">
                   <div className="flex-1">

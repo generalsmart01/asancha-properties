@@ -241,7 +241,7 @@ export default function SettingsPage() {
 
         {/* Privacy Tab */}
         <TabsContent value="privacy" className="space-y-6">
-          <Card className="rounded-3xl border-border/50 shadow-xl overflow-hidden">
+          <Card className="rounded-3xl border-border/50 shadow-xl">
             <CardHeader>
               <CardTitle>Privacy Settings</CardTitle>
               <CardDescription>
@@ -320,7 +320,7 @@ export default function SettingsPage() {
 
         {/* Preferences Tab */}
         <TabsContent value="preferences" className="space-y-6">
-          <Card className="rounded-3xl border-border/50 shadow-xl overflow-hidden">
+          <Card className="rounded-3xl border-border/50 shadow-xl">
             <CardHeader>
               <CardTitle>Search Preferences</CardTitle>
               <CardDescription>

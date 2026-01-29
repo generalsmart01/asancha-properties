@@ -250,7 +250,7 @@ export default function BookingsPage() {
     const StatusIcon = bookingStatusConfig.icon;
 
     return (
-      <Card className="rounded-3xl border-border/50 shadow-xl overflow-hidden group hover:shadow-2xl transition-all duration-300">
+      <Card className="rounded-3xl border-border/50 shadow-xl group hover:shadow-2xl transition-all duration-300">
         <CardContent className="p-6">
           <div className="flex items-start space-x-4">
             {/* Property Image */}
@@ -411,7 +411,7 @@ export default function BookingsPage() {
       </div>
 
       {/* Filters */}
-      <Card className="rounded-3xl border-border/50 shadow-xl overflow-hidden">
+      <Card className="rounded-3xl border-border/50 shadow-xl">
         <CardContent className="p-6">
           <div className="flex flex-col lg:flex-row lg:items-center space-y-4 lg:space-y-0 lg:space-x-4">
             {/* Search */}

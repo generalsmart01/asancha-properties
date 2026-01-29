@@ -280,7 +280,7 @@ export default function PaymentsPage() {
     const StatusIcon = paymentStatusConfig.icon;
 
     return (
-      <Card className="rounded-3xl border-border/50 shadow-xl overflow-hidden group hover:shadow-2xl transition-all duration-300">
+      <Card className="rounded-3xl border-border/50 shadow-xl group hover:shadow-2xl transition-all duration-300">
         <CardContent className="p-6">
           <div className="flex items-start justify-between">
             <div className="flex-1 space-y-4">
@@ -448,7 +448,7 @@ export default function PaymentsPage() {
       </div>
 
       {/* Filters and Search */}
-      <Card className="rounded-3xl border-border/50 shadow-xl overflow-hidden">
+      <Card className="rounded-3xl border-border/50 shadow-xl">
         <CardHeader>
           <CardTitle>Payment History</CardTitle>
           <CardDescription>
