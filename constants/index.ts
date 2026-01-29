@@ -190,7 +190,7 @@ export const FILE_UPLOAD = {
 
 // SEO Defaults
 export const SEO_DEFAULTS = {
-  title: "Noornest Properties - Real Estate Investment Platform",
+  title: "asancha Properties - Real Estate Investment Platform",
   description:
     "Discover below-market-value properties and make smart real estate investments with our advanced BMV analyzer tool.",
   keywords: [
@@ -205,16 +205,16 @@ export const SEO_DEFAULTS = {
 
 // Social Media Links
 export const SOCIAL_LINKS = {
-  facebook: "https://facebook.com/noornestproperties",
-  twitter: "https://twitter.com/noornestproperties",
-  instagram: "https://instagram.com/noornestproperties",
-  linkedin: "https://linkedin.com/company/noornestproperties",
-  youtube: "https://youtube.com/noornestproperties",
+  facebook: "https://facebook.com/asanchaproperties",
+  twitter: "https://twitter.com/asanchaproperties",
+  instagram: "https://instagram.com/asanchaproperties",
+  linkedin: "https://linkedin.com/company/asanchaproperties",
+  youtube: "https://youtube.com/asanchaproperties",
 };
 
 // Contact Information
 export const CONTACT_INFO = {
-  email: "info@noornestproperties.com",
+  email: "info@asanchaproperties.com",
   phone: "+1 (555) 123-4567",
   address: "123 Real Estate Ave, Property City, PC 12345",
   hours: "Monday - Friday: 9:00 AM - 6:00 PM",

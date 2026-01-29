@@ -1,7 +1,7 @@
 "use client";
 
 import { resetPassword } from "@/lib/apiServices/authServices";
-import { CheckCircle, Lock, SquareCheck } from "lucide-react";
+import { CheckCircle, Lock, SquareCheck, Eye, EyeOff } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
@@ -241,7 +241,7 @@ const ForgotPasswordPage = () => {
           Forgot Password? Kindly provide your email to reset your password.
         </p>
 
-        <form className="space-y-4">
+        <form onSubmit={handleSubmit} className="space-y-4">
           <div>
             <label
               htmlFor="password"
@@ -249,13 +249,29 @@ const ForgotPasswordPage = () => {
             >
               New Password
             </label>
-            <input
-              id="password"
-              type="password"
-              required
-              placeholder="Enter your New Password"
-              className="mt-1 w-full rounded-md border border-gray-300 px-3 py-2 focus:ring-primary focus:border-primary"
-            />
+            <div className="relative mt-1">
+              <input
+                id="password"
+                name="password"
+                type={formData.showPassword ? "text" : "password"}
+                required
+                value={formData.password}
+                onChange={handleChange}
+                placeholder="Enter your New Password"
+                className="w-full rounded-md border border-gray-300 px-3 py-2 pr-10 focus:ring-primary focus:border-primary"
+              />
+              <button
+                type="button"
+                onClick={() => toggleVisibility("showPassword")}
+                className="absolute inset-y-0 right-0 flex items-center pr-3 text-gray-400 hover:text-primary transition-colors cursor-pointer"
+              >
+                {formData.showPassword ? (
+                  <EyeOff className="h-5 w-5" aria-hidden="true" />
+                ) : (
+                  <Eye className="h-5 w-5" aria-hidden="true" />
+                )}
+              </button>
+            </div>
           </div>
 
           <div>
@@ -265,20 +281,40 @@ const ForgotPasswordPage = () => {
             >
               Confirm New Password
             </label>
-            <input
-              id="confirmPassword"
-              type="password"
-              required
-              placeholder="Confirm your New Password"
-              className="mt-1 w-full rounded-md border border-gray-300 px-3 py-2 focus:ring-primary focus:border-primary"
-            />
+            <div className="relative mt-1">
+              <input
+                id="confirmPassword"
+                name="confirmPassword"
+                type={formData.showConfirmPassword ? "text" : "password"}
+                required
+                value={formData.confirmPassword}
+                onChange={handleChange}
+                placeholder="Confirm your New Password"
+                className="w-full rounded-md border border-gray-300 px-3 py-2 pr-10 focus:ring-primary focus:border-primary"
+              />
+              <button
+                type="button"
+                onClick={() => toggleVisibility("showConfirmPassword")}
+                className="absolute inset-y-0 right-0 flex items-center pr-3 text-gray-400 hover:text-primary transition-colors cursor-pointer"
+              >
+                {formData.showConfirmPassword ? (
+                  <EyeOff className="h-5 w-5" aria-hidden="true" />
+                ) : (
+                  <Eye className="h-5 w-5" aria-hidden="true" />
+                )}
+              </button>
+            </div>
+            {errors.confirmPassword && (
+              <p className="mt-1 text-sm text-red-600">{errors.confirmPassword}</p>
+            )}
           </div>
 
           <button
             type="submit"
-            className="w-full bg-primary text-background text-lg font-medium py-3 rounded-md hover:bg-primary/90 focus:outline-none focus:ring-2 focus:ring-primary cursor-pointer"
+            disabled={isLoading}
+            className="w-full bg-primary text-background text-lg font-medium py-3 rounded-md hover:bg-primary/90 focus:outline-none focus:ring-2 focus:ring-primary cursor-pointer disabled:opacity-70"
           >
-            Create New Password
+            {isLoading ? "Resetting..." : "Create New Password"}
           </button>
         </form>
 

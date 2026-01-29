@@ -48,9 +48,8 @@ export default function MegaMenu() {
             <Link
               href="/"
               aria-current={isActive("/") ? "page" : undefined}
-              className={`group inline-flex h-10 w-max items-center justify-center rounded-md px-4 py-2 text-sm font-medium transition-colors hover:text-primary focus:text-primary focus:outline-none disabled:pointer-events-none disabled:opacity-50 ${
-                isActive("/") ? "text-primary" : "text-muted-foreground"
-              }`}
+              className={`group inline-flex h-10 w-max items-center justify-center rounded-md px-4 py-2 text-sm font-medium transition-colors hover:text-primary focus:text-primary focus:outline-none disabled:pointer-events-none disabled:opacity-50 ${isActive("/") ? "text-primary" : "text-muted-foreground"
+                }`}
             >
               Home
             </Link>
@@ -62,10 +61,9 @@ export default function MegaMenu() {
           <NavigationMenuTrigger
             aria-label="Open Company menu"
             className={`h-10 relative
-              ${
-                isGroupActive("/about")
-                  ? "text-primary after:absolute after:left-3 after:right-3 after:-bottom-[2px] after:h-0.5 after:bg-primary"
-                  : "text-foreground"
+              ${isGroupActive("/about")
+                ? "text-primary after:absolute after:left-3 after:right-3 after:-bottom-[2px] after:h-0.5 after:bg-primary"
+                : "text-foreground"
               }
               data-[state=open]:text-primary
             `}
@@ -109,7 +107,7 @@ export default function MegaMenu() {
                     className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground"
                   >
                     <div className="text-sm font-medium leading-none">
-                      Why Choose Noornest
+                      Why Choose asancha
                     </div>
                     <p className="line-clamp-2 text-sm leading-snug text-muted-foreground">
                       Discover what makes us different
@@ -213,10 +211,9 @@ export default function MegaMenu() {
           <NavigationMenuTrigger
             aria-label="Open Properties menu"
             className={`h-10 relative
-              ${
-                isGroupActive("/properties")
-                  ? "text-primary after:absolute after:left-3 after:right-3 after:-bottom-[2px] after:h-0.5 after:bg-primary"
-                  : "text-foreground"
+              ${isGroupActive("/properties")
+                ? "text-primary after:absolute after:left-3 after:right-3 after:-bottom-[2px] after:h-0.5 after:bg-primary"
+                : "text-foreground"
               }
               data-[state=open]:text-primary
             `}
@@ -323,15 +320,14 @@ export default function MegaMenu() {
           <NavigationMenuTrigger
             aria-label="Open Blog menu"
             className={`h-10 relative
-              ${
-                isGroupActive([
-                  "/blog",
-                  "/blog/?=market-trends",
-                  "/blog/?=investment-education",
-                  "/blog/?=property-tips",
-                ])
-                  ? "text-primary after:absolute after:left-3 after:right-3 after:-bottom-[2px] after:h-0.5 after:bg-primary"
-                  : "text-foreground"
+              ${isGroupActive([
+              "/blog",
+              "/blog/?=market-trends",
+              "/blog/?=investment-education",
+              "/blog/?=property-tips",
+            ])
+                ? "text-primary after:absolute after:left-3 after:right-3 after:-bottom-[2px] after:h-0.5 after:bg-primary"
+                : "text-foreground"
               }
               data-[state=open]:text-primary
             `}
@@ -422,10 +418,9 @@ export default function MegaMenu() {
           <NavigationMenuTrigger
             aria-label="Open Investment Plans menu"
             className={`h-10 relative
-              ${
-                isGroupActive("#")
-                  ? "text-primary after:absolute after:left-3 after:right-3 after:-bottom-[2px] after:h-0.5 after:bg-primary"
-                  : "text-foreground"
+              ${isGroupActive("#")
+                ? "text-primary after:absolute after:left-3 after:right-3 after:-bottom-[2px] after:h-0.5 after:bg-primary"
+                : "text-foreground"
               }
               data-[state=open]:text-primary
             `}
@@ -558,10 +553,9 @@ export default function MegaMenu() {
           <NavigationMenuTrigger
             aria-label="Open Services menu"
             className={`h-10 relative
-              ${
-                isGroupActive("/services")
-                  ? "text-primary after:absolute after:left-3 after:right-3 after:-bottom-[2px] after:h-0.5 after:bg-primary"
-                  : "text-foreground"
+              ${isGroupActive("/services")
+                ? "text-primary after:absolute after:left-3 after:right-3 after:-bottom-[2px] after:h-0.5 after:bg-primary"
+                : "text-foreground"
               }
               data-[state=open]:text-primary
             `}
@@ -586,7 +580,7 @@ export default function MegaMenu() {
                     href="/services/property-solutions/property-management"
                     aria-current={
                       pathname ===
-                      "/services/property-solutions/property-management"
+                        "/services/property-solutions/property-management"
                         ? "page"
                         : undefined
                     }
@@ -606,7 +600,7 @@ export default function MegaMenu() {
                     href="/services/property-solutions/sales-and-marketing"
                     aria-current={
                       pathname ===
-                      "/services/property-solutions/sales-and-marketing"
+                        "/services/property-solutions/sales-and-marketing"
                         ? "page"
                         : undefined
                     }
@@ -626,7 +620,7 @@ export default function MegaMenu() {
                     href="/services/property-solutions/property-rentals-and-shortlets"
                     aria-current={
                       pathname ===
-                      "/services/property-solutions/property-rentals-and-shortlets"
+                        "/services/property-solutions/property-rentals-and-shortlets"
                         ? "page"
                         : undefined
                     }
@@ -646,7 +640,7 @@ export default function MegaMenu() {
                     href="/services/property-solutions/property-sourcing"
                     aria-current={
                       pathname ===
-                      "/services/property-solutions/property-sourcing"
+                        "/services/property-solutions/property-sourcing"
                         ? "page"
                         : undefined
                     }
@@ -672,7 +666,7 @@ export default function MegaMenu() {
                     href="/services/advisory-and-enhancements/valuation-and-due-diligence"
                     aria-current={
                       pathname ===
-                      "/services/advisory-and-enhancements/valuation-and-due-diligence"
+                        "/services/advisory-and-enhancements/valuation-and-due-diligence"
                         ? "page"
                         : undefined
                     }
@@ -692,7 +686,7 @@ export default function MegaMenu() {
                     href="/services/advisory-and-enhancements/investment-advisory"
                     aria-current={
                       pathname ===
-                      "/services/advisory-and-enhancements/investment-advisory"
+                        "/services/advisory-and-enhancements/investment-advisory"
                         ? "page"
                         : undefined
                     }
@@ -712,7 +706,7 @@ export default function MegaMenu() {
                     href="/services/advisory-and-enhancements/real-estate-consultancy"
                     aria-current={
                       pathname ===
-                      "/services/advisory-and-enhancements/real-estate-consultancy"
+                        "/services/advisory-and-enhancements/real-estate-consultancy"
                         ? "page"
                         : undefined
                     }
@@ -732,7 +726,7 @@ export default function MegaMenu() {
                     href="/services/advisory-and-enhancements/property-refurbishment-and-renovation"
                     aria-current={
                       pathname ===
-                      "/services/advisory-and-enhancements/property-refurbishment-and-renovation"
+                        "/services/advisory-and-enhancements/property-refurbishment-and-renovation"
                         ? "page"
                         : undefined
                     }
@@ -752,7 +746,7 @@ export default function MegaMenu() {
                     href="/services/advisory-and-enhancements/interior-design-and-furnishing"
                     aria-current={
                       pathname ===
-                      "/services/advisory-and-enhancements/interior-design-and-furnishing"
+                        "/services/advisory-and-enhancements/interior-design-and-furnishing"
                         ? "page"
                         : undefined
                     }

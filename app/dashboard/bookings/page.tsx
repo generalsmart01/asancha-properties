@@ -55,7 +55,7 @@ const mockBookings = [
     agent: {
       name: "Sarah Johnson",
       phone: "+1 (555) 123-4567",
-      email: "sarah@noornest.com",
+      email: "sarah@asancha.com",
       avatar: "/avatars/sarah-johnson.jpg",
     },
     date: "2024-01-15",
@@ -79,7 +79,7 @@ const mockBookings = [
     agent: {
       name: "Mike Chen",
       phone: "+1 (555) 987-6543",
-      email: "mike@noornest.com",
+      email: "mike@asancha.com",
       avatar: "/avatars/mike-chen.jpg",
     },
     date: "2024-01-18",
@@ -103,7 +103,7 @@ const mockBookings = [
     agent: {
       name: "Emily Davis",
       phone: "+1 (555) 456-7890",
-      email: "emily@noornest.com",
+      email: "emily@asancha.com",
       avatar: "/avatars/emily-davis.jpg",
     },
     date: "2024-01-20",
@@ -127,7 +127,7 @@ const mockBookings = [
     agent: {
       name: "David Wilson",
       phone: "+1 (555) 321-0987",
-      email: "david@noornest.com",
+      email: "david@asancha.com",
       avatar: "/avatars/david-wilson.jpg",
     },
     date: "2024-01-22",

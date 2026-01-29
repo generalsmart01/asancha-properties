@@ -190,7 +190,7 @@
       "author": {
         "id": "1",
         "name": "Sarah Johnson",
-        "email": "sarah@noornest.com",
+        "email": "sarah@asancha.com",
         "avatar": "/authors/sarah-johnson.jpg",
         "bio": "Senior Real Estate Analyst with 10+ years experience helping investors build successful portfolios."
       },
@@ -233,7 +233,7 @@
       "status": "published",
       "publishedAt": "2024-01-15T10:00:00Z",
       "seo": {
-        "title": "10 Essential Tips for First-Time Real Estate Investors | Noornest Properties",
+        "title": "10 Essential Tips for First-Time Real Estate Investors | asancha Properties",
         "description": "Learn the fundamental strategies every new real estate investor needs to know. Expert tips from industry professionals.",
         "keywords": [
           "real estate investment",
@@ -298,7 +298,7 @@
       "author": {
         "id": "2",
         "name": "Michael Chen",
-        "email": "michael@noornest.com",
+        "email": "michael@asancha.com",
         "avatar": "/authors/michael-chen.jpg",
         "bio": "BMV Analysis Expert and Property Investment Consultant"
       },
@@ -330,7 +330,7 @@
       "status": "published",
       "publishedAt": "2024-01-10T14:30:00Z",
       "seo": {
-        "title": "Understanding Below Market Value (BMV) Properties | Noornest Properties",
+        "title": "Understanding Below Market Value (BMV) Properties | asancha Properties",
         "description": "Complete guide to identifying and evaluating below market value properties for maximum investment returns.",
         "keywords": [
           "BMV properties",
@@ -373,7 +373,7 @@
       "author": {
         "id": "3",
         "name": "Emily Rodriguez",
-        "email": "emily@noornest.com",
+        "email": "emily@asancha.com",
         "avatar": "/authors/emily-rodriguez.jpg",
         "bio": "Market Research Director and Real Estate Economist"
       },
@@ -405,7 +405,7 @@
       "status": "published",
       "publishedAt": "2024-01-05T09:15:00Z",
       "seo": {
-        "title": "Real Estate Market Trends 2024 | Noornest Properties",
+        "title": "Real Estate Market Trends 2024 | asancha Properties",
         "description": "Expert analysis of real estate market trends and predictions for 2024. Stay ahead of the market.",
         "keywords": [
           "real estate trends 2024",
@@ -447,7 +447,7 @@
       "author": {
         "id": "4",
         "name": "David Thompson",
-        "email": "david@noornest.com",
+        "email": "david@asancha.com",
         "avatar": "/authors/david-thompson.jpg",
         "bio": "Property Management Specialist with 15+ years experience"
       },
@@ -479,7 +479,7 @@
       "status": "published",
       "publishedAt": "2024-01-01T08:00:00Z",
       "seo": {
-        "title": "Property Management Best Practices for Investors | Noornest Properties",
+        "title": "Property Management Best Practices for Investors | asancha Properties",
         "description": "Learn essential property management strategies to maximize rental income and minimize management headaches.",
         "keywords": [
           "property management",
@@ -544,7 +544,7 @@
       "author": {
         "id": "5",
         "name": "Jennifer Martinez",
-        "email": "jennifer@noornest.com",
+        "email": "jennifer@asancha.com",
         "avatar": "/authors/jennifer-martinez.jpg",
         "bio": "Mortgage Specialist and Real Estate Finance Expert"
       },
@@ -576,7 +576,7 @@
       "status": "published",
       "publishedAt": "2023-12-28T11:30:00Z",
       "seo": {
-        "title": "How to Finance Your First Buy-to-Let Property in London | Noornest Properties",
+        "title": "How to Finance Your First Buy-to-Let Property in London | asancha Properties",
         "description": "Complete guide to financing options for first-time buy-to-let investors in London. Learn about buy-to-let mortgages, stamp duty, and UK property investment.",
         "keywords": [
           "buy to let financing",
@@ -644,7 +644,7 @@
       "author": {
         "id": "6",
         "name": "Robert Kim",
-        "email": "robert@noornest.com",
+        "email": "robert@asancha.com",
         "avatar": "/authors/robert-kim.jpg",
         "bio": "Real Estate Attorney and Due Diligence Specialist"
       },
@@ -682,7 +682,7 @@
       "status": "published",
       "publishedAt": "2023-12-20T14:15:00Z",
       "seo": {
-        "title": "Complete Guide to Real Estate Due Diligence | Noornest Properties",
+        "title": "Complete Guide to Real Estate Due Diligence | asancha Properties",
         "description": "Learn the essential steps of due diligence before purchasing investment properties. Avoid costly mistakes with our comprehensive guide.",
         "keywords": [
           "real estate due diligence",
@@ -748,7 +748,7 @@
       "author": {
         "id": "7",
         "name": "Lisa Thompson",
-        "email": "lisa@noornest.com",
+        "email": "lisa@asancha.com",
         "avatar": "/authors/lisa-thompson.jpg",
         "bio": "CPA and Real Estate Tax Specialist"
       },
@@ -780,7 +780,7 @@
       "status": "published",
       "publishedAt": "2023-12-15T09:45:00Z",
       "seo": {
-        "title": "Tax Benefits of Real Estate Investment | Noornest Properties",
+        "title": "Tax Benefits of Real Estate Investment | asancha Properties",
         "description": "Discover the powerful tax advantages of real estate investing including depreciation, 1031 exchanges, and other tax strategies.",
         "keywords": [
           "real estate tax benefits",
@@ -823,7 +823,7 @@
       "author": {
         "id": "8",
         "name": "Marcus Johnson",
-        "email": "marcus@noornest.com",
+        "email": "marcus@asancha.com",
         "avatar": "/authors/marcus-johnson.jpg",
         "bio": "Market Research Analyst and Location Strategy Expert"
       },
@@ -861,7 +861,7 @@
       "status": "published",
       "publishedAt": "2023-12-10T16:20:00Z",
       "seo": {
-        "title": "Choosing the Right Location for Investment Properties | Noornest Properties",
+        "title": "Choosing the Right Location for Investment Properties | asancha Properties",
         "description": "Learn how to identify the best locations for investment properties based on market trends, demographics, and growth potential.",
         "keywords": [
           "investment property location",
@@ -904,7 +904,7 @@
       "author": {
         "id": "9",
         "name": "Amanda Foster",
-        "email": "amanda@noornest.com",
+        "email": "amanda@asancha.com",
         "avatar": "/authors/amanda-foster.jpg",
         "bio": "Real Estate Investment Strategist and Portfolio Manager"
       },
@@ -942,7 +942,7 @@
       "status": "published",
       "publishedAt": "2023-12-05T13:10:00Z",
       "seo": {
-        "title": "UK Buy-to-Let Investment Strategies for 2024 | Noornest Properties",
+        "title": "UK Buy-to-Let Investment Strategies for 2024 | asancha Properties",
         "description": "Explore the most effective UK buy-to-let investment strategies for 2024 including HMO investments, limited company structures, and London areas.",
         "keywords": [
           "uk buy to let strategies",
@@ -985,7 +985,7 @@
       "author": {
         "id": "10",
         "name": "Kevin Wilson",
-        "email": "kevin@noornest.com",
+        "email": "kevin@asancha.com",
         "avatar": "/authors/kevin-wilson.jpg",
         "bio": "Real Estate Investment Coach and Portfolio Manager"
       },
@@ -1023,7 +1023,7 @@
       "status": "published",
       "publishedAt": "2023-11-28T10:30:00Z",
       "seo": {
-        "title": "Common UK Buy-to-Let Investment Mistakes to Avoid | Noornest Properties",
+        "title": "Common UK Buy-to-Let Investment Mistakes to Avoid | asancha Properties",
         "description": "Learn from common UK buy-to-let investment mistakes. Discover pitfalls to avoid and protect your London property investment portfolio.",
         "keywords": [
           "uk buy to let mistakes",
@@ -1638,7 +1638,7 @@
       "bmvScore": 85,
       "agent": {
         "name": "Sarah Johnson",
-        "email": "sarah@noornest.com",
+        "email": "sarah@asancha.com",
         "phone": "+44 20 7123 4567",
         "avatar": "/agents/sarah-johnson.jpg"
       },
@@ -1660,7 +1660,7 @@
       "bmvScore": 72,
       "agent": {
         "name": "Mike Chen",
-        "email": "mike@noornest.com",
+        "email": "mike@asancha.com",
         "phone": "+1 (555) 234-5678",
         "avatar": "/agents/mike-chen.jpg"
       },
@@ -1685,7 +1685,7 @@
         "duration": 60,
         "agent": {
           "name": "Sarah Johnson",
-          "email": "sarah@noornest.com",
+          "email": "sarah@asancha.com",
           "phone": "+1 (555) 123-4567",
           "avatar": "/agents/sarah-johnson.jpg"
         },
@@ -1707,7 +1707,7 @@
         "duration": 45,
         "agent": {
           "name": "Mike Chen",
-          "email": "mike@noornest.com",
+          "email": "mike@asancha.com",
           "phone": "+1 (555) 234-5678",
           "avatar": "/agents/mike-chen.jpg"
         },
@@ -1731,7 +1731,7 @@
         "duration": 60,
         "agent": {
           "name": "Emily Rodriguez",
-          "email": "emily@noornest.com",
+          "email": "emily@asancha.com",
           "phone": "+1 (555) 345-6789",
           "avatar": "/agents/emily-rodriguez.jpg"
         },
@@ -1798,7 +1798,7 @@
       "agent": {
         "id": 1,
         "name": "Sarah Johnson",
-        "email": "sarah@noornest.com",
+        "email": "sarah@asancha.com",
         "phone": "+44 20 7123 4567",
         "avatar": "/agents/sarah-johnson.jpg",
         "rating": 4.8,
@@ -1924,7 +1924,7 @@
       "agent": {
         "id": 2,
         "name": "Michael Brown",
-        "email": "michael@noornest.com",
+        "email": "michael@asancha.com",
         "phone": "+44 20 7123 4568",
         "avatar": "/agents/michael-brown.jpg",
         "rating": 4.9,
@@ -2050,7 +2050,7 @@
       "agent": {
         "id": 3,
         "name": "Emma Wilson",
-        "email": "emma@noornest.com",
+        "email": "emma@asancha.com",
         "phone": "+44 20 7123 4569",
         "avatar": "/agents/emma-wilson.jpg",
         "rating": 4.7,
@@ -2173,7 +2173,7 @@
       "agent": {
         "id": 1,
         "name": "Sarah Johnson",
-        "email": "sarah@noornest.com",
+        "email": "sarah@asancha.com",
         "phone": "+44 20 7123 4567",
         "avatar": "/agents/sarah-johnson.jpg",
         "rating": 4.8,
@@ -2299,7 +2299,7 @@
       "agent": {
         "id": 2,
         "name": "Michael Brown",
-        "email": "michael@noornest.com",
+        "email": "michael@asancha.com",
         "phone": "+44 20 7123 4568",
         "avatar": "/agents/michael-brown.jpg",
         "rating": 4.9,
@@ -2425,7 +2425,7 @@
       "agent": {
         "id": 3,
         "name": "Emma Wilson",
-        "email": "emma@noornest.com",
+        "email": "emma@asancha.com",
         "phone": "+44 20 7123 4569",
         "avatar": "/agents/emma-wilson.jpg",
         "rating": 4.7,

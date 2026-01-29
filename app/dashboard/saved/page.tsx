@@ -66,7 +66,7 @@ const mockSavedProperties = [
     agent: {
       name: "Sarah Johnson",
       phone: "+1 (555) 123-4567",
-      email: "sarah@noornest.com",
+      email: "sarah@asancha.com",
     },
     features: ["Parking", "Balcony", "Gym", "Pool"],
     description:
@@ -93,7 +93,7 @@ const mockSavedProperties = [
     agent: {
       name: "Mike Chen",
       phone: "+1 (555) 987-6543",
-      email: "mike@noornest.com",
+      email: "mike@asancha.com",
     },
     features: ["Pool", "Garden", "Garage", "Fireplace"],
     description:
@@ -120,7 +120,7 @@ const mockSavedProperties = [
     agent: {
       name: "Emily Davis",
       phone: "+1 (555) 456-7890",
-      email: "emily@noornest.com",
+      email: "emily@asancha.com",
     },
     features: ["Parking", "Balcony", "Storage"],
     description:
@@ -147,7 +147,7 @@ const mockSavedProperties = [
     agent: {
       name: "David Wilson",
       phone: "+1 (555) 321-0987",
-      email: "david@noornest.com",
+      email: "david@asancha.com",
     },
     features: ["Parking", "Balcony", "Gym", "Concierge", "Rooftop"],
     description:

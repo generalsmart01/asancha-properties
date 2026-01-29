@@ -1,5 +1,5 @@
 /**
- * Noornest Properties Color Scheme
+ * asancha Properties Color Scheme
  *
  * Primary Color: #BFA14A (Gold/Bronze)
  * Secondary Color: #0A0A0A (Near Black)

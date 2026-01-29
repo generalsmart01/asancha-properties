@@ -1,5 +1,5 @@
 /**
- * Scroll Animation Utilities for Noornest Properties
+ * Scroll Animation Utilities for asancha Properties
  * Using Framer Motion for smooth, performant animations
  */
 
