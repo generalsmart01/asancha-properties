@@ -54,11 +54,20 @@ const SelectValue = ({ placeholder, value }: any) => {
     return <span>{value || placeholder}</span>
 }
 
-const SelectContent = ({ children, open, setOpen }: any) => {
+const SelectContent = ({ children, open, setOpen, onValueChange, value }: any) => {
     if (!open) return null
     return (
         <div className="absolute z-50 mt-1 max-h-60 w-full overflow-auto rounded-md border bg-popover p-1 text-popover-foreground shadow-md animate-in fade-in zoom-in-95">
-            {children}
+            {React.Children.map(children, (child) => {
+                if (React.isValidElement(child)) {
+                    return React.cloneElement(child as React.ReactElement<any>, {
+                        onValueChange,
+                        setOpen,
+                        selectedValue: value
+                    })
+                }
+                return child
+            })}
         </div>
     )
 }

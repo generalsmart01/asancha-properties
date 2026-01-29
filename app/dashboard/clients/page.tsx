@@ -264,7 +264,7 @@ export default function ClientsPage() {
           ) : (
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
               {filteredClients.map((client) => (
-                <Card className="rounded-3xl border-border/50 shadow-xl group hover:shadow-2xl transition-all duration-300">
+                <Card key={client.id} className="rounded-3xl border-border/50 shadow-xl group hover:shadow-2xl transition-all duration-300">
                   <CardHeader>
                     <div className="flex items-start justify-between">
                       <div className="flex items-center space-x-3">
