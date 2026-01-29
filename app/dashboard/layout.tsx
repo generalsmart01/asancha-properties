@@ -102,17 +102,52 @@ function DashboardLayoutContent({ children }: ClientDashboardLayoutProps) {
               </div> */}
 
               {/* Notifications */}
-              <Button variant="ghost" size="sm" className="relative">
-                <Bell className="w-5 h-5" />
-                {notifications > 0 && (
-                  <Badge
-                    variant="destructive"
-                    className="absolute -top-1 -right-1 h-5 w-5 flex items-center justify-center p-0 text-xs"
-                  >
-                    {notifications}
-                  </Badge>
-                )}
-              </Button>
+              <DropdownMenu>
+                <DropdownMenuTrigger asChild>
+                  <Button variant="ghost" size="sm" className="relative">
+                    <Bell className="w-5 h-5" />
+                    {notifications > 0 && (
+                      <Badge
+                        variant="destructive"
+                        className="absolute -top-1 -right-1 h-5 w-5 flex items-center justify-center p-0 text-xs"
+                      >
+                        {notifications}
+                      </Badge>
+                    )}
+                  </Button>
+                </DropdownMenuTrigger>
+                <DropdownMenuContent align="end" className="w-80">
+                  <DropdownMenuLabel>Notifications</DropdownMenuLabel>
+                  <DropdownMenuSeparator />
+                  <DropdownMenuItem className="cursor-pointer">
+                    <div className="flex flex-col gap-1">
+                      <p className="text-sm font-medium">New Booking Request</p>
+                      <p className="text-xs text-muted-foreground">John Doe requested a viewing for "Modern Apartment"</p>
+                      <p className="text-[10px] text-muted-foreground mt-1">2 mins ago</p>
+                    </div>
+                  </DropdownMenuItem>
+                  <DropdownMenuItem className="cursor-pointer">
+                    <div className="flex flex-col gap-1">
+                      <p className="text-sm font-medium">Payment Received</p>
+                      <p className="text-xs text-muted-foreground">Received £500.00 from Alice Smith</p>
+                      <p className="text-[10px] text-muted-foreground mt-1">1 hour ago</p>
+                    </div>
+                  </DropdownMenuItem>
+                  <DropdownMenuItem className="cursor-pointer">
+                    <div className="flex flex-col gap-1">
+                      <p className="text-sm font-medium">New Property Alert</p>
+                      <p className="text-xs text-muted-foreground">A new property matching your criteria was listed</p>
+                      <p className="text-[10px] text-muted-foreground mt-1">5 hours ago</p>
+                    </div>
+                  </DropdownMenuItem>
+                  <DropdownMenuSeparator />
+                  <DropdownMenuItem className="p-0">
+                    <Link href="/dashboard/notifications" className="flex w-full items-center justify-center py-2 text-primary font-medium cursor-pointer hover:bg-muted/50">
+                      View all notifications
+                    </Link>
+                  </DropdownMenuItem>
+                </DropdownMenuContent>
+              </DropdownMenu>
 
               {/* User Menu */}
               {user && (
