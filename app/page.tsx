@@ -327,7 +327,7 @@ export default function Home() {
           <div className="mt-16 text-center">
             <Link
               href="/free-consultation"
-              className="inline-flex items-center justify-center bg-primary hover:bg-primary-hover text-white font-bold py-4 px-10 rounded-full transition-all duration-300 shadow-xl hover:shadow-primary/20 hover:-translate-y-1"
+              className="inline-flex items-center justify-center bg-primary hover:bg-primary-hover text-white font-bold py-4 px-10 rounded-md transition-all duration-300 shadow-xl hover:shadow-primary/20 hover:-translate-y-1"
             >
               Request a Valuation
             </Link>
