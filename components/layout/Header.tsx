@@ -201,7 +201,7 @@ export const Header = () => {
                         {/* CTA Buttons - Desktop */}
                         <div className="hidden lg:flex items-center gap-4">
                             <ModeToggle />
-                            <Link href="/register" className="primary-btn text-sm px-4 py-2">Register</Link>
+                            <Link href="/get-started" className="primary-btn text-sm px-4 py-2">Get Started</Link>
 
                             {/* <Link href="/property-listings" className="primary-btn text-sm px-4 py-2">Available Properties</Link>
                             <Link href="/free-consultation" className="ghost-btn text-sm px-4 py-2">Free Consultation</Link> */}

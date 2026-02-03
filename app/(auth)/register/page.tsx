@@ -1,27 +1,67 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect, Suspense } from "react";
+import { useSearchParams } from "next/navigation";
 import AuthLayout from "../App-layout";
 import { Eye, EyeOff } from "lucide-react";
+import { UserRole } from "@/types";
+import { cn } from "@/lib/utils";
 
-export default function RegisterPage() {
+function RegisterForm() {
+  const searchParams = useSearchParams();
   const [showPassword, setShowPassword] = useState(false);
   const [email, setEmail] = useState("");
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
+  const [role, setRole] = useState<UserRole>("client");
+
+  useEffect(() => {
+    const roleParam = searchParams.get("role");
+    if (roleParam && ["client", "agent", "investor"].includes(roleParam)) {
+      setRole(roleParam as UserRole);
+    }
+  }, [searchParams]);
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
+    console.log("Registering as:", role);
     // Implementation placeholder
   };
 
+  const roles: { id: UserRole; label: string; description: string }[] = [
+    { id: "client", label: "Client", description: "Buying or renting" },
+    { id: "agent", label: "Agent", description: "Listing properties" },
+    { id: "investor", label: "Investor", description: "Analyzing deals" },
+  ];
+
   return (
-    <AuthLayout>
-      <h1 className="sr-only">Register to asancha</h1>
-      <p className="text-sm text-gray-600 mb-6">
-        Create an account to start saving properties, tracking bookings, and
-        accessing investment opportunities.
-      </p>
+    <div className="space-y-6">
+      <div className="flex flex-col space-y-2 text-center">
+        <h1 className="text-2xl font-bold tracking-tight">Create an account</h1>
+        <p className="text-sm text-muted-foreground">
+          Enter your email below to create your account
+        </p>
+      </div>
+
+      {/* Role Selector */}
+      <div className="grid grid-cols-3 gap-2 bg-muted p-1 rounded-lg">
+        {roles.map((r) => (
+          <button
+            key={r.id}
+            type="button"
+            onClick={() => setRole(r.id)}
+            className={cn(
+              "rounded-md px-2 py-2 text-sm font-medium transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2",
+              role === r.id
+                ? "bg-background text-foreground shadow-sm hover:bg-background/90"
+                : "hover:bg-background/50 text-muted-foreground"
+            )}
+          >
+            <span className="block">{r.label}</span>
+            <span className="text-[10px] hidden sm:block font-normal opacity-70">{r.description}</span>
+          </button>
+        ))}
+      </div>
 
       <form onSubmit={handleSubmit} className="space-y-4">
         <div>
@@ -95,9 +135,19 @@ export default function RegisterPage() {
           type="submit"
           className="w-full bg-primary text-background text-lg font-medium py-2 rounded-md hover:bg-primary/90 focus:outline-none focus:ring-2 focus:ring-primary cursor-pointer"
         >
-          Register
+          Register as {roles.find(r => r.id === role)?.label}
         </button>
       </form>
+    </div>
+  );
+}
+
+export default function RegisterPage() {
+  return (
+    <AuthLayout>
+      <Suspense fallback={<div className="text-center p-4">Loading form...</div>}>
+        <RegisterForm />
+      </Suspense>
     </AuthLayout>
   );
 }
