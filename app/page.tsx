@@ -185,7 +185,7 @@ export default function Home() {
           <span className="my-4 h-[3px] w-[20%] bg-[#333333] dark:bg-gray-400"></span>
         </div>
 
-        <div className="grid grid-cols-1 items-center gap-8 lg:grid-cols-2">
+        <div className="grid grid-cols-1 items-center gap-16 lg:grid-cols-2">
           <div className="px-2">
             <div className="pb-12">
               <h3 className="mb-4 text-2xl font-semibold">Exclusive Access to Below Market Value Opportunities</h3>
@@ -234,7 +234,7 @@ export default function Home() {
             <div className="relative h-[50vh] w-full lg:h-[95vh]">
               <Image src="/bg-img/Below-Market-Value-Properties-in-UK.webp"
                 alt="Below Market Value Property Investment Opportunities" className="rounded shadow-lg object-cover"
-                fill priority placeholder="blur" />
+                fill priority />
             </div>
           </div>
         </div>
