@@ -232,7 +232,7 @@ export default function Home() {
 
           <div className="h-full w-full">
             <div className="relative h-[50vh] w-full lg:h-[95vh]">
-              <Image src="/bg-img/Below-Market-Value-Properties-in-UK.avif"
+              <Image src="/bg-img/Below-Market-Value-Properties-in-UK.webp"
                 alt="Below Market Value Property Investment Opportunities" className="rounded shadow-lg object-cover"
                 fill priority placeholder="blur" />
             </div>
