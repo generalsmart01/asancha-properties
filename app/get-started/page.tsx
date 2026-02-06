@@ -50,7 +50,7 @@ export default function GetStartedPage() {
 
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
                     {roles.map((role) => (
-                        <Card key={role.id} className="relative overflow-hidden border-2 hover:border-primary/50 transition-all duration-300 hover:shadow-xl group">
+                        <Card key={role.id} className="relative overflow-hidden border-2 border-gray-200 hover:border-primary/70 transition-all duration-300 hover:shadow-xl group">
                             <CardHeader className="text-center pb-2">
                                 <div className={`mx-auto w-16 h-16 rounded-2xl flex items-center justify-center mb-4 ${role.color} transition-transform group-hover:scale-110 duration-300`}>
                                     <role.icon className="w-8 h-8" />

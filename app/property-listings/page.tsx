@@ -371,23 +371,67 @@ const PropertyListingPage = () => {
                                             </div>
                                         </div>
                                         <div className="p-6 flex-grow flex flex-col">
-                                            <h3 className="text-lg font-bold text-foreground mb-2 group-hover:text-primary transition-colors duration-300 line-clamp-1">{property.title}</h3>
+                                            {/* Review: Badge/Status Area */}
+                                            <div className="flex flex-wrap gap-2 mb-3">
+                                                {property.badges?.map((badge, i) => (
+                                                    <span key={i} className="bg-primary/10 text-primary text-[10px] font-bold px-2 py-1 rounded-md uppercase tracking-wider border border-primary/20">
+                                                        {badge}
+                                                    </span>
+                                                ))}
+                                            </div>
+
+                                            <h3 className="text-lg font-bold text-foreground mb-1 group-hover:text-primary transition-colors duration-300 line-clamp-1">{property.address}</h3>
                                             <div className="flex items-center gap-2 text-muted-foreground text-xs mb-4">
                                                 <MapPin size={12} className="text-primary" />
                                                 {property.location}
                                             </div>
+
+                                            {/* Financial Grid */}
+                                            <div className="grid grid-cols-2 gap-y-2 gap-x-4 mb-4 text-xs">
+                                                <div>
+                                                    <span className="text-muted-foreground block text-[10px] uppercase tracking-wider">Asking Price</span>
+                                                    <span className="font-bold text-foreground">{formatPrice(property.price)}</span>
+                                                </div>
+                                                {property.zooplaValuation && (
+                                                    <div>
+                                                        <span className="text-muted-foreground block text-[10px] uppercase tracking-wider">Zoopla Val.</span>
+                                                        <span className="font-bold text-foreground">{formatPrice(property.zooplaValuation)}</span>
+                                                    </div>
+                                                )}
+                                                {property.totalInvestment && (
+                                                    <div>
+                                                        <span className="text-muted-foreground block text-[10px] uppercase tracking-wider">Total Inv.</span>
+                                                        <span className="font-bold text-foreground">{formatPrice(property.totalInvestment)}</span>
+                                                    </div>
+                                                )}
+                                                {property.rentalIncome && (
+                                                    <div>
+                                                        <span className="text-muted-foreground block text-[10px] uppercase tracking-wider">Rent (pcm)</span>
+                                                        <span className="font-bold text-foreground">{formatPrice(property.rentalIncome)}</span>
+                                                    </div>
+                                                )}
+                                            </div>
+
                                             <div className="flex justify-between items-center pt-4 border-t border-border mt-auto">
-                                                <div className="flex items-center gap-1.5">
-                                                    <Bed size={14} className="text-primary" />
-                                                    <span className="text-[10px] font-bold text-foreground uppercase">{property.bedrooms} Bed</span>
+                                                {/* Bed/Bath/Sqft - Condensed */}
+                                                <div className="flex gap-3">
+                                                    <div className="flex items-center gap-1">
+                                                        <Bed size={14} className="text-primary" />
+                                                        <span className="text-[10px] font-bold text-foreground">{property.bedrooms}</span>
+                                                    </div>
+                                                    <div className="flex items-center gap-1">
+                                                        <Bath size={14} className="text-primary" />
+                                                        <span className="text-[10px] font-bold text-foreground">{property.bathrooms}</span>
+                                                    </div>
+                                                    <div className="flex items-center gap-1">
+                                                        <Move size={14} className="text-primary" />
+                                                        <span className="text-[10px] font-bold text-foreground">{property.sqft}</span>
+                                                    </div>
                                                 </div>
-                                                <div className="flex items-center gap-1.5">
-                                                    <Bath size={14} className="text-primary" />
-                                                    <span className="text-[10px] font-bold text-foreground uppercase">{property.bathrooms} Bath</span>
-                                                </div>
+
                                                 <Link
                                                     href={`/property-listings/${property.slug}`}
-                                                    className="text-primary hover:text-primary-hover text-[10px] font-black uppercase tracking-widest flex items-center gap-1 group/link"
+                                                    className="bg-primary text-white px-3 py-2 rounded-lg hover:bg-primary-hover text-[10px] font-black uppercase tracking-widest flex items-center gap-1 group/link transition-all"
                                                 >
                                                     Details
                                                     <Eye size={12} className="group-hover/link:scale-110 transition-transform" />

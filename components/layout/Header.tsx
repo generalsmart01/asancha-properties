@@ -105,12 +105,12 @@ export const Header = () => {
 
                         {/* Desktop Navigation */}
                         <nav className="hidden lg:flex items-center gap-8">
-                            <Link href="/" className="text-foreground hover:text-primary font-medium transition-colors">Home</Link>
-                            <Link href="/about-us" className="text-foreground hover:text-primary font-medium transition-colors">About Us</Link>
+                            <Link href="/" className="text-foreground hover:text-primary font-medium text-sm transition-colors">Home</Link>
+                            <Link href="/about-us" className="text-foreground hover:text-primary font-medium text-sm transition-colors">About Us</Link>
 
                             {/* Services Mega Menu */}
                             <div className="relative group">
-                                <button className="flex items-center gap-1 text-foreground hover:text-primary font-medium transition-colors py-8" aria-expanded="false" aria-haspopup="true">
+                                <button className="flex items-center gap-1 text-foreground hover:text-primary font-medium text-sm transition-colors py-8" aria-expanded="false" aria-haspopup="true">
                                     Services <ChevronDown size={14} className="transition-transform duration-200 group-hover:rotate-180" />
                                 </button>
                                 <div className="absolute top-full left-1/2 -translate-x-1/2 w-[600px] bg-card border border-border rounded-xl shadow-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 transform translate-y-2 group-hover:translate-y-0 overflow-hidden z-50">
@@ -173,11 +173,11 @@ export const Header = () => {
                                 </div>
                             </div>
 
-                            <Link href="/property-listings" className="text-foreground hover:text-primary font-medium transition-colors">Properties</Link>
+                            <Link href="/property-listings" className="text-foreground hover:text-primary font-medium text-sm transition-colors">Properties</Link>
 
                             {/* Tools Dropdown */}
                             <div className="relative group">
-                                <button className="flex items-center gap-1 text-foreground hover:text-primary font-medium transition-colors py-8" aria-expanded="false" aria-haspopup="true">
+                                <button className="flex items-center gap-1 text-foreground hover:text-primary font-medium text-sm transition-colors py-8" aria-expanded="false" aria-haspopup="true">
                                     Tools <ChevronDown size={14} className="transition-transform duration-200 group-hover:rotate-180" />
                                 </button>
                                 <div className="absolute top-full left-0 w-80 bg-card border border-border rounded-xl shadow-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 transform translate-y-2 group-hover:translate-y-0 overflow-hidden z-50">
@@ -195,13 +195,13 @@ export const Header = () => {
                                 </div>
                             </div>
 
-                            <Link href="/contact-us" className="text-foreground hover:text-primary font-medium transition-colors">Contact Us</Link>
+                            <Link href="/contact-us" className="text-foreground hover:text-primary font-medium text-sm transition-colors">Contact Us</Link>
                         </nav>
 
                         {/* CTA Buttons - Desktop */}
                         <div className="hidden lg:flex items-center gap-4">
+                            <Link href="/get-started" className="primary-btn text-sm px-4 py-1">Get Started</Link>
                             <ModeToggle />
-                            <Link href="/get-started" className="primary-btn text-sm px-4 py-2">Get Started</Link>
 
                             {/* <Link href="/property-listings" className="primary-btn text-sm px-4 py-2">Available Properties</Link>
                             <Link href="/free-consultation" className="ghost-btn text-sm px-4 py-2">Free Consultation</Link> */}
@@ -236,14 +236,14 @@ export const Header = () => {
                     </div>
 
                     <nav className="flex flex-col gap-2">
-                        <Link href="/" onClick={closeMenu} className="px-4 py-3 text-lg font-medium border-b border-border/50 hover:text-primary">Home</Link>
-                        <Link href="/about-us" onClick={closeMenu} className="px-4 py-3 text-lg font-medium border-b border-border/50 hover:text-primary">About Us</Link>
+                        <Link href="/" onClick={closeMenu} className="px-4 py-3 text-lg font-medium text-sm border-b border-border/50 hover:text-primary">Home</Link>
+                        <Link href="/about-us" onClick={closeMenu} className="px-4 py-3 text-lg font-medium text-sm border-b border-border/50 hover:text-primary">About Us</Link>
 
                         {/* Mobile Services Accordion */}
                         <div className="border-b border-border/50">
                             <button
                                 onClick={() => toggleDropdown("services")}
-                                className="w-full flex justify-between items-center px-4 py-3 text-lg font-medium hover:text-primary"
+                                className="w-full flex justify-between items-center px-4 py-3 text-lg font-medium text-sm hover:text-primary"
                                 aria-expanded={openDropdown === "services"}
                                 aria-controls="mobile-services-menu"
                             >
@@ -271,13 +271,13 @@ export const Header = () => {
                             </div>
                         </div>
 
-                        <Link href="/property-listings" onClick={closeMenu} className="px-4 py-3 text-lg font-medium border-b border-border/50 hover:text-primary">Properties</Link>
+                        <Link href="/property-listings" onClick={closeMenu} className="px-4 py-3 text-lg font-medium text-sm border-b border-border/50 hover:text-primary">Properties</Link>
 
                         {/* Mobile Tools Accordion */}
                         <div className="border-b border-border/50">
                             <button
                                 onClick={() => toggleDropdown("tools")}
-                                className="w-full flex justify-between items-center px-4 py-3 text-lg font-medium hover:text-primary"
+                                className="w-full flex justify-between items-center px-4 py-3 text-lg font-medium text-sm hover:text-primary"
                                 aria-expanded={openDropdown === "tools"}
                                 aria-controls="mobile-tools-menu"
                             >
@@ -290,7 +290,7 @@ export const Header = () => {
                             </div>
                         </div>
 
-                        <Link href="/contact" onClick={closeMenu} className="px-4 py-3 text-lg font-medium border-b border-border/50 hover:text-primary">Contact Us</Link>
+                        <Link href="/contact" onClick={closeMenu} className="px-4 py-3 text-lg font-medium text-sm border-b border-border/50 hover:text-primary">Contact Us</Link>
                     </nav>
 
                     <div className="mt-8 flex flex-col gap-4 px-4">

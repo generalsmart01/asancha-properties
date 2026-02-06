@@ -336,6 +336,7 @@ export interface MockProperty {
   pricePerSqft: number;
   location: string;
   address: string;
+  region?: string;
   propertyType: string;
   bedrooms: number;
   bathrooms: number;
@@ -371,6 +372,10 @@ export interface MockProperty {
     type: string;
     distance: string;
   }>;
+  schools?: Array<{
+    name: string;
+    distance: string;
+  }>;
   energyRating: string;
   councilTax: string;
   groundRent: number;
@@ -378,5 +383,25 @@ export interface MockProperty {
   leaseLength: number;
   createdAt: string;
   updatedAt: string;
+
+  // New Fields
+  badges?: string[];
+  tenure?: string;
+  strategy?: string;
+  occupancy?: string;
+  zooplaValuation?: number;
+  rentalIncome?: number;
+  totalInvestment?: number;
+  grossYield?: number;
+  netCashflow?: number;
+  epc?: string;
+  floodRisk?: string;
+  financials?: {
+    deposit: number;
+    brokerage: number;
+    stampDuty: number;
+    mortgage: number;
+    netAnnualCashflow: number;
+  };
 }
 export * from "./booking";

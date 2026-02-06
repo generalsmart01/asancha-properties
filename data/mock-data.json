@@ -1745,55 +1745,33 @@
   "properties": [
     {
       "id": 1,
-      "title": "Luxury 3-Bedroom Flat in Marylebone",
-      "slug": "luxury-3-bedroom-flat-marylebone",
-      "price": 650000,
-      "pricePerSqft": 541,
-      "location": "Marylebone, London",
-      "address": "123 Baker Street, Marylebone, London NW1 6XE",
-      "propertyType": "Flat",
-      "bedrooms": 3,
+      "title": "Investment Opportunity in Widnes",
+      "slug": "mersey-road-widnes",
+      "price": 92500,
+      "pricePerSqft": 107,
+      "location": "Widnes, North West",
+      "address": "Mersey Road, Widnes, WA8 0DT",
+      "region": "North West",
+      "propertyType": "Terraced House",
+      "bedrooms": 2,
       "bathrooms": 2,
-      "sqft": 1200,
-      "yearBuilt": 2020,
+      "sqft": 862,
+      "yearBuilt": 1995,
       "status": "For Sale",
-      "description": "Stunning 3-bedroom flat in the heart of Marylebone with modern finishes and excellent transport links. This beautifully presented property offers spacious living accommodation with high ceilings and large windows.",
+      "description": "Excellent investment opportunity in Widnes. This tenanted property offers immediate rental income and potential for capital appreciation.",
       "features": [
-        "Modern kitchen with integrated appliances",
-        "Master bedroom with en-suite",
-        "Private balcony",
-        "Concierge service",
-        "Underground parking",
-        "High-speed internet",
-        "Central heating",
-        "Double glazing"
+        "High Yield Investment",
+        "Tenanted Property",
+        "Close to Amenities",
+        "Recently Refurbished",
+        "Double Glazing",
+        "Central Heating"
       ],
       "images": [
         "/properties/peterborough/apt4/image-0-1024x1024.webp",
         "/properties/peterborough/apt4/image-1-1024x1024.webp",
         "/properties/peterborough/apt4/image-2-1024x1024.webp",
-        "/properties/peterborough/apt4/image-3-1024x1024.webp",
-        "/properties/peterborough/apt4/image-4-1024x1024.webp",
-        "/properties/peterborough/apt4/image-5-1024x1024.webp",
-        "/properties/peterborough/apt4/image-6-1024x1024.webp",
-        "/properties/peterborough/apt4/image-7-1024x1024.webp",
-        "/properties/peterborough/apt4/image-8-1024x1024.webp",
-        "/properties/peterborough/apt4/image-9-1024x1024.webp",
-        "/properties/peterborough/apt4/image-10-1024x1024.webp",
-        "/properties/peterborough/apt4/image-11-1024x1024.webp",
-        "/properties/peterborough/apt4/image-12-1024x1024.webp",
-        "/properties/peterborough/apt4/image-13-1024x1024.webp",
-        "/properties/peterborough/apt4/image-14-1024x1024.webp",
-        "/properties/peterborough/apt4/image-15-1024x1024.webp",
-        "/properties/peterborough/apt4/image-16-1024x1024.webp",
-        "/properties/peterborough/apt4/image-17-1024x1024.webp",
-        "/properties/peterborough/apt4/image-18-1024x1024.webp",
-        "/properties/peterborough/apt4/image-19-1024x1024.webp",
-        "/properties/peterborough/apt4/image-20-1024x1024.webp",
-        "/properties/peterborough/apt4/image-21-1024x1024.webp",
-        "/properties/peterborough/apt4/image-22-1024x1024.webp",
-        "/properties/peterborough/apt4/image-23-1024x1024.webp",
-        "/properties/peterborough/apt4/image-24-1024x1024.webp"
+        "/properties/peterborough/apt4/image-3-1024x1024.webp"
       ],
       "agent": {
         "id": 1,
@@ -1805,121 +1783,73 @@
         "reviews": 127
       },
       "coordinates": {
-        "latitude": 51.5208,
-        "longitude": -0.1556,
-        "postcode": "NW1 6XE",
-        "borough": "Westminster"
+        "latitude": 53.363,
+        "longitude": -2.728,
+        "postcode": "WA8 0DT",
+        "borough": "Halton"
       },
       "transport": [
         {
-          "name": "Baker Street",
-          "type": "Underground",
-          "lines": [
-            "Bakerloo",
-            "Circle",
-            "Hammersmith & City",
-            "Metropolitan"
-          ],
-          "distance": "2 min walk"
-        },
-        {
-          "name": "Regent's Park",
-          "type": "Underground",
-          "lines": [
-            "Bakerloo"
-          ],
-          "distance": "5 min walk"
-        },
-        {
-          "name": "Marylebone",
+          "name": "Widnes Station",
           "type": "Rail",
           "lines": [
-            "Chiltern"
+            "Northern"
           ],
-          "distance": "8 min walk"
+          "distance": "0.5 miles"
         }
       ],
       "nearby": [
         {
-          "name": "Regent's Park",
+          "name": "Victoria Park",
           "type": "Park",
-          "distance": "0.3 miles"
-        },
-        {
-          "name": "Oxford Street",
-          "type": "Shopping",
-          "distance": "0.5 miles"
-        },
-        {
-          "name": "Madame Tussauds",
-          "type": "Attraction",
           "distance": "0.2 miles"
-        },
-        {
-          "name": "Sainsbury's Local",
-          "type": "Supermarket",
-          "distance": "0.1 miles"
         }
       ],
-      "energyRating": "B",
-      "councilTax": "Band G",
+      "energyRating": "D",
+      "councilTax": "Band A",
       "groundRent": 0,
-      "serviceCharge": 2500,
-      "leaseLength": 125,
-      "createdAt": "2024-01-01T10:00:00Z",
-      "updatedAt": "2024-01-15T14:30:00Z"
+      "serviceCharge": 0,
+      "leaseLength": 999,
+      "createdAt": "2024-02-01T10:00:00Z",
+      "updatedAt": "2024-02-05T14:30:00Z",
+      "badges": [
+        "12.0% Discount",
+        "Tenanted",
+        "Leasehold"
+      ],
+      "zooplaValuation": 105000,
+      "totalInvestment": 29194,
+      "rentalIncome": 606,
+      "epc": "(2025) 64 (D) Potential C (75)"
     },
     {
       "id": 2,
-      "title": "Elegant 4-Bedroom House in Chelsea",
-      "slug": "elegant-4-bedroom-house-chelsea",
-      "price": 950000,
-      "pricePerSqft": 380,
-      "location": "Chelsea, London",
-      "address": "456 King's Road, Chelsea, London SW3 4LY",
-      "propertyType": "House",
-      "bedrooms": 4,
-      "bathrooms": 3,
-      "sqft": 2500,
-      "yearBuilt": 2018,
+      "title": "High Yield Terraced House",
+      "slug": "terraced-house-investment",
+      "price": 126000,
+      "pricePerSqft": 148,
+      "location": "North West",
+      "address": "Example Street, Town, Postcode",
+      "region": "North West",
+      "propertyType": "Terraced House",
+      "bedrooms": 3,
+      "bathrooms": 1,
+      "sqft": 851,
+      "yearBuilt": 1950,
       "status": "For Sale",
-      "description": "Magnificent 4-bedroom Victorian house in the heart of Chelsea. This stunning property has been beautifully renovated while retaining period features and offers exceptional living space.",
+      "description": "A fantastic buy-to-let opportunity with strong yields and a sitting tenant. Perfect for investors looking for immediate cash flow.",
       "features": [
-        "Victorian period features",
-        "Open plan kitchen/dining",
-        "Private garden",
-        "Master suite with dressing room",
-        "Home office",
-        "Wine cellar",
-        "Original fireplaces",
-        "High ceilings"
+        "Freehold Tenure",
+        "Strong Rental Yield",
+        "Tenanted",
+        "Low Flood Risk",
+        "Near Schools"
       ],
       "images": [
-        "/properties/peterborough/apt4/image-0-1024x1024.webp",
-        "/properties/peterborough/apt4/image-1-1024x1024.webp",
-        "/properties/peterborough/apt4/image-2-1024x1024.webp",
-        "/properties/peterborough/apt4/image-3-1024x1024.webp",
-        "/properties/peterborough/apt4/image-4-1024x1024.webp",
         "/properties/peterborough/apt4/image-5-1024x1024.webp",
         "/properties/peterborough/apt4/image-6-1024x1024.webp",
         "/properties/peterborough/apt4/image-7-1024x1024.webp",
-        "/properties/peterborough/apt4/image-8-1024x1024.webp",
-        "/properties/peterborough/apt4/image-9-1024x1024.webp",
-        "/properties/peterborough/apt4/image-10-1024x1024.webp",
-        "/properties/peterborough/apt4/image-11-1024x1024.webp",
-        "/properties/peterborough/apt4/image-12-1024x1024.webp",
-        "/properties/peterborough/apt4/image-13-1024x1024.webp",
-        "/properties/peterborough/apt4/image-14-1024x1024.webp",
-        "/properties/peterborough/apt4/image-15-1024x1024.webp",
-        "/properties/peterborough/apt4/image-16-1024x1024.webp",
-        "/properties/peterborough/apt4/image-17-1024x1024.webp",
-        "/properties/peterborough/apt4/image-18-1024x1024.webp",
-        "/properties/peterborough/apt4/image-19-1024x1024.webp",
-        "/properties/peterborough/apt4/image-20-1024x1024.webp",
-        "/properties/peterborough/apt4/image-21-1024x1024.webp",
-        "/properties/peterborough/apt4/image-22-1024x1024.webp",
-        "/properties/peterborough/apt4/image-23-1024x1024.webp",
-        "/properties/peterborough/apt4/image-24-1024x1024.webp"
+        "/properties/peterborough/apt4/image-8-1024x1024.webp"
       ],
       "agent": {
         "id": 2,
@@ -1931,69 +1861,52 @@
         "reviews": 89
       },
       "coordinates": {
-        "latitude": 51.4875,
-        "longitude": -0.1687,
-        "postcode": "SW3 4LY",
-        "borough": "Kensington and Chelsea"
+        "latitude": 53.4,
+        "longitude": -2.9,
+        "postcode": "L1",
+        "borough": "Liverpool"
       },
-      "transport": [
+      "transport": [],
+      "nearby": [],
+      "schools": [
         {
-          "name": "South Kensington",
-          "type": "Underground",
-          "lines": [
-            "District",
-            "Circle",
-            "Piccadilly"
-          ],
-          "distance": "8 min walk"
+          "name": "Holy Cross Catholic Primary School",
+          "distance": "0.08 Miles"
         },
         {
-          "name": "Sloane Square",
-          "type": "Underground",
-          "lines": [
-            "District",
-            "Circle"
-          ],
-          "distance": "5 min walk"
+          "name": "Parish Church of England Primary School, St Helens",
+          "distance": "0.10 Miles"
         },
         {
-          "name": "Imperial Wharf",
-          "type": "Rail",
-          "lines": [
-            "Overground"
-          ],
-          "distance": "12 min walk"
+          "name": "Launchpad Centre",
+          "distance": "0.12 Miles"
         }
       ],
-      "nearby": [
-        {
-          "name": "Hyde Park",
-          "type": "Park",
-          "distance": "0.8 miles"
-        },
-        {
-          "name": "King's Road",
-          "type": "Shopping",
-          "distance": "0.1 miles"
-        },
-        {
-          "name": "Saatchi Gallery",
-          "type": "Gallery",
-          "distance": "0.3 miles"
-        },
-        {
-          "name": "Waitrose",
-          "type": "Supermarket",
-          "distance": "0.2 miles"
-        }
-      ],
-      "energyRating": "C",
-      "councilTax": "Band H",
+      "energyRating": "D",
+      "councilTax": "Band A",
       "groundRent": 0,
       "serviceCharge": 0,
       "leaseLength": 0,
-      "createdAt": "2024-01-02T11:00:00Z",
-      "updatedAt": "2024-01-16T09:15:00Z"
+      "createdAt": "2024-02-02T11:00:00Z",
+      "updatedAt": "2024-02-05T09:15:00Z",
+      "tenure": "Freehold",
+      "strategy": "Buy To Let",
+      "zooplaValuation": 135000,
+      "occupancy": "Tenanted",
+      "grossYield": 8.1,
+      "rentalIncome": 850,
+      "marketRent": 850,
+      "epc": "(2025) 64 (D) Potential C (75)",
+      "floodRisk": "Very Low",
+      "financials": {
+        "deposit": 31500,
+        "brokerage": 945,
+        "stampDuty": 6320,
+        "mortgage": 394,
+        "netAnnualCashflow": 5472
+      },
+      "totalInvestment": 41265,
+      "netCashflow": 456
     },
     {
       "id": 3,
