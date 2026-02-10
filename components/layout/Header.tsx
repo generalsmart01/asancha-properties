@@ -195,6 +195,8 @@ export const Header = () => {
                                 </div>
                             </div>
 
+                            <Link href="/api" className="text-foreground hover:text-primary font-medium text-sm transition-colors">API</Link>
+
                             <Link href="/contact-us" className="text-foreground hover:text-primary font-medium text-sm transition-colors">Contact Us</Link>
                         </nav>
 
@@ -289,6 +291,8 @@ export const Header = () => {
                                 </Link>
                             </div>
                         </div>
+
+                        <Link href="/api" onClick={closeMenu} className="px-4 py-3 text-lg font-medium text-sm border-b border-border/50 hover:text-primary">API</Link>
 
                         <Link href="/contact" onClick={closeMenu} className="px-4 py-3 text-lg font-medium text-sm border-b border-border/50 hover:text-primary">Contact Us</Link>
                     </nav>

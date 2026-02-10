@@ -537,12 +537,12 @@ export default function SavedPropertiesPage() {
                       <DropdownMenuLabel>Actions</DropdownMenuLabel>
                       <DropdownMenuSeparator />
                       <DropdownMenuItem asChild>
-                        <Link href={`/properties/${property.id}`}>
+                        <Link className="flex items-center" href={`/properties/${property.id}`}>
                           <Eye className="w-4 h-4 mr-2" />
                           View Details
                         </Link>
                       </DropdownMenuItem>
-                      <DropdownMenuItem>
+                      <DropdownMenuItem className="flex items-center">
                         <Share2 className="w-4 h-4 mr-2" />
                         Share
                       </DropdownMenuItem>
