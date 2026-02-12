@@ -26,7 +26,7 @@ const PropertyActions = ({ property }: PropertyActionsProps) => {
             {/* Make an Offer Modal */}
             <Dialog>
                 <DialogTrigger asChild>
-                    <button className="w-full bg-primary text-white h-14 rounded-xl font-bold uppercase tracking-widest shadow-lg shadow-primary/20 hover:shadow-primary/40 hover:scale-[1.02] transition-all duration-300">
+                    <button className="w-full bg-primary text-white h-14 rounded-xl font-bold uppercase tracking-widest shadow-lg shadow-primary/20 hover:shadow-primary/40 hover:scale-[1.02] transition-all duration-300 cursor-pointer">
                         Make an Offer
                     </button>
                 </DialogTrigger>
@@ -70,7 +70,7 @@ const PropertyActions = ({ property }: PropertyActionsProps) => {
                 {/* Reserve Modal */}
                 <Dialog>
                     <DialogTrigger asChild>
-                        <button className="w-full bg-secondary text-secondary-foreground h-12 rounded-xl font-bold uppercase tracking-wider text-xs border border-border hover:bg-secondary/80 transition-all">
+                        <button className="w-full bg-secondary text-secondary-foreground h-12 rounded-xl font-bold uppercase tracking-wider text-xs border border-border hover:bg-secondary/80 transition-all cursor-pointer">
                             Reserve
                         </button>
                     </DialogTrigger>
@@ -111,7 +111,7 @@ const PropertyActions = ({ property }: PropertyActionsProps) => {
                     </DialogContent>
                 </Dialog>
 
-                <button className="w-full bg-secondary text-secondary-foreground h-12 rounded-xl font-bold uppercase tracking-wider text-xs border border-border hover:bg-secondary/80 transition-all">
+                <button className="w-full bg-secondary text-secondary-foreground h-12 rounded-xl font-bold uppercase tracking-wider text-xs border border-border hover:bg-secondary/80 transition-all cursor-pointer">
                     Apply for Finance
                 </button>
             </div>
