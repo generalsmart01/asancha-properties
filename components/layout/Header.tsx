@@ -182,7 +182,7 @@ export const Header = () => {
                                 </button>
                                 <div className="absolute top-full left-0 w-80 bg-card border border-border rounded-xl shadow-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 transform translate-y-2 group-hover:translate-y-0 overflow-hidden z-50">
                                     <div className="p-2">
-                                        <Link href="/bmv-deal-analyzer" className="flex items-start gap-3 p-3 rounded-lg hover:bg-muted group/item transition-colors">
+                                        <Link href="/tools/bmv-deal-analyzer" className="flex items-start gap-3 p-3 rounded-lg hover:bg-muted group/item transition-colors">
                                             <div className="p-2 rounded-md bg-primary/10 text-primary group-hover/item:bg-primary group-hover/item:text-white transition-colors mt-1">
                                                 <Calculator size={20} />
                                             </div>
@@ -286,7 +286,7 @@ export const Header = () => {
                                 Tools <ChevronDown size={20} className={`transition-transform duration-200 ${openDropdown === "tools" ? "rotate-180" : ""}`} />
                             </button>
                             <div className={`flex flex-col bg-muted/30 overflow-hidden transition-all duration-300 ${openDropdown === "tools" ? "max-h-[200px]" : "max-h-0"}`}>
-                                <Link href="/bmv-deal-analyzer" onClick={closeMenu} className="px-6 py-3 text-base text-muted-foreground hover:text-primary hover:bg-muted/50 flex items-center gap-3 transition-colors">
+                                <Link href="/tools/bmv-deal-analyzer" onClick={closeMenu} className="px-6 py-3 text-base text-muted-foreground hover:text-primary hover:bg-muted/50 flex items-center gap-3 transition-colors">
                                     <Calculator size={18} /> BMV Deal Analyzer
                                 </Link>
                             </div>

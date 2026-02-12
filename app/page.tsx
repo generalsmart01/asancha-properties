@@ -59,7 +59,7 @@ export default function Home() {
                 Get access to off-market properties and high-yield investment opportunities tailored to your goals. Whether buying your first home, for investment or looking to sell we handle everything.
               </p>
               <Link
-                href="/property-sourcing"
+                href="/services/property-sourcing"
                 className="consultation-btn inline-block text-center w-full sm:w-auto self-start"
                 aria-label="Learn more about Exclusive Property Sourcing services"
               >
@@ -86,7 +86,7 @@ export default function Home() {
                 A one-stop shop for rental investors, handling the purchase, refurbishment, marketing, renting, maintenance, and when needed, the sale of a property.
               </p>
               <Link
-                href="/property-management"
+                href="/services/property-management"
                 className="consultation-btn inline-block text-center w-full sm:w-auto self-start"
                 aria-label="Learn more about Expert Property Management services"
               >
@@ -113,7 +113,7 @@ export default function Home() {
                 Secure profitable real estate investments with strategic market insights and expert guidance focused on maximizing returns.
               </p>
               <Link
-                href="/property-investment"
+                href="/services/property-investment"
                 className="consultation-btn inline-block text-center w-full sm:w-auto self-start"
                 aria-label="Learn more about Investment Opportunities"
               >
@@ -140,7 +140,7 @@ export default function Home() {
                 Increase property value with expert renovations, structural improvements, and premium finishing touches that add real value.
               </p>
               <Link
-                href="/property-refurbishment"
+                href="/services/property-refurbishment"
                 className="consultation-btn inline-block text-center w-full sm:w-auto self-start"
                 aria-label="Learn more about Property Refurbishment services"
               >
@@ -167,7 +167,7 @@ export default function Home() {
                 Transform spaces with bespoke design solutions, modern aesthetics, and functional layouts that attract high-quality tenants.
               </p>
               <Link
-                href="/interior-design"
+                href="/services/interior-design"
                 className="consultation-btn inline-block text-center w-full sm:w-auto self-start"
                 aria-label="Learn more about Interior Design services"
               >
