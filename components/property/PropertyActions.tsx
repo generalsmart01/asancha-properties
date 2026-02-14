@@ -61,7 +61,7 @@ const PropertyActions = ({ property }: PropertyActionsProps) => {
                                 onChange={(e) => setOfferPrice(e.target.value)}
                             />
                         </div>
-                        <Button className="w-full font-bold uppercase tracking-widest">Submit</Button>
+                        <Button className="w-full font-bold uppercase tracking-widest cursor-pointer">Submit</Button>
                     </div>
                 </DialogContent>
             </Dialog>
@@ -104,7 +104,7 @@ const PropertyActions = ({ property }: PropertyActionsProps) => {
                                 />
                                 <Label htmlFor="terms" className="text-xs cursor-pointer">Accept Terms & Conditions</Label>
                             </div>
-                            <Button className="w-full font-bold uppercase tracking-widest" disabled={!acceptedTerms}>
+                            <Button className="w-full font-bold uppercase tracking-widest cursor-pointer" disabled={!acceptedTerms}>
                                 Pay Now (£100)
                             </Button>
                         </div>

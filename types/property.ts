@@ -30,16 +30,6 @@ export type PropertyStatus = "available" | "under_offer" | "reserved" | "inactiv
 export type ValuationSource = "zoopla" | "propmarker" | "manual";
 export type OccupancyStatus = "vacant" | "tenanted";
 
-// --- Deal Flow Enums ---
-
-export type BookingStatus = "pending" | "confirmed" | "completed" | "cancelled" | "no_show";
-export type PaymentType = "booking_fee" | "reservation_fee" | "investment" | "repayment";
-export type PaymentProvider = "stripe" | "bank_transfer";
-export type PaymentStatus = "pending" | "succeeded" | "failed" | "refunded";
-export type InvestmentType = "direct_buy" | "joint_venture" | "bridge_loan";
-export type InvestmentStatus = "proposed" | "committed" | "active" | "exited" | "cancelled";
-export type LoanType = "bridge";
-
 // --- Interfaces ---
 
 export interface PropertyListing {
@@ -184,75 +174,5 @@ export interface UserBmvAnalysis {
     listingId: string;
     inputs: Record<string, any>;
     outputs: Record<string, any>;
-    createdAt: string;
-}
-
-export interface Booking {
-    id: string;
-    publicId: string;
-    listingId: string;
-    requestedByUserId: string;
-    assignedToAgentProfileId?: string;
-    scheduleAt: string; // ISO Date
-    endAt: string; // ISO Date
-    status: BookingStatus;
-    notesUser: string;
-    notesInternal: string;
-    createdAt: string;
-    updatedAt: string;
-}
-
-export interface Payment {
-    id: string;
-    publicId?: string;
-    userId: string;
-    type: PaymentType;
-    ref: {
-        refType: string;
-        refId: string;
-    };
-    amount: number;
-    currency: string;
-    provider: PaymentProvider;
-    providerRef?: string;
-    status: PaymentStatus;
-}
-
-export interface Investment {
-    id: string;
-    publicId?: string;
-    investorProfileId: string;
-    listingId: string;
-    type: InvestmentType;
-    amount: number;
-    currency: string;
-    status: InvestmentStatus;
-    terms: Record<string, any>;
-}
-
-export interface Loan {
-    id: string;
-    publicId?: string;
-    type: LoanType;
-    lenderCompanyId?: string;
-    lenderUserId?: string;
-    investorProfileId: string;
-    propertyId: string;
-    principal: number;
-    rate: number;
-    totalRepaymentAmount: number;
-    outstandingAmount: number;
-    repaymentCount: number;
-    paymentMethod: string;
-    status: string;
-}
-
-export interface LoanRepayment {
-    id: string;
-    loanId: string;
-    dueDate: string;
-    amountDue: number;
-    amountPaid: number;
-    status: string;
     createdAt: string;
 }

@@ -66,20 +66,20 @@ const SinglePropertyPage = async ({ params }: PageProps) => {
             <section className="container mx-auto px-4 py-8">
                 <PropertyImageSlider images={property.images} title={property.title}>
                     {/* Hero Content Overlay */}
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent pointer-events-none rounded-4xl" />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/10 to-transparent pointer-events-none rounded-4xl" />
 
                     <div className="absolute bottom-0 left-0 right-0 py-12 pointer-events-none">
                         <div className="container mx-auto px-4">
                             <div className="max-w-4xl pointer-events-auto">
                                 <div className="flex flex-wrap gap-2 mb-4">
-                                    <span className="bg-primary text-white text-[10px] font-black uppercase tracking-[0.2em] px-4 py-1.5 rounded-full shadow-lg">
+                                    <span className="bg-primary text-white text-[12px] font-black uppercase tracking-[0.2em] px-4 py-1.5 rounded-full shadow-lg">
                                         {property.calculatedStatus}
                                     </span>
-                                    <span className="bg-white/10 backdrop-blur-md text-white text-[10px] font-black uppercase tracking-[0.2em] px-4 py-1.5 rounded-full border border-white/20">
+                                    <span className="bg-white/10 backdrop-blur-md text-white text-[12px] font-black uppercase tracking-[0.2em] px-4 py-1.5 rounded-full border border-white/20">
                                         {property.houseType.replace('_', ' ')}
                                     </span>
                                 </div>
-                                <h1 className="text-3xl md:text-5xl lg:text-6xl font-bold text-white mb-4 tracking-tight leading-tight uppercase drop-shadow-2xl">
+                                <h1 className="text-3xl md:text-4xl font-bold text-white mb-4 tracking-tight leading-tight uppercase drop-shadow-2xl">
                                     {property.title}
                                 </h1>
                                 <div className="flex items-center gap-2 text-white/80 text-lg uppercase tracking-wider font-medium">

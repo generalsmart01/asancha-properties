@@ -1,8 +1,10 @@
-import { LegacyPropertyType, LegacyPropertyStatus } from "./legacy";
+import { HouseType, PropertyStatus, ListingType, ListingCategory } from "./property";
 
 export interface PropertySearchFilters {
-    propertyType?: LegacyPropertyType[];
-    status?: LegacyPropertyStatus[];
+    houseType?: HouseType[];
+    listingType?: ListingType[];
+    category?: ListingCategory[];
+    status?: PropertyStatus[];
     minPrice?: number;
     maxPrice?: number;
     bedrooms?: number;
