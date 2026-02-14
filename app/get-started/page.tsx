@@ -34,6 +34,22 @@ export default function GetStartedPage() {
             features: ["Access BMV deals", "Investment ROI calculators", "Market analytics"],
             color: "bg-green-50 text-green-600",
         },
+        {
+            id: "property_owner",
+            title: "I am a Property Owner",
+            description: "Looking to list my property or portfolio for sale or rent.",
+            icon: Building2,
+            features: ["Direct property listing", "Manage my portfolio", "Real-time inquiries"],
+            color: "bg-orange-50 text-orange-600",
+        },
+        {
+            id: "property_sourcer",
+            title: "I am a Sourcer",
+            description: "Finding and packaging high-yield deals for investors.",
+            icon: User,
+            features: ["Submit packaged deals", "Connect with investors", "Track deal progress"],
+            color: "bg-indigo-50 text-indigo-600",
+        },
     ];
 
     return (
@@ -48,9 +64,9 @@ export default function GetStartedPage() {
                     </p>
                 </div>
 
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
                     {roles.map((role) => (
-                        <Card key={role.id} className="relative overflow-hidden border-2 border-gray-200 hover:border-primary/70 transition-all duration-300 hover:shadow-xl group">
+                        <Card key={role.id} className="relative overflow-hidden border-2 border-gray-200 hover:border-primary/70 transition-all duration-300 hover:shadow-xl group flex flex-col">
                             <CardHeader className="text-center pb-2">
                                 <div className={`mx-auto w-16 h-16 rounded-2xl flex items-center justify-center mb-4 ${role.color} transition-transform group-hover:scale-110 duration-300`}>
                                     <role.icon className="w-8 h-8" />
@@ -58,7 +74,7 @@ export default function GetStartedPage() {
                                 <CardTitle className="text-2xl font-bold">{role.title}</CardTitle>
                                 <CardDescription className="text-base mt-2">{role.description}</CardDescription>
                             </CardHeader>
-                            <CardContent className="py-6">
+                            <CardContent className="py-6 grow">
                                 <ul className="space-y-3">
                                     {role.features.map((feature, i) => (
                                         <li key={i} className="flex items-center text-sm text-gray-600 dark:text-gray-300">
@@ -70,10 +86,10 @@ export default function GetStartedPage() {
                                     ))}
                                 </ul>
                             </CardContent>
-                            <CardFooter>
-                                <Button className="w-full text-lg h-12 group-hover:bg-primary group-hover:text-primary-foreground" asChild>
+                            <CardFooter className="mt-auto">
+                                <Button className="w-full text-lg h-12 group-hover:bg-primary group-hover:text-primary-foreground cursor-pointer" asChild>
                                     <Link href={`/register?role=${role.id}`}>
-                                        Join as {role.id.charAt(0).toUpperCase() + role.id.slice(1)}
+                                        Join as {role.id.split('_').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' ')}
                                     </Link>
                                 </Button>
                             </CardFooter>

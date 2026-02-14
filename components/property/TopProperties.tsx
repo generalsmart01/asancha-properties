@@ -71,7 +71,7 @@ export default function TopProperties() {
           {properties.map((property) => (
             <Card
               key={property.slug}
-              className="flex-shrink-0 w-[280px] md:w-[320px] lg:w-[350px] group hover:shadow-lg transition-shadow duration-300 pt-0 bg-amber-50"
+              className="shrink-0 w-[280px] md:w-[320px] lg:w-[350px] group hover:shadow-lg transition-shadow duration-300 pt-0 bg-amber-50"
             >
               <div className="relative overflow-hidden rounded-t-lg">
                 <PropertyImage

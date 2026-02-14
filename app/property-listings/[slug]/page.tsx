@@ -12,6 +12,7 @@ import {
 import ReturnsCalculator from '@/components/property/ReturnsCalculator';
 import PropertyActions from '@/components/property/PropertyActions';
 import PropertyImageSlider from '@/components/property/PropertyImageSlider';
+import PropertyUtilityActions from '@/components/property/PropertyUtilityActions';
 import { PropertyListing } from '@/types';
 
 interface PageProps {
@@ -90,14 +91,11 @@ const SinglePropertyPage = async ({ params }: PageProps) => {
                         </div>
                     </div>
 
-                    <div className="absolute top-8 right-8 flex gap-3 pointer-events-auto z-20">
-                        <button className="h-12 w-12 rounded-2xl bg-white/10 backdrop-blur-md border border-white/20 flex items-center justify-center text-white hover:bg-primary transition-all duration-300">
-                            <Heart size={20} />
-                        </button>
-                        <button className="h-12 w-12 rounded-2xl bg-white/10 backdrop-blur-md border border-white/20 flex items-center justify-center text-white hover:bg-primary transition-all duration-300">
-                            <Share2 size={20} />
-                        </button>
-                    </div>
+                    <PropertyUtilityActions
+                        propertyId={property.id}
+                        title={property.title}
+                        slug={property.slug}
+                    />
                 </PropertyImageSlider>
             </section>
 
