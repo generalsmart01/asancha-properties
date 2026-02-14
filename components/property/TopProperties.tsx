@@ -86,7 +86,7 @@ export default function TopProperties() {
                     variant="secondary"
                     className="bg-white/90 text-gray-900"
                   >
-                    {property.status}
+                    {property.calculatedStatus}
                   </Badge>
                 </div>
                 <div className="absolute top-4 right-4">
@@ -113,22 +113,22 @@ export default function TopProperties() {
                     </h3>
                     <p className="text-sm text-gray-800 flex items-center mt-1">
                       <MapPin className="h-4 w-4 mr-1" />
-                      {property.location}
+                      {property.location.town}, {property.location.region}
                     </p>
                   </div>
 
                   <div className="flex items-center space-x-4 text-sm text-gray-800">
                     <div className="flex items-center">
                       <Bed className="h-4 w-4 mr-1" />
-                      {property.bedrooms} bed
+                      {property.functionalSpace.bedrooms} bed
                     </div>
                     <div className="flex items-center">
                       <Bath className="h-4 w-4 mr-1" />
-                      {property.bathrooms} bath
+                      {property.functionalSpace.bathrooms} bath
                     </div>
                     <div className="flex items-center">
                       <Square className="h-4 w-4 mr-1" />
-                      {property.sqft} sq ft
+                      {property.propertySizeSqft} sq ft
                     </div>
                   </div>
 
@@ -178,9 +178,8 @@ export default function TopProperties() {
                   });
                 }}
                 aria-label={`Go to slide ${index + 1}`}
-                className={`w-3 h-3 rounded-full transition-colors ${
-                  index === activeIndex ? "bg-amber-300" : "bg-gray-200"
-                }`}
+                className={`w-3 h-3 rounded-full transition-colors ${index === activeIndex ? "bg-amber-300" : "bg-gray-200"
+                  }`}
               />
             ))}
           </div>

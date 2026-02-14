@@ -1,14 +1,10 @@
-import mockData from "../data/mock-data.json";
-import { BlogPost, BlogCategory, BlogTag, MockProperty } from "@/types";
-
-// Type-safe access to mock data
-export const getMockData = () => mockData;
+import * as mockService from "@/services/mock-data";
+import { BlogPost, BlogCategory, BlogTag, PropertyListing as MockProperty } from "@/types";
 
 // Blog data helpers
-export const getBlogPosts = (): BlogPost[] => mockData.blogPosts as BlogPost[];
-export const getBlogCategories = (): BlogCategory[] =>
-  mockData.blogCategories as BlogCategory[];
-export const getBlogTags = (): BlogTag[] => mockData.blogTags as BlogTag[];
+export const getBlogPosts = (): BlogPost[] => mockService.getBlogPosts();
+export const getBlogCategories = (): BlogCategory[] => mockService.getBlogCategories();
+export const getBlogTags = (): BlogTag[] => mockService.getBlogTags();
 
 // Get specific blog post by slug
 export const getBlogPostBySlug = (slug: string): BlogPost | undefined => {
@@ -39,26 +35,22 @@ export const getRelatedPosts = (
 };
 
 // Dashboard data helpers
-export const getDashboardData = () => mockData.dashboardData;
-export const getBMVAnalyses = () => mockData.bmvAnalyses;
-export const getBMVUsageStats = () => mockData.bmvUsageStats;
-export const getUserProfile = () => mockData.userProfile;
-export const getSavedProperties = () => mockData.savedProperties;
-export const getBookings = () => mockData.bookings;
+export const getDashboardData = () => mockService.getDashboardData();
+export const getBMVAnalyses = () => mockService.getBMVAnalyses();
+export const getBMVUsageStats = () => mockService.getBMVUsageStats();
+export const getUserProfile = () => mockService.getMockUser("guest@example.com");
+export const getSavedProperties = () => []; // Mock placeholder
+export const getBookings = () => []; // Mock placeholder
 
 // Property data helpers
-export const getProperties = (): MockProperty[] =>
-  mockData.properties as MockProperty[];
+export const getProperties = (): MockProperty[] => mockService.getMockProperties();
 export const getPropertyBySlug = (slug: string): MockProperty | undefined => {
-  return mockData.properties.find((property) => property.slug === slug) as
-    | MockProperty
-    | undefined;
+  return mockService.getMockProperty(slug);
 };
-export const getPropertyById = (id: number): MockProperty | undefined => {
-  return mockData.properties.find((property) => property.id === id) as
-    | MockProperty
-    | undefined;
+export const getPropertyById = (id: string): MockProperty | undefined => {
+  return mockService.getMockProperties().find((property) => property.id === id);
 };
+
 export const searchProperties = (query: string) => {
   const properties = getProperties();
   const lowercaseQuery = query.toLowerCase();
@@ -66,11 +58,12 @@ export const searchProperties = (query: string) => {
   return properties.filter(
     (property) =>
       property.title.toLowerCase().includes(lowercaseQuery) ||
-      property.location.toLowerCase().includes(lowercaseQuery) ||
-      property.address.toLowerCase().includes(lowercaseQuery) ||
-      property.description.toLowerCase().includes(lowercaseQuery)
+      property.location.town.toLowerCase().includes(lowercaseQuery) ||
+      property.location.fullAddress?.toLowerCase().includes(lowercaseQuery) ||
+      property.description?.toLowerCase().includes(lowercaseQuery)
   );
 };
+
 export const filterProperties = (filters: {
   propertyType?: string;
   minPrice?: number;
@@ -83,7 +76,7 @@ export const filterProperties = (filters: {
 
   if (filters.propertyType) {
     properties = properties.filter(
-      (p) => p.propertyType === filters.propertyType
+      (p) => p.houseType === filters.propertyType
     );
   }
   if (filters.minPrice) {
@@ -93,14 +86,15 @@ export const filterProperties = (filters: {
     properties = properties.filter((p) => p.price <= filters.maxPrice!);
   }
   if (filters.bedrooms) {
-    properties = properties.filter((p) => p.bedrooms >= filters.bedrooms!);
+    properties = properties.filter((p) => p.functionalSpace.bedrooms >= filters.bedrooms!);
   }
   if (filters.bathrooms) {
-    properties = properties.filter((p) => p.bathrooms >= filters.bathrooms!);
+    properties = properties.filter((p) => p.functionalSpace.bathrooms >= filters.bathrooms!);
   }
   if (filters.location) {
     properties = properties.filter((p) =>
-      p.location.toLowerCase().includes(filters.location!.toLowerCase())
+      p.location.town.toLowerCase().includes(filters.location!.toLowerCase()) ||
+      p.location.postcode.toLowerCase().includes(filters.location!.toLowerCase())
     );
   }
 

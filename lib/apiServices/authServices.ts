@@ -143,22 +143,6 @@ export const changePassword = async (
   });
 };
 
-/**
- * Update onboardingStatus
- */
-export const updateOnboardingStatus = async (
-  userId: string,
-  status: string,
-  token: string
-) => {
-  const response = await apiRequest(
-    `/api/onboarding/${userId}/status`,
-    "PATCH",
-    { status: "completed" },
-    token || ""
-  );
-  return response.data;
-};
 
 /**
  * Resend verification email
@@ -272,29 +256,3 @@ export const postApiRequestWithRefresh = async <T = any>(
   return apiRequestWithRefresh<T>(endpoint, "POST", body, token);
 };
 
-/**
- * Get user's current active role
- */
-export const getActiveRole = async (
-  token?: string
-): Promise<ApiResponse<any>> => {
-  const response = await getApiRequestWithRefresh(
-    "/api/users/active-role",
-    token
-  );
-  return response;
-};
-
-/**
- * Switch user role between individual and team tech professional
- */
-export const switchUserRole = async (
-  token?: string
-): Promise<ApiResponse<any>> => {
-  const response = await postApiRequestWithRefresh(
-    "/api/users/switch-role",
-    {},
-    token
-  );
-  return response;
-};

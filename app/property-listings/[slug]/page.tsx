@@ -9,28 +9,48 @@ import {
     ChevronLeft, ChevronRight, Star, Building2,
     ArrowRight
 } from 'lucide-react';
-import data from '@/data/mock-data.json';
 import ReturnsCalculator from '@/components/property/ReturnsCalculator';
 import PropertyActions from '@/components/property/PropertyActions';
 import PropertyImageSlider from '@/components/property/PropertyImageSlider';
+import { PropertyListing } from '@/types';
 
 interface PageProps {
     params: Promise<{ slug: string }>;
 }
 
 export async function generateStaticParams() {
-    return data.properties.map((property) => ({
-        slug: property.slug,
-    }));
+    const baseUrl = process.env.NEXT_PUBLIC_APP_URL || 'http://localhost:3000';
+    try {
+        const response = await fetch(`${baseUrl}/api/properties`);
+        if (!response.ok) return [];
+        const properties: PropertyListing[] = await response.json();
+        return properties.map((property) => ({
+            slug: property.slug,
+        }));
+    } catch (err) {
+        console.error('Error generating static params:', err);
+        return [];
+    }
 }
 
 const SinglePropertyPage = async ({ params }: PageProps) => {
     const { slug } = await params;
-    const property = data.properties.find((p) => p.slug === slug);
+    const baseUrl = process.env.NEXT_PUBLIC_APP_URL || 'http://localhost:3000';
+
+    let property: PropertyListing | null = null;
+    try {
+        const response = await fetch(`${baseUrl}/api/properties/${slug}`);
+        if (response.ok) {
+            property = await response.json();
+        }
+    } catch (err) {
+        console.error('Error fetching property:', err);
+    }
 
     if (!property) {
         notFound();
     }
+
 
     const formatPrice = (price: number) => {
         return new Intl.NumberFormat('en-GB', {
@@ -53,10 +73,10 @@ const SinglePropertyPage = async ({ params }: PageProps) => {
                             <div className="max-w-4xl pointer-events-auto">
                                 <div className="flex flex-wrap gap-2 mb-4">
                                     <span className="bg-primary text-white text-[10px] font-black uppercase tracking-[0.2em] px-4 py-1.5 rounded-full shadow-lg">
-                                        {property.status}
+                                        {property.calculatedStatus}
                                     </span>
                                     <span className="bg-white/10 backdrop-blur-md text-white text-[10px] font-black uppercase tracking-[0.2em] px-4 py-1.5 rounded-full border border-white/20">
-                                        {property.propertyType}
+                                        {property.houseType.replace('_', ' ')}
                                     </span>
                                 </div>
                                 <h1 className="text-3xl md:text-5xl lg:text-6xl font-bold text-white mb-4 tracking-tight leading-tight uppercase drop-shadow-2xl">
@@ -64,7 +84,7 @@ const SinglePropertyPage = async ({ params }: PageProps) => {
                                 </h1>
                                 <div className="flex items-center gap-2 text-white/80 text-lg uppercase tracking-wider font-medium">
                                     <MapPin size={20} className="text-primary shrink-0" />
-                                    {property.address}
+                                    {property.location.fullAddress || property.location.town}
                                 </div>
                             </div>
                         </div>
@@ -93,28 +113,28 @@ const SinglePropertyPage = async ({ params }: PageProps) => {
                                     <div className="h-12 w-12 rounded-xl bg-primary/10 flex items-center justify-center text-primary mb-1">
                                         <Bed size={24} />
                                     </div>
-                                    <span className="text-2xl font-black text-foreground">{property.bedrooms}</span>
+                                    <span className="text-2xl font-black text-foreground">{property.functionalSpace.bedrooms}</span>
                                     <span className="text-[10px] font-black text-muted-foreground uppercase tracking-widest leading-none">Bedrooms</span>
                                 </div>
                                 <div className="flex flex-col items-center justify-center text-center gap-2 border-l border-border">
                                     <div className="h-12 w-12 rounded-xl bg-primary/10 flex items-center justify-center text-primary mb-1">
                                         <Bath size={24} />
                                     </div>
-                                    <span className="text-2xl font-black text-foreground">{property.bathrooms}</span>
+                                    <span className="text-2xl font-black text-foreground">{property.functionalSpace.bathrooms}</span>
                                     <span className="text-[10px] font-black text-muted-foreground uppercase tracking-widest leading-none">Bathrooms</span>
                                 </div>
                                 <div className="flex flex-col items-center justify-center text-center gap-2 border-l border-border">
                                     <div className="h-12 w-12 rounded-xl bg-primary/10 flex items-center justify-center text-primary mb-1">
                                         <Move size={24} />
                                     </div>
-                                    <span className="text-2xl font-black text-foreground">{property.sqft}</span>
+                                    <span className="text-2xl font-black text-foreground">{property.propertySizeSqft}</span>
                                     <span className="text-[10px] font-black text-muted-foreground uppercase tracking-widest leading-none">Sq Ft</span>
                                 </div>
                                 <div className="flex flex-col items-center justify-center text-center gap-2 border-l border-border">
                                     <div className="h-12 w-12 rounded-xl bg-primary/10 flex items-center justify-center text-primary mb-1">
                                         <Calendar size={24} />
                                     </div>
-                                    <span className="text-2xl font-black text-foreground">{property.yearBuilt}</span>
+                                    <span className="text-2xl font-black text-foreground">{property.yearBuilt || 'N/A'}</span>
                                     <span className="text-[10px] font-black text-muted-foreground uppercase tracking-widest leading-none">Year Built</span>
                                 </div>
                             </div>
@@ -128,23 +148,23 @@ const SinglePropertyPage = async ({ params }: PageProps) => {
                                 <div className="bg-card rounded-3xl border border-border/50 overflow-hidden">
                                     <div className="grid grid-cols-1 md:grid-cols-2">
                                         {[
-                                            { label: "Type", value: property.propertyType },
-                                            { label: "Bedrooms", value: property.bedrooms },
-                                            { label: "Tenure", value: property.tenure || "N/A" },
-                                            { label: "Strategy", value: property.strategy || "N/A" },
+                                            { label: "Type", value: property.houseType.replace('_', ' ') },
+                                            { label: "Bedrooms", value: property.functionalSpace.bedrooms },
+                                            { label: "Tenure", value: property.tenureType },
+                                            { label: "Strategy", value: property.strategyBadge || "N/A" },
                                             { label: "Asking Price", value: formatPrice(property.price) },
-                                            { label: "Zoopla Valuation", value: property.zooplaValuation ? formatPrice(property.zooplaValuation) : "N/A" },
-                                            { label: "Occupancy", value: property.occupancy || "N/A" },
-                                            { label: "Gross Yield", value: property.grossYield ? `${property.grossYield}%` : "N/A" },
-                                            { label: "Current Rent", value: property.rentalIncome ? formatPrice(property.rentalIncome) : "N/A" },
-                                            { label: "Market Rent", value: property.marketRent ? formatPrice(property.marketRent) : property.rentalIncome ? formatPrice(property.rentalIncome) : "N/A" },
-                                            { label: "Size", value: `${property.sqft} Sq. Ft.` },
+                                            { label: "Valuation", value: property.valuationAmount ? formatPrice(property.valuationAmount) : "N/A" },
+                                            { label: "Occupancy", value: property.occupancyStatus },
+                                            { label: "Gross Yield", value: property.listingCardMetrics.grossYield ? `${property.listingCardMetrics.grossYield}%` : "N/A" },
+                                            { label: "Current Rent", value: property.currentRent ? formatPrice(property.currentRent) : "N/A" },
+                                            { label: "Rental Income", value: property.listingCardMetrics.rentalIncomePcm ? formatPrice(property.listingCardMetrics.rentalIncomePcm) : "N/A" },
+                                            { label: "Size", value: `${property.propertySizeSqft} Sq. Ft.` },
                                             { label: "EPC", value: property.epc || "N/A" },
                                             { label: "Flood Risk", value: property.floodRisk || "N/A" },
                                         ].map((item, i) => (
                                             <div key={i} className="flex justify-between p-4 border-b border-r border-border/50 last:border-b-0">
                                                 <span className="text-sm font-semibold text-muted-foreground">{item.label}</span>
-                                                <span className="text-sm font-bold text-foreground text-right">{item.value}</span>
+                                                <span className="text-sm font-bold text-foreground text-right capitalize">{item.value}</span>
                                             </div>
                                         ))}
                                     </div>
@@ -165,35 +185,30 @@ const SinglePropertyPage = async ({ params }: PageProps) => {
                                 </p>
                             </div>
 
-                            {/* Property Financial Information */}
-                            {property.financials && (
-                                <div className="mb-16">
-                                    <div className="flex items-center gap-4 mb-6">
-                                        <h2 className="text-2xl font-bold text-foreground">Property Financial Information</h2>
-                                        <span className="h-1 flex-grow bg-border rounded-full"></span>
-                                    </div>
-                                    <div className="bg-card rounded-3xl border border-border/50 overflow-hidden">
-                                        <div className="space-y-1">
-                                            {[
-                                                { label: "Purchase Price", value: formatPrice(property.price) },
-                                                { label: "Deposit", value: formatPrice(property.financials.deposit) },
-                                                { label: "Brokerage (1% of borrowing)", value: formatPrice(property.financials.brokerage) },
-                                                { label: "Stamp Duty", value: formatPrice(property.financials.stampDuty) },
-                                                { label: "Total investment", value: formatPrice(property.totalInvestment || 0), highlight: true },
-                                                { label: "Market Rent", value: formatPrice(property.marketRent || property.rentalIncome || 0) },
-                                                { label: "Mortgage", value: formatPrice(property.financials.mortgage) },
-                                                { label: "Net cashflow", value: formatPrice(property.netCashflow || 0), textGreen: true },
-                                                { label: "Net annual cashflow", value: formatPrice(property.financials.netAnnualCashflow), textGreen: true, bold: true },
-                                            ].map((item, i) => (
-                                                <div key={i} className={`flex justify-between p-4 ${i % 2 === 0 ? 'bg-muted/30' : 'bg-transparent'} ${item.highlight ? 'bg-primary/5 border-l-4 border-primary' : ''}`}>
-                                                    <span className="text-sm font-semibold text-muted-foreground">{item.label}</span>
-                                                    <span className={`text-sm font-bold ${item.textGreen ? 'text-green-600 dark:text-green-400' : 'text-foreground'} ${item.bold ? 'text-lg' : ''}`}>{item.value}</span>
-                                                </div>
-                                            ))}
-                                        </div>
+                            {/* Investment Metrics */}
+                            <div className="mb-16">
+                                <div className="flex items-center gap-4 mb-6">
+                                    <h2 className="text-2xl font-bold text-foreground">Investment Overview</h2>
+                                    <span className="h-1 flex-grow bg-border rounded-full"></span>
+                                </div>
+                                <div className="bg-card rounded-3xl border border-border/50 overflow-hidden">
+                                    <div className="space-y-1">
+                                        {[
+                                            { label: "Purchase Price", value: formatPrice(property.price) },
+                                            { label: "Total Investment", value: formatPrice(property.listingCardMetrics.totalInvestment), highlight: true },
+                                            { label: "Rental Income (PCM)", value: formatPrice(property.listingCardMetrics.rentalIncomePcm) },
+                                            { label: "Net Yield", value: `${property.listingCardMetrics.netYield}%`, textGreen: true },
+                                            { label: "Net Cashflow Monthly", value: formatPrice(property.listingCardMetrics.netCashflowMonthly), textGreen: true, bold: true },
+                                            { label: "BMV Discount", value: `${property.listingCardMetrics.bmvDiscountPercent}%`, highlight: property.listingCardMetrics.bmvDiscountPercent > 0 },
+                                        ].map((item, i) => (
+                                            <div key={i} className={`flex justify-between p-4 ${i % 2 === 0 ? 'bg-muted/30' : 'bg-transparent'} ${item.highlight ? 'bg-primary/5 border-l-4 border-primary' : ''}`}>
+                                                <span className="text-sm font-semibold text-muted-foreground">{item.label}</span>
+                                                <span className={`text-sm font-bold ${item.textGreen ? 'text-green-600 dark:text-green-400' : 'text-foreground'} ${item.bold ? 'text-lg' : ''}`}>{item.value}</span>
+                                            </div>
+                                        ))}
                                     </div>
                                 </div>
-                            )}
+                            </div>
 
                             {/* Features */}
                             <div className="space-y-12 mb-20">
@@ -279,7 +294,12 @@ const SinglePropertyPage = async ({ params }: PageProps) => {
                         <div className="lg:col-span-4">
                             <div className="sticky top-32 space-y-8">
                                 {/* Action Buttons - Using PropertyActions Component */}
-                                <PropertyActions property={property} />
+                                <PropertyActions property={{
+                                    title: property.title,
+                                    fullAddress: property.location.fullAddress || property.location.town,
+                                    images: property.images,
+                                    price: property.price
+                                }} />
 
                                 {/* Price Card */}
                                 <div className="bg-card p-8 rounded-[2.5rem] shadow-2xl border border-border/50 relative overflow-hidden">
@@ -310,14 +330,16 @@ const SinglePropertyPage = async ({ params }: PageProps) => {
                                 <div className="bg-card p-8 rounded-[2.5rem] shadow-xl border border-border/50">
                                     <h3 className="text-xs font-black text-muted-foreground uppercase tracking-[0.3em] mb-8 text-center leading-none">Listed By</h3>
                                     <div className="flex flex-col items-center text-center">
-                                        <div className="relative h-24 w-24 rounded-full overflow-hidden border-4 border-primary/20 mb-6 drop-shadow-2xl">
-                                            <Image
-                                                src={property.agent.avatar || "/img/core-img/avatar.png"}
-                                                alt={property.agent.name}
-                                                fill
-                                                className="object-cover"
-                                            />
-                                        </div>
+                                        {property.agent.avatar && (
+                                            <div className="relative h-24 w-24 rounded-full overflow-hidden border-4 border-primary/20 mb-6 drop-shadow-2xl">
+                                                <Image
+                                                    src={property.agent.avatar}
+                                                    alt={property.agent.name}
+                                                    fill
+                                                    className="object-cover"
+                                                />
+                                            </div>
+                                        )}
                                         <h4 className="text-xl font-black text-foreground uppercase tracking-tight mb-2 leading-none">{property.agent.name}</h4>
                                         <div className="flex items-center gap-1 text-primary mb-4">
                                             <Star size={14} fill="currentColor" />
@@ -341,6 +363,7 @@ const SinglePropertyPage = async ({ params }: PageProps) => {
             </section>
         </main >
     );
+
 };
 
 export default SinglePropertyPage;

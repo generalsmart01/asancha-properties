@@ -11,7 +11,7 @@ import { Checkbox } from "@/components/ui/checkbox";
 interface PropertyActionsProps {
     property: {
         title: string;
-        address: string;
+        fullAddress: string;
         images: string[];
         price: number;
     };
@@ -48,7 +48,7 @@ const PropertyActions = ({ property }: PropertyActionsProps) => {
                         </div>
                         <div>
                             <h4 className="font-bold text-sm text-foreground">{property.title}</h4>
-                            <p className="text-xs text-muted-foreground">{property.address}</p>
+                            <p className="text-xs text-muted-foreground">{property.fullAddress}</p>
                         </div>
                     </div>
                     <div className="space-y-4">
@@ -90,7 +90,7 @@ const PropertyActions = ({ property }: PropertyActionsProps) => {
                                     />
                                 </div>
                                 <div>
-                                    <p className="text-xs font-bold text-foreground line-clamp-2">{property.address}</p>
+                                    <p className="text-xs font-bold text-foreground line-clamp-2">{property.fullAddress}</p>
                                 </div>
                             </div>
                             <div className="text-xs text-muted-foreground bg-blue-50 dark:bg-blue-950/30 p-4 rounded-lg border border-blue-100 dark:border-blue-900 leading-relaxed">

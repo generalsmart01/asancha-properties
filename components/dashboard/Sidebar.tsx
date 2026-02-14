@@ -56,6 +56,24 @@ const getNavigationByRole = (role: UserRole) => {
         { name: "Reports", href: "/dashboard/reports", icon: FileText },
       ];
 
+    case "property_owner":
+      return [
+        ...baseNav,
+        { name: "My Properties", href: "/dashboard/listings", icon: Building2 },
+        { name: "Bookings", href: "/dashboard/bookings", icon: Calendar },
+        { name: "Analytics", href: "/dashboard/analytics", icon: BarChart3 },
+        { name: "Reports", href: "/dashboard/reports", icon: FileText },
+      ];
+
+    case "property_sourcer":
+      return [
+        ...baseNav,
+        { name: "BMV Analysis", href: "/dashboard/bmv", icon: Calculator },
+        { name: "Opportunities", href: "/dashboard/opportunities", icon: TrendingUp },
+        { name: "Clients", href: "/dashboard/clients", icon: Users },
+        { name: "Analytics", href: "/dashboard/analytics", icon: BarChart3 },
+      ];
+
     case "investor":
       return [
         ...baseNav,

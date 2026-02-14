@@ -238,14 +238,14 @@ export const Header = () => {
                     </div>
 
                     <nav className="flex flex-col gap-2">
-                        <Link href="/" onClick={closeMenu} className="px-4 py-3 text-lg font-medium text-sm border-b border-border/50 hover:text-primary">Home</Link>
-                        <Link href="/about-us" onClick={closeMenu} className="px-4 py-3 text-lg font-medium text-sm border-b border-border/50 hover:text-primary">About Us</Link>
+                        <Link href="/" onClick={closeMenu} className="px-4 py-3 text-lg font-medium border-b border-border/50 hover:text-primary">Home</Link>
+                        <Link href="/about-us" onClick={closeMenu} className="px-4 py-3 text-lg font-medium border-b border-border/50 hover:text-primary">About Us</Link>
 
                         {/* Mobile Services Accordion */}
                         <div className="border-b border-border/50">
                             <button
                                 onClick={() => toggleDropdown("services")}
-                                className="w-full flex justify-between items-center px-4 py-3 text-lg font-medium text-sm hover:text-primary"
+                                className="w-full flex justify-between items-center px-4 py-3 text-lg font-medium hover:text-primary"
                                 aria-expanded={openDropdown === "services"}
                                 aria-controls="mobile-services-menu"
                             >

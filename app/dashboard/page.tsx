@@ -16,6 +16,8 @@ import {
   Eye,
   Plus,
   Calculator,
+  X,
+  Settings,
 } from "lucide-react";
 import {
   Card,
@@ -682,16 +684,17 @@ function InvestorDashboard() {
   );
 }
 
-// Super Admin Dashboard Component
-function SuperAdminDashboard() {
+
+// Property Owner Dashboard Component
+function PropertyOwnerDashboard() {
   return (
     <div className="space-y-8">
       {/* Welcome Section */}
       <div className="bg-primary rounded-3xl p-8 text-white shadow-xl shadow-primary/20 relative overflow-hidden">
         <div className="absolute top-0 right-0 h-32 w-32 bg-white/5 rounded-full -mr-16 -mt-16" />
-        <h1 className="text-3xl font-bold mb-2 uppercase tracking-tight">Super Admin Dashboard</h1>
+        <h1 className="text-3xl font-bold mb-2 uppercase tracking-tight">Welcome back, Owner!</h1>
         <p className="text-white/80 font-medium italic">
-          Full system control and management
+          Manage your properties, view performance, and track tenant requests
         </p>
       </div>
 
@@ -699,138 +702,45 @@ function SuperAdminDashboard() {
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
         <Card className="rounded-3xl border-border/50 shadow-lg hover:shadow-xl transition-all">
           <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-            <CardTitle className="text-sm font-medium">Total Users</CardTitle>
-            <Users className="h-4 w-4 text-muted-foreground" />
-          </CardHeader>
-          <CardContent>
-            <div className="text-2xl font-bold">1,284</div>
-            <p className="text-xs text-muted-foreground">+48 this month</p>
-          </CardContent>
-        </Card>
-
-        <Card className="rounded-3xl border-border/50 shadow-lg hover:shadow-xl transition-all">
-          <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-            <CardTitle className="text-sm font-medium">Total Properties</CardTitle>
+            <CardTitle className="text-sm font-medium">My Properties</CardTitle>
             <Building2 className="h-4 w-4 text-muted-foreground" />
           </CardHeader>
           <CardContent>
-            <div className="text-2xl font-bold">856</div>
-            <p className="text-xs text-muted-foreground">+23 this week</p>
+            <div className="text-2xl font-bold">5</div>
+            <p className="text-xs text-muted-foreground">All active</p>
           </CardContent>
         </Card>
 
         <Card className="rounded-3xl border-border/50 shadow-lg hover:shadow-xl transition-all">
           <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-            <CardTitle className="text-sm font-medium">System Revenue</CardTitle>
+            <CardTitle className="text-sm font-medium">Total Rent (Monthly)</CardTitle>
             <DollarSign className="h-4 w-4 text-muted-foreground" />
           </CardHeader>
           <CardContent>
-            <div className="text-2xl font-bold">£458K</div>
-            <p className="text-xs text-muted-foreground">+15% from last month</p>
+            <div className="text-2xl font-bold">£8,450</div>
+            <p className="text-xs text-muted-foreground">Collected 100%</p>
           </CardContent>
         </Card>
 
         <Card className="rounded-3xl border-border/50 shadow-lg hover:shadow-xl transition-all">
           <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-            <CardTitle className="text-sm font-medium">Active Agents</CardTitle>
-            <Briefcase className="h-4 w-4 text-muted-foreground" />
-          </CardHeader>
-          <CardContent>
-            <div className="text-2xl font-bold">124</div>
-            <p className="text-xs text-muted-foreground">+8 this month</p>
-          </CardContent>
-        </Card>
-      </div>
-
-      {/* System Management */}
-      <Card className="rounded-3xl border-border/50 shadow-lg hover:shadow-xl transition-all">
-        <CardHeader>
-          <CardTitle>System Management</CardTitle>
-          <CardDescription>Control all aspects of the platform</CardDescription>
-        </CardHeader>
-        <CardContent>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-            <Button asChild className="primary-btn h-20 flex flex-col space-y-2 rounded-2xl shadow-lg shadow-primary/20">
-              <Link href="/admin/users">
-                <Users className="w-6 h-6" />
-                <span>Manage Users</span>
-              </Link>
-            </Button>
-            <Button asChild variant="outline" className="h-20 flex flex-col space-y-2">
-              <Link href="/admin/properties">
-                <Building2 className="w-6 h-6" />
-                <span>Manage Properties</span>
-              </Link>
-            </Button>
-            <Button asChild variant="outline" className="h-20 flex flex-col space-y-2">
-              <Link href="/admin/analytics">
-                <BarChart3 className="w-6 h-6" />
-                <span>System Analytics</span>
-              </Link>
-            </Button>
-          </div>
-        </CardContent>
-      </Card>
-    </div>
-  );
-}
-
-// Admin Dashboard Component
-function AdminDashboard() {
-  return (
-    <div className="space-y-8">
-      {/* Welcome Section */}
-      <div className="bg-primary rounded-3xl p-8 text-white shadow-xl shadow-primary/20 relative overflow-hidden">
-        <div className="absolute top-0 right-0 h-32 w-32 bg-white/5 rounded-full -mr-16 -mt-16" />
-        <h1 className="text-3xl font-bold mb-2 uppercase tracking-tight">Admin Dashboard</h1>
-        <p className="text-white/80 font-medium italic">
-          Manage properties, users, and platform content
-        </p>
-      </div>
-
-      {/* Quick Stats */}
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-        <Card className="rounded-3xl border-border/50 shadow-lg hover:shadow-xl transition-all">
-          <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-            <CardTitle className="text-sm font-medium">Total Properties</CardTitle>
-            <Building2 className="h-4 w-4 text-muted-foreground" />
-          </CardHeader>
-          <CardContent>
-            <div className="text-2xl font-bold">856</div>
-            <p className="text-xs text-muted-foreground">+23 this week</p>
-          </CardContent>
-        </Card>
-
-        <Card className="rounded-3xl border-border/50 shadow-lg hover:shadow-xl transition-all">
-          <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-            <CardTitle className="text-sm font-medium">Active Listings</CardTitle>
-            <FileText className="h-4 w-4 text-muted-foreground" />
-          </CardHeader>
-          <CardContent>
-            <div className="text-2xl font-bold">642</div>
-            <p className="text-xs text-muted-foreground">75% of total</p>
-          </CardContent>
-        </Card>
-
-        <Card className="rounded-3xl border-border/50 shadow-lg hover:shadow-xl transition-all">
-          <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-            <CardTitle className="text-sm font-medium">Total Users</CardTitle>
+            <CardTitle className="text-sm font-medium">Occupancy Rate</CardTitle>
             <Users className="h-4 w-4 text-muted-foreground" />
           </CardHeader>
           <CardContent>
-            <div className="text-2xl font-bold">1,284</div>
-            <p className="text-xs text-muted-foreground">+48 this month</p>
+            <div className="text-2xl font-bold">100%</div>
+            <p className="text-xs text-muted-foreground">Stable</p>
           </CardContent>
         </Card>
 
         <Card className="rounded-3xl border-border/50 shadow-lg hover:shadow-xl transition-all">
           <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-            <CardTitle className="text-sm font-medium">Pending Reviews</CardTitle>
-            <Eye className="h-4 w-4 text-muted-foreground" />
+            <CardTitle className="text-sm font-medium">Net Return</CardTitle>
+            <TrendingUp className="h-4 w-4 text-muted-foreground" />
           </CardHeader>
           <CardContent>
-            <div className="text-2xl font-bold">18</div>
-            <p className="text-xs text-muted-foreground">Requires attention</p>
+            <div className="text-2xl font-bold">6.8%</div>
+            <p className="text-xs text-muted-foreground">Above market average</p>
           </CardContent>
         </Card>
       </div>
@@ -839,26 +749,26 @@ function AdminDashboard() {
       <Card className="rounded-3xl border-border/50 shadow-lg hover:shadow-xl transition-all">
         <CardHeader>
           <CardTitle>Quick Actions</CardTitle>
-          <CardDescription>Common administrative tasks</CardDescription>
+          <CardDescription>Common tasks for property owners</CardDescription>
         </CardHeader>
         <CardContent>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
             <Button asChild className="primary-btn h-20 flex flex-col space-y-2 rounded-2xl shadow-lg shadow-primary/20">
-              <Link href="/admin/properties">
+              <Link href="/dashboard/listings">
                 <Building2 className="w-6 h-6" />
-                <span>Manage Properties</span>
+                <span>My Properties</span>
               </Link>
             </Button>
             <Button asChild variant="outline" className="h-20 flex flex-col space-y-2">
-              <Link href="/admin/users">
-                <Users className="w-6 h-6" />
-                <span>Manage Users</span>
+              <Link href="/dashboard/reports">
+                <BarChart3 className="w-6 h-6" />
+                <span>Financial Reports</span>
               </Link>
             </Button>
             <Button asChild variant="outline" className="h-20 flex flex-col space-y-2">
-              <Link href="/admin/blog">
-                <FileText className="w-6 h-6" />
-                <span>Manage Blog</span>
+              <Link href="/dashboard/settings">
+                <Settings className="w-6 h-6" />
+                <span>Account Settings</span>
               </Link>
             </Button>
           </div>
@@ -868,57 +778,90 @@ function AdminDashboard() {
   );
 }
 
-// Guest Dashboard Component
-function GuestDashboard() {
+// Property Sourcer Dashboard Component
+function PropertySourcerDashboard() {
   return (
     <div className="space-y-8">
       {/* Welcome Section */}
-      <div className="bg-linear-to-r from-gray-600 to-gray-800 rounded-lg p-6 text-white">
-        <h1 className="text-3xl font-bold mb-2">Welcome, Guest!</h1>
-        <p className="text-gray-100">
-          Explore our properties and create an account for full access
+      <div className="bg-primary rounded-3xl p-8 text-white shadow-xl shadow-primary/20 relative overflow-hidden">
+        <div className="absolute top-0 right-0 h-32 w-32 bg-white/5 rounded-full -mr-16 -mt-16" />
+        <h1 className="text-3xl font-bold mb-2 uppercase tracking-tight">Welcome back, Sourcer!</h1>
+        <p className="text-white/80 font-medium italic">
+          Find the best BMV deals and connect them with hungry investors
         </p>
       </div>
 
-      {/* Limited Access Notice */}
-      <Card className="border-yellow-200 bg-yellow-50">
-        <CardHeader>
-          <CardTitle className="text-yellow-800">Limited Access</CardTitle>
-          <CardDescription className="text-yellow-700">
-            You&apos;re currently browsing as a guest. Create an account to unlock all features!
-          </CardDescription>
-        </CardHeader>
-        <CardContent>
-          <Button asChild>
-            <Link href="/register">Create Account</Link>
-          </Button>
-        </CardContent>
-      </Card>
+      {/* Quick Stats */}
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <Card className="rounded-3xl border-border/50 shadow-lg hover:shadow-xl transition-all">
+          <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
+            <CardTitle className="text-sm font-medium">Deals Sourced</CardTitle>
+            <TrendingUp className="h-4 w-4 text-muted-foreground" />
+          </CardHeader>
+          <CardContent>
+            <div className="text-2xl font-bold">12</div>
+            <p className="text-xs text-muted-foreground">+2 this month</p>
+          </CardContent>
+        </Card>
+
+        <Card className="rounded-3xl border-border/50 shadow-lg hover:shadow-xl transition-all">
+          <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
+            <CardTitle className="text-sm font-medium">Avg. Discount</CardTitle>
+            <Calculator className="h-4 w-4 text-muted-foreground" />
+          </CardHeader>
+          <CardContent>
+            <div className="text-2xl font-bold">22.5%</div>
+            <p className="text-xs text-muted-foreground">BMV</p>
+          </CardContent>
+        </Card>
+
+        <Card className="rounded-3xl border-border/50 shadow-lg hover:shadow-xl transition-all">
+          <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
+            <CardTitle className="text-sm font-medium">Investor Leads</CardTitle>
+            <Users className="h-4 w-4 text-muted-foreground" />
+          </CardHeader>
+          <CardContent>
+            <div className="text-2xl font-bold">8</div>
+            <p className="text-xs text-muted-foreground">Actively looking</p>
+          </CardContent>
+        </Card>
+
+        <Card className="rounded-3xl border-border/50 shadow-lg hover:shadow-xl transition-all">
+          <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
+            <CardTitle className="text-sm font-medium">Potential Fees</CardTitle>
+            <DollarSign className="h-4 w-4 text-muted-foreground" />
+          </CardHeader>
+          <CardContent>
+            <div className="text-2xl font-bold">£36,000</div>
+            <p className="text-xs text-muted-foreground">In pipeline</p>
+          </CardContent>
+        </Card>
+      </div>
 
       {/* Quick Actions */}
       <Card className="rounded-3xl border-border/50 shadow-lg hover:shadow-xl transition-all">
         <CardHeader>
-          <CardTitle>What You Can Do</CardTitle>
-          <CardDescription>Available features for guest users</CardDescription>
+          <CardTitle>Quick Actions</CardTitle>
+          <CardDescription>Sourcing tools and shortcuts</CardDescription>
         </CardHeader>
         <CardContent>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-            <Button asChild variant="outline" className="h-20 flex flex-col space-y-2">
-              <Link href="/properties">
-                <Search className="w-6 h-6" />
-                <span>Browse Properties</span>
-              </Link>
-            </Button>
-            <Button asChild variant="outline" className="h-20 flex flex-col space-y-2">
+            <Button asChild className="primary-btn h-20 flex flex-col space-y-2 rounded-2xl shadow-lg shadow-primary/20">
               <Link href="/tools/bmv-analyzer">
                 <Calculator className="w-6 h-6" />
-                <span>BMV Analyzer</span>
+                <span>New BMV Analysis</span>
               </Link>
             </Button>
             <Button asChild variant="outline" className="h-20 flex flex-col space-y-2">
-              <Link href="/blog">
-                <FileText className="w-6 h-6" />
-                <span>Read Blog</span>
+              <Link href="/dashboard/opportunities">
+                <TrendingUp className="w-6 h-6" />
+                <span>Post Deal</span>
+              </Link>
+            </Button>
+            <Button asChild variant="outline" className="h-20 flex flex-col space-y-2">
+              <Link href="/dashboard/clients">
+                <Users className="w-6 h-6" />
+                <span>Investor Match</span>
               </Link>
             </Button>
           </div>
@@ -927,6 +870,7 @@ function GuestDashboard() {
     </div>
   );
 }
+
 
 // Main Dashboard Component
 export default function Dashboard() {
@@ -950,18 +894,38 @@ export default function Dashboard() {
 
   // Render role-based dashboard
   switch (user.role) {
-    case "super_admin":
-      return <SuperAdminDashboard />;
-    case "admin":
-      return <AdminDashboard />;
     case "agent":
       return <AgentDashboard />;
+    case "property_owner":
+      return <PropertyOwnerDashboard />;
+    case "property_sourcer":
+      return <PropertySourcerDashboard />;
     case "investor":
       return <InvestorDashboard />;
     case "client":
       return <ClientDashboard />;
     case "guest":
-      return <GuestDashboard />;
+      return (
+        <div className="flex flex-col items-center justify-center py-20 text-center space-y-6">
+          <div className="bg-primary/10 p-6 rounded-full">
+            <X className="w-12 h-12 text-primary" />
+          </div>
+          <div className="space-y-2">
+            <h2 className="text-3xl font-black uppercase tracking-tight">Access Restricted</h2>
+            <p className="text-muted-foreground max-w-md mx-auto">
+              Guests do not have access to the personalized dashboard. Please sign in or create an account to view your investment insights and property tracking.
+            </p>
+          </div>
+          <div className="flex gap-4">
+            <Button asChild className="primary-btn h-12 px-8 rounded-xl font-bold uppercase tracking-widest text-sm shadow-lg shadow-primary/20">
+              <Link href="/login">Log In</Link>
+            </Button>
+            <Button asChild variant="outline" className="h-12 px-8 rounded-xl font-bold uppercase tracking-widest text-sm border-border/50">
+              <Link href="/get-started">Join Now</Link>
+            </Button>
+          </div>
+        </div>
+      );
     default:
       return <ClientDashboard />;
   }

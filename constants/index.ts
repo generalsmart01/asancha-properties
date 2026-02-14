@@ -1,29 +1,31 @@
-import { UserRole, PropertyType, PropertyStatus } from "@/types";
+import { UserRole, HouseType, PropertyStatus } from "@/types";
 
 // User Roles and Permissions
 export const USER_ROLES: Record<UserRole, string> = {
-  super_admin: "Super Admin",
-  admin: "Admin",
   agent: "Real Estate Agent",
   investor: "Investor",
   client: "Client",
+  property_owner: "Property Owner",
+  property_sourcer: "Property Sourcer",
   guest: "Guest",
 };
 
 export const ROLE_PERMISSIONS = {
-  super_admin: ["*"], // All permissions
-  admin: [
-    "manage_content",
-    "manage_campaigns",
-    "manage_bookings",
-    "manage_users",
-    "view_analytics",
-  ],
   agent: [
     "manage_own_listings",
     "manage_own_bookings",
     "manage_own_clients",
     "view_own_analytics",
+  ],
+  property_owner: [
+    "manage_own_listings",
+    "view_financial_reports",
+    "manage_bookings",
+  ],
+  property_sourcer: [
+    "source_deals",
+    "bmv_analysis",
+    "manage_leads",
   ],
   investor: [
     "access_investment_tools",
@@ -41,22 +43,23 @@ export const ROLE_PERMISSIONS = {
 };
 
 // Property Types
-export const PROPERTY_TYPES: Record<PropertyType, string> = {
-  house: "House",
+export const PROPERTY_TYPES: Record<HouseType, string> = {
   apartment: "Apartment",
-  condo: "Condo",
-  townhouse: "Townhouse",
+  terraced_house: "Terraced House",
+  detached_house: "Detached House",
+  semi_detached: "Semi-Detached",
+  bungalow: "Bungalow",
   land: "Land",
   commercial: "Commercial",
+  other: "Other",
 };
 
 // Property Status
 export const PROPERTY_STATUS: Record<PropertyStatus, string> = {
-  for_sale: "For Sale",
-  for_rent: "For Rent",
-  sold: "Sold",
-  rented: "Rented",
-  off_market: "Off Market",
+  available: "Available",
+  under_offer: "Under Offer",
+  reserved: "Reserved",
+  inactive: "Inactive",
 };
 
 // BMV Analyzer Limits

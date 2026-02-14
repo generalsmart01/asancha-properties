@@ -1,7 +1,7 @@
 "use client";
 
 import { createContext, useContext, useState, useEffect, ReactNode } from "react";
-import { User, UserRole } from "@/types";
+import { User, UserRole, AuthProvider } from "@/types";
 import safeConsole from "@/lib/console";
 
 interface UserContextType {
@@ -25,6 +25,7 @@ export const DUMMY_USERS = [
     email: "agent@asancha.com",
     password: process.env.NEXT_PUBLIC_DUMMY_AGENT_PASSWORD || "agent123",
     role: "agent" as UserRole,
+    provider: "local" as AuthProvider,
     avatar: "/avatars/agent.jpg",
   },
   {
@@ -35,6 +36,7 @@ export const DUMMY_USERS = [
     email: "investor@asancha.com",
     password: process.env.NEXT_PUBLIC_DUMMY_INVESTOR_PASSWORD || "investor123",
     role: "investor" as UserRole,
+    provider: "local" as AuthProvider,
     avatar: "/avatars/investor.jpg",
   },
   {
@@ -45,7 +47,30 @@ export const DUMMY_USERS = [
     email: "client@asancha.com",
     password: process.env.NEXT_PUBLIC_DUMMY_CLIENT_PASSWORD || "client123",
     role: "client" as UserRole,
+    provider: "local" as AuthProvider,
     avatar: "/avatars/client.jpg",
+  },
+  {
+    id: "6",
+    name: "Property Owner",
+    firstName: "Property",
+    lastName: "Owner",
+    email: "owner@asancha.com",
+    password: process.env.NEXT_PUBLIC_DUMMY_OWNER_PASSWORD || "owner123",
+    role: "property_owner" as UserRole,
+    provider: "local" as AuthProvider,
+    avatar: "/avatars/owner.jpg",
+  },
+  {
+    id: "7",
+    name: "Property Sourcer",
+    firstName: "Property",
+    lastName: "Sourcer",
+    email: "sourcer@asancha.com",
+    password: process.env.NEXT_PUBLIC_DUMMY_SOURCER_PASSWORD || "sourcer123",
+    role: "property_sourcer" as UserRole,
+    provider: "local" as AuthProvider,
+    avatar: "/avatars/sourcer.jpg",
   },
 ];
 
