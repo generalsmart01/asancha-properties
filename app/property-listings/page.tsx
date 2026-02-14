@@ -21,6 +21,10 @@ const PropertyListingPage = () => {
     const [sortBy, setSortBy] = useState('Newest');
     const [wishlist, setWishlist] = useState<string[]>([]);
 
+    // Pagination State
+    const [currentPage, setCurrentPage] = useState(1);
+    const propertiesPerPage = 3;
+
     useEffect(() => {
         const fetchProperties = async () => {
             try {
@@ -173,6 +177,11 @@ const PropertyListingPage = () => {
     }, [properties, searchQuery, cityFilter, typeFilter, statusFilter, listingTypeFilter, listingCategoryFilter, bedsFilter, bathsFilter, sortBy]);
 
 
+    // Reset to first page when any filters change
+    useEffect(() => {
+        setCurrentPage(1);
+    }, [searchQuery, cityFilter, typeFilter, statusFilter, listingTypeFilter, listingCategoryFilter, bedsFilter, bathsFilter, sortBy]);
+
     const handleClearFilters = () => {
         setSearchQuery('');
         setCityFilter('All Cities');
@@ -183,7 +192,15 @@ const PropertyListingPage = () => {
         setBedsFilter('Bedrooms');
         setBathsFilter('Bathrooms');
         setSortBy('Newest');
+        setCurrentPage(1);
     };
+
+    const paginatedProperties = useMemo(() => {
+        const startIndex = (currentPage - 1) * propertiesPerPage;
+        return filteredProperties.slice(startIndex, startIndex + propertiesPerPage);
+    }, [filteredProperties, currentPage]);
+
+    const totalPages = Math.ceil(filteredProperties.length / propertiesPerPage);
 
     return (
         <main className="grow">
@@ -396,7 +413,7 @@ const PropertyListingPage = () => {
                         </div>
                     ) : filteredProperties.length > 0 ? (
                         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
-                            {filteredProperties.map((property, idx) => (
+                            {paginatedProperties.map((property, idx) => (
                                 <div key={property.id} className="group animate-in fade-in slide-in-from-bottom-5 duration-700" style={{ animationDelay: `${(idx % 3) * 100}ms` }}>
                                     <div className="bg-card rounded-4xl overflow-hidden shadow-lg border border-border/50 hover:border-primary/50 transition-all duration-300 h-full flex flex-col">
                                         <div className="relative h-60 w-full overflow-hidden">
@@ -547,14 +564,50 @@ const PropertyListingPage = () => {
                     )}
 
 
-                    <div className="flex justify-center">
-                        <nav aria-label="Page navigation">
-                            <ul className="flex gap-2">
-                                <li className="active"><span className="h-10 w-10 flex items-center justify-center rounded-lg bg-primary text-white font-bold cursor-pointer transition-colors hover:bg-primary-hover">1</span></li>
-                                {/* Pagination would be dynamic in a real app */}
-                            </ul>
-                        </nav>
-                    </div>
+                    {totalPages > 1 && (
+                        <div className="flex justify-center mt-8">
+                            <nav aria-label="Page navigation">
+                                <ul className="flex flex-wrap gap-2 items-center">
+                                    <li>
+                                        <button
+                                            onClick={() => setCurrentPage(prev => Math.max(prev - 1, 1))}
+                                            disabled={currentPage === 1}
+                                            className="h-10 px-4 flex items-center justify-center rounded-lg bg-card border border-border text-foreground font-bold hover:bg-muted disabled:opacity-50 disabled:cursor-not-allowed transition-colors cursor-pointer"
+                                        >
+                                            Previous
+                                        </button>
+                                    </li>
+
+                                    {[...Array(totalPages)].map((_, i) => {
+                                        const pageNumber = i + 1;
+                                        return (
+                                            <li key={pageNumber}>
+                                                <button
+                                                    onClick={() => setCurrentPage(pageNumber)}
+                                                    className={`h-10 w-10 flex items-center justify-center rounded-lg font-bold transition-all duration-300 cursor-pointer ${currentPage === pageNumber
+                                                            ? 'bg-primary text-white shadow-lg scale-110 shadow-primary/20'
+                                                            : 'bg-card border border-border text-foreground hover:bg-muted'
+                                                        }`}
+                                                >
+                                                    {pageNumber}
+                                                </button>
+                                            </li>
+                                        );
+                                    })}
+
+                                    <li>
+                                        <button
+                                            onClick={() => setCurrentPage(prev => Math.min(prev + 1, totalPages))}
+                                            disabled={currentPage === totalPages}
+                                            className="h-10 px-4 flex items-center justify-center rounded-lg bg-card border border-border text-foreground font-bold hover:bg-muted disabled:opacity-50 disabled:cursor-not-allowed transition-colors cursor-pointer"
+                                        >
+                                            Next
+                                        </button>
+                                    </li>
+                                </ul>
+                            </nav>
+                        </div>
+                    )}
                 </div>
             </section>
         </main>
