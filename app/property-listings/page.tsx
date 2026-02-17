@@ -23,7 +23,7 @@ const PropertyListingPage = () => {
 
     // Pagination State
     const [currentPage, setCurrentPage] = useState(1);
-    const propertiesPerPage = 3;
+    const propertiesPerPage = 12;
 
     useEffect(() => {
         const fetchProperties = async () => {
@@ -423,6 +423,7 @@ const PropertyListingPage = () => {
                                                 fill
                                                 className="object-cover group-hover:scale-105 transition-transform duration-500"
                                             />
+                                            <div className='bg-black opacity-20 absolute inset-0 z-10' />
                                             <div className="absolute top-4 left-4 flex flex-col gap-2 items-start p-1 z-10">
                                                 <span className="bg-primary/90 text-white text-[12px] font-bold px-3 py-1 rounded-full uppercase tracking-widest shadow-lg">
                                                     {property.listingType}
@@ -438,7 +439,7 @@ const PropertyListingPage = () => {
                                                     </span>
                                                 )}
                                                 {property.listingCardMetrics.bmvDiscountPercent && (
-                                                    <span className="bg-red-600/90 text-white text-[11px] font-bold px-2 py-0.5 rounded-md uppercase tracking-wider shadow-lg border border-red-500/30 backdrop-blur-sm">
+                                                    <span className="bg-lime-600/90 text-white text-[11px] font-bold px-2 py-0.5 rounded-md uppercase tracking-wider shadow-lg border border-lime-500/30 backdrop-blur-sm">
                                                         BMV Discount: {property.listingCardMetrics.bmvDiscountPercent}%
                                                     </span>
                                                 )}

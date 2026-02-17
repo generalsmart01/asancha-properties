@@ -7,9 +7,10 @@ import { Slider } from "../ui/slider";
 
 interface ReturnsCalculatorProps {
     initialPrice: number;
+    rentalIncomePcm?: number;
 }
 
-export default function ReturnsCalculator({ initialPrice }: ReturnsCalculatorProps) {
+export default function ReturnsCalculator({ initialPrice, rentalIncomePcm }: ReturnsCalculatorProps) {
     const [purchasePrice, setPurchasePrice] = useState(initialPrice);
     const [interestRate, setInterestRate] = useState(5.0);
     const [ltv, setLtv] = useState(75);
@@ -39,6 +40,8 @@ export default function ReturnsCalculator({ initialPrice }: ReturnsCalculatorPro
             maximumFractionDigits: 0,
         }).format(val);
     };
+
+    const netCashflow = rentalIncomePcm ? rentalIncomePcm - monthlyMortgage : null;
 
     return (
         <div className="bg-card p-8 rounded-[2.5rem] shadow-xl border border-border/50">
@@ -107,18 +110,29 @@ export default function ReturnsCalculator({ initialPrice }: ReturnsCalculatorPro
                 </div>
 
                 {/* Results */}
-                <div className="pt-6 border-t border-border mt-6">
-                    <div className="flex justify-between items-center mb-2">
+                <div className="pt-6 border-t border-border mt-6 space-y-3">
+                    <div className="flex justify-between items-center">
                         <span className="text-sm font-bold text-muted-foreground">Deposit Required</span>
                         <span className="text-base font-black text-foreground">{formatCurrency(deposit)}</span>
                     </div>
-                    <div className="flex justify-between items-center mb-2">
+                    <div className="flex justify-between items-center">
                         <span className="text-sm font-bold text-muted-foreground">Mortgage Amount</span>
                         <span className="text-base font-black text-foreground">{formatCurrency(loanAmount)}</span>
                     </div>
-                    <div className="flex justify-between items-center p-4 bg-primary/5 rounded-2xl border border-primary/10 mt-4">
-                        <span className="text-sm font-bold text-primary uppercase tracking-wider">Monthly Payment</span>
-                        <span className="text-xl font-black text-primary">{formatCurrency(monthlyMortgage)}</span>
+
+                    <div className="p-4 bg-primary/5 rounded-2xl border border-primary/10 mt-4 space-y-3">
+                        <div className="flex justify-between items-center">
+                            <span className="text-sm font-bold text-muted-foreground uppercase tracking-wider">Monthly Mortgage</span>
+                            <span className="text-lg font-black text-foreground">{formatCurrency(monthlyMortgage)}</span>
+                        </div>
+                        {netCashflow !== null && (
+                            <div className="flex justify-between items-center pt-3 border-t border-primary/10">
+                                <span className="text-sm font-bold text-primary uppercase tracking-wider">Est. Net Cashflow</span>
+                                <span className={`text-xl font-black ${netCashflow >= 0 ? 'text-emerald-600' : 'text-red-500'}`}>
+                                    {formatCurrency(netCashflow)}
+                                </span>
+                            </div>
+                        )}
                     </div>
                 </div>
 

@@ -7,7 +7,10 @@ import {
     CheckCircle2, Phone, Mail, MessageSquare,
     Facebook, Instagram, Linkedin, Heart, Share2,
     ChevronLeft, ChevronRight, Star, Building2,
-    ArrowRight
+    ArrowRight,
+    PoundSterling,
+    Coins,
+    FileText
 } from 'lucide-react';
 import ReturnsCalculator from '@/components/property/ReturnsCalculator';
 import PropertyActions from '@/components/property/PropertyActions';
@@ -74,11 +77,16 @@ const SinglePropertyPage = async ({ params }: PageProps) => {
                             <div className="max-w-4xl pointer-events-auto">
                                 <div className="flex flex-wrap gap-2 mb-4">
                                     <span className="bg-primary text-white text-[12px] font-black uppercase tracking-[0.2em] px-4 py-1.5 rounded-full shadow-lg">
-                                        {property.calculatedStatus}
+                                        {property.calculatedStatus?.replace('_', ' ')}
                                     </span>
                                     <span className="bg-white/10 backdrop-blur-md text-white text-[12px] font-black uppercase tracking-[0.2em] px-4 py-1.5 rounded-full border border-white/20">
                                         {property.houseType.replace('_', ' ')}
                                     </span>
+                                    {property.reservationPrice && (
+                                        <span className="bg-emerald-500/90 text-white text-[12px] font-black uppercase tracking-[0.2em] px-4 py-1.5 rounded-full shadow-lg">
+                                            Reserve: {formatPrice(property.reservationPrice)}
+                                        </span>
+                                    )}
                                 </div>
                                 <h1 className="text-3xl md:text-4xl font-bold text-white mb-4 tracking-tight leading-tight uppercase drop-shadow-2xl">
                                     {property.title}
@@ -100,13 +108,13 @@ const SinglePropertyPage = async ({ params }: PageProps) => {
             </section>
 
             {/* ##### Property Content ##### */}
-            <section className="py-20">
+            <section className="pt-4 pb-20">
                 <div className="container mx-auto px-4">
                     <div className="grid grid-cols-1 lg:grid-cols-12 gap-12">
                         {/* Main Content (Left) */}
                         <div className="lg:col-span-8">
                             {/* Stats Bar */}
-                            <div className="grid grid-cols-2 md:grid-cols-4 gap-6 p-8 bg-card rounded-[2.5rem] shadow-xl border border-border/50 mb-12">
+                            <div className="grid grid-cols-2 md:grid-cols-5 gap-6 p-8 bg-card rounded-[2.5rem] shadow-xl border border-border/50 mb-12">
                                 <div className="flex flex-col items-center justify-center text-center gap-2">
                                     <div className="h-12 w-12 rounded-xl bg-primary/10 flex items-center justify-center text-primary mb-1">
                                         <Bed size={24} />
@@ -125,6 +133,13 @@ const SinglePropertyPage = async ({ params }: PageProps) => {
                                     <div className="h-12 w-12 rounded-xl bg-primary/10 flex items-center justify-center text-primary mb-1">
                                         <Move size={24} />
                                     </div>
+                                    <span className="text-2xl font-black text-foreground">{property.functionalSpace.receptions}</span>
+                                    <span className="text-[10px] font-black text-muted-foreground uppercase tracking-widest leading-none">Receptions</span>
+                                </div>
+                                <div className="flex flex-col items-center justify-center text-center gap-2 border-l border-border">
+                                    <div className="h-12 w-12 rounded-xl bg-primary/10 flex items-center justify-center text-primary mb-1">
+                                        <Building2 size={24} />
+                                    </div>
                                     <span className="text-2xl font-black text-foreground">{property.propertySizeSqft}</span>
                                     <span className="text-[10px] font-black text-muted-foreground uppercase tracking-widest leading-none">Sq Ft</span>
                                 </div>
@@ -140,31 +155,83 @@ const SinglePropertyPage = async ({ params }: PageProps) => {
                             {/* Property Information Table */}
                             <div className="mb-12">
                                 <div className="flex items-center gap-4 mb-6">
-                                    <h2 className="text-2xl font-bold text-foreground">Property Information</h2>
+                                    <h2 className="text-2xl font-bold text-foreground">Property Specifications</h2>
                                     <span className="h-1 flex-grow bg-border rounded-full"></span>
                                 </div>
                                 <div className="bg-card rounded-3xl border border-border/50 overflow-hidden">
                                     <div className="grid grid-cols-1 md:grid-cols-2">
                                         {[
                                             { label: "Type", value: property.houseType.replace('_', ' ') },
-                                            { label: "Bedrooms", value: property.functionalSpace.bedrooms },
                                             { label: "Tenure", value: property.tenureType },
                                             { label: "Strategy", value: property.strategyBadge || "N/A" },
                                             { label: "Asking Price", value: formatPrice(property.price) },
                                             { label: "Valuation", value: property.valuationAmount ? formatPrice(property.valuationAmount) : "N/A" },
                                             { label: "Occupancy", value: property.occupancyStatus },
-                                            { label: "Gross Yield", value: property.listingCardMetrics.grossYield ? `${property.listingCardMetrics.grossYield}%` : "N/A" },
-                                            { label: "Current Rent", value: property.currentRent ? formatPrice(property.currentRent) : "N/A" },
-                                            { label: "Rental Income", value: property.listingCardMetrics.rentalIncomePcm ? formatPrice(property.listingCardMetrics.rentalIncomePcm) : "N/A" },
-                                            { label: "Size", value: `${property.propertySizeSqft} Sq. Ft.` },
-                                            { label: "EPC", value: property.epc || "N/A" },
+                                            { label: "Size (Sqm)", value: property.propertySizeSqm ? `${property.propertySizeSqm} m²` : "N/A" },
+                                            { label: "EPC Rating", value: property.epc || "N/A" },
                                             { label: "Flood Risk", value: property.floodRisk || "N/A" },
+                                            { label: "Listing Type", value: property.listingType },
                                         ].map((item, i) => (
                                             <div key={i} className="flex justify-between p-4 border-b border-r border-border/50 last:border-b-0">
                                                 <span className="text-sm font-semibold text-muted-foreground">{item.label}</span>
                                                 <span className="text-sm font-bold text-foreground text-right capitalize">{item.value}</span>
                                             </div>
                                         ))}
+                                    </div>
+                                </div>
+                            </div>
+
+                            {/* Lease & Financial Details */}
+                            <div className="mb-12">
+                                <div className="flex items-center gap-4 mb-6">
+                                    <h2 className="text-2xl font-bold text-foreground">Lease & Financial Details</h2>
+                                    <span className="h-1 flex-grow bg-border rounded-full"></span>
+                                </div>
+                                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                                    <div className="bg-card p-6 rounded-3xl border border-border/50 flex flex-col gap-4">
+                                        <div className="flex items-center gap-3">
+                                            <div className="h-10 w-10 rounded-lg bg-primary/10 flex items-center justify-center text-primary">
+                                                <FileText size={20} />
+                                            </div>
+                                            <h3 className="text-lg font-black text-foreground uppercase tracking-tight">Lease Info</h3>
+                                        </div>
+                                        <div className="space-y-3">
+                                            <div className="flex justify-between">
+                                                <span className="text-sm text-muted-foreground font-medium">Lease Length</span>
+                                                <span className="text-sm font-bold text-foreground">{property.leaseLength ? `${property.leaseLength} Years` : 'N/A'}</span>
+                                            </div>
+                                            <div className="flex justify-between">
+                                                <span className="text-sm text-muted-foreground font-medium">Ground Rent</span>
+                                                <span className="text-sm font-bold text-foreground">{property.groundRent ? formatPrice(property.groundRent) : 'N/A'}</span>
+                                            </div>
+                                            <div className="flex justify-between">
+                                                <span className="text-sm text-muted-foreground font-medium">Service Charge</span>
+                                                <span className="text-sm font-bold text-foreground">{property.serviceCharge ? formatPrice(property.serviceCharge) : 'N/A'}</span>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div className="bg-card p-6 rounded-3xl border border-border/50 flex flex-col gap-4">
+                                        <div className="flex items-center gap-3">
+                                            <div className="h-10 w-10 rounded-lg bg-primary/10 flex items-center justify-center text-primary">
+                                                <Coins size={20} />
+                                            </div>
+                                            <h3 className="text-lg font-black text-foreground uppercase tracking-tight">Rental Stats</h3>
+                                        </div>
+                                        <div className="space-y-3">
+                                            <div className="flex justify-between">
+                                                <span className="text-sm text-muted-foreground font-medium">Current Rent</span>
+                                                <span className="text-sm font-bold text-foreground">{property.currentRent ? formatPrice(property.currentRent) : 'N/A'}</span>
+                                            </div>
+                                            <div className="flex justify-between">
+                                                <span className="text-sm text-muted-foreground font-medium">Annual Rent</span>
+                                                <span className="text-sm font-bold text-foreground">{property.annualRent ? formatPrice(property.annualRent) : 'N/A'}</span>
+                                            </div>
+                                            <div className="flex justify-between">
+                                                <span className="text-sm text-muted-foreground font-medium">Gross Yield</span>
+                                                <span className="text-sm font-bold text-foreground">{property.listingCardMetrics.grossYield ? `${property.listingCardMetrics.grossYield}%` : 'N/A'}</span>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -178,9 +245,10 @@ const SinglePropertyPage = async ({ params }: PageProps) => {
                                     </h2>
                                     <span className="h-1 w-24 bg-primary rounded-full"></span>
                                 </div>
-                                <p className="text-lg text-muted-foreground leading-relaxed italic border-l-4 border-primary/20 pl-8">
-                                    {property.description}
-                                </p>
+                                <div
+                                    className="text-lg text-muted-foreground leading-relaxed italic border-l-4 border-primary/20 pl-8 prose max-w-none dark:prose-invert"
+                                    dangerouslySetInnerHTML={{ __html: property.description }} // Supporting rich text if needed, or simple text
+                                />
                             </div>
 
                             {/* Investment Metrics */}
@@ -322,7 +390,10 @@ const SinglePropertyPage = async ({ params }: PageProps) => {
                                 </div>
 
                                 {/* Returns Calculator */}
-                                <ReturnsCalculator initialPrice={property.price} />
+                                <ReturnsCalculator
+                                    initialPrice={property.price}
+                                    rentalIncomePcm={property.listingCardMetrics.rentalIncomePcm}
+                                />
 
                                 {/* Agent Card */}
                                 <div className="bg-card p-8 rounded-[2.5rem] shadow-xl border border-border/50">
