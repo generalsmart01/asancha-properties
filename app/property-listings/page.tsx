@@ -437,6 +437,11 @@ const PropertyListingPage = () => {
                                                         Net Yield: {property.listingCardMetrics.netYield}%
                                                     </span>
                                                 )}
+                                                {property.listingCardMetrics.bmvDiscountPercent && (
+                                                    <span className="bg-red-600/90 text-white text-[11px] font-bold px-2 py-0.5 rounded-md uppercase tracking-wider shadow-lg border border-red-500/30 backdrop-blur-sm">
+                                                        BMV Discount: {property.listingCardMetrics.bmvDiscountPercent}%
+                                                    </span>
+                                                )}
                                             </div>
                                             <button
                                                 onClick={() => toggleWishlist(property.id)}
@@ -585,8 +590,8 @@ const PropertyListingPage = () => {
                                                 <button
                                                     onClick={() => setCurrentPage(pageNumber)}
                                                     className={`h-10 w-10 flex items-center justify-center rounded-lg font-bold transition-all duration-300 cursor-pointer ${currentPage === pageNumber
-                                                            ? 'bg-primary text-white shadow-lg scale-110 shadow-primary/20'
-                                                            : 'bg-card border border-border text-foreground hover:bg-muted'
+                                                        ? 'bg-primary text-white shadow-lg scale-110 shadow-primary/20'
+                                                        : 'bg-card border border-border text-foreground hover:bg-muted'
                                                         }`}
                                                 >
                                                     {pageNumber}

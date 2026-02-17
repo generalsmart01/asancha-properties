@@ -17,7 +17,8 @@ function RegisterForm() {
 
   useEffect(() => {
     const roleParam = searchParams.get("role");
-    if (roleParam && ["client", "agent", "investor"].includes(roleParam)) {
+    const validRoles: UserRole[] = ["client", "agent", "investor", "property_owner", "property_sourcer"];
+    if (roleParam && validRoles.includes(roleParam as UserRole)) {
       setRole(roleParam as UserRole);
     }
   }, [searchParams]);
@@ -32,6 +33,8 @@ function RegisterForm() {
     { id: "client", label: "Client", description: "Buying or renting" },
     { id: "agent", label: "Agent", description: "Listing properties" },
     { id: "investor", label: "Investor", description: "Analyzing deals" },
+    { id: "property_owner", label: "Property Owner", description: "Selling or letting" },
+    { id: "property_sourcer", label: "Property Sourcer", description: "Packaging deals" },
   ];
 
   return (
@@ -43,24 +46,23 @@ function RegisterForm() {
         </p>
       </div>
 
-      {/* Role Selector */}
-      <div className="grid grid-cols-3 gap-2 bg-muted p-1 rounded-lg">
-        {roles.map((r) => (
-          <button
-            key={r.id}
-            type="button"
-            onClick={() => setRole(r.id)}
-            className={cn(
-              "rounded-md px-2 py-2 text-sm font-medium transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2",
-              role === r.id
-                ? "bg-background text-foreground shadow-sm hover:bg-background/90"
-                : "hover:bg-background/50 text-muted-foreground"
-            )}
-          >
-            <span className="block">{r.label}</span>
-            <span className="text-[10px] hidden sm:block font-normal opacity-70">{r.description}</span>
-          </button>
-        ))}
+      {/* Role Selector Dropdown */}
+      <div className="space-y-2">
+        <label htmlFor="role-select" className="block text-sm font-medium text-gray-700">
+          I want to register as a:
+        </label>
+        <select
+          id="role-select"
+          value={role}
+          onChange={(e) => setRole(e.target.value as UserRole)}
+          className="w-full rounded-md border border-gray-300 bg-background px-3 py-2 text-sm focus:ring-2 focus:ring-primary focus:border-primary transition-all cursor-pointer"
+        >
+          {roles.map((r) => (
+            <option key={r.id} value={r.id}>
+              {r.label} — {r.description}
+            </option>
+          ))}
+        </select>
       </div>
 
       <form onSubmit={handleSubmit} className="space-y-4">
