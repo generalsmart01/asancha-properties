@@ -17,6 +17,7 @@ import {
   Briefcase,
   TrendingUp,
   ListMinus,
+  Settings,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import Image from "next/image";
@@ -37,13 +38,15 @@ const getNavigationByRole = (role: UserRole) => {
   ];
 
   switch (role) {
-    case "client":
+    case "buyer":
+    case "investor":
       return [
         ...baseNav,
-        { name: "Saved Properties", href: "/dashboard/saved", icon: Heart },
-        { name: "My Bookings", href: "/dashboard/bookings", icon: Calendar },
-        { name: "My Payments", href: "/dashboard/payments", icon: PoundSterling },
+        { name: "Investment Portfolio", href: "/dashboard/portfolio", icon: Briefcase },
         { name: "BMV Analysis", href: "/dashboard/bmv", icon: Calculator },
+        { name: "Investment Opportunities", href: "/dashboard/opportunities", icon: TrendingUp },
+        { name: "Saved Properties", href: "/dashboard/saved", icon: Heart },
+        { name: "Analytics", href: "/dashboard/analytics", icon: BarChart3 },
       ];
 
     case "agent":
@@ -56,7 +59,9 @@ const getNavigationByRole = (role: UserRole) => {
         { name: "Reports", href: "/dashboard/reports", icon: FileText },
       ];
 
-    case "property_owner":
+    case "vendor":
+    case "landlord":
+    case "developer":
       return [
         ...baseNav,
         { name: "My Properties", href: "/dashboard/listings", icon: Building2 },
@@ -65,7 +70,7 @@ const getNavigationByRole = (role: UserRole) => {
         { name: "Reports", href: "/dashboard/reports", icon: FileText },
       ];
 
-    case "property_sourcer":
+    case "sourcer":
       return [
         ...baseNav,
         { name: "BMV Analysis", href: "/dashboard/bmv", icon: Calculator },
@@ -74,14 +79,22 @@ const getNavigationByRole = (role: UserRole) => {
         { name: "Analytics", href: "/dashboard/analytics", icon: BarChart3 },
       ];
 
-    case "investor":
+    case "service_provider":
       return [
         ...baseNav,
-        { name: "Investment Portfolio", href: "/dashboard/portfolio", icon: Briefcase },
-        { name: "BMV Analysis", href: "/dashboard/bmv", icon: Calculator },
-        { name: "Investment Opportunities", href: "/dashboard/opportunities", icon: TrendingUp },
-        { name: "Returns & Payouts", href: "/dashboard/payouts", icon: PoundSterling },
+        { name: "My Services", href: "/dashboard/services", icon: Briefcase },
+        { name: "Client Requests", href: "/dashboard/requests", icon: Users },
         { name: "Analytics", href: "/dashboard/analytics", icon: BarChart3 },
+        { name: "Settings", href: "/dashboard/settings", icon: Settings },
+      ];
+
+    case "api_partner":
+      return [
+        ...baseNav,
+        { name: "API Keys", href: "/dashboard/api-keys", icon: Settings },
+        { name: "Usage & Logs", href: "/dashboard/usage", icon: BarChart3 },
+        { name: "Documentation", href: "/docs/api", icon: FileText },
+        { name: "Webhooks", href: "/dashboard/webhooks", icon: Briefcase },
       ];
 
     default:

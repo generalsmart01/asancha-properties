@@ -11,7 +11,7 @@ export const metadata = {
 export default function GetStartedPage() {
     const roles = [
         {
-            id: "client",
+            id: "buyer",
             title: "I am a Client",
             description: "Looking to buy, rent, or find my dream home.",
             icon: Home,
@@ -35,7 +35,7 @@ export default function GetStartedPage() {
             color: "bg-green-50 text-green-600",
         },
         {
-            id: "property_owner",
+            id: "vendor",
             title: "I am a Property Owner",
             description: "Looking to list my property or portfolio for sale or rent.",
             icon: Building2,
@@ -43,7 +43,7 @@ export default function GetStartedPage() {
             color: "bg-orange-50 text-orange-600",
         },
         {
-            id: "property_sourcer",
+            id: "sourcer",
             title: "I am a Sourcer",
             description: "Finding and packaging high-yield deals for investors.",
             icon: User,

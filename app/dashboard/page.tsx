@@ -871,6 +871,191 @@ function PropertySourcerDashboard() {
   );
 }
 
+// Service Provider Dashboard Component
+function ServiceProviderDashboard() {
+  return (
+    <div className="space-y-8">
+      {/* Welcome Section */}
+      <div className="bg-primary rounded-3xl p-8 text-white shadow-xl shadow-primary/20 relative overflow-hidden">
+        <div className="absolute top-0 right-0 h-32 w-32 bg-white/5 rounded-full -mr-16 -mt-16" />
+        <h1 className="text-3xl font-bold mb-2 uppercase tracking-tight">Welcome back, Service Provider!</h1>
+        <p className="text-white/80 font-medium italic">
+          Manage your service offerings, client requests, and track your earnings.
+        </p>
+      </div>
+
+      {/* Quick Stats */}
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <Card className="rounded-3xl border-border/50 shadow-lg hover:shadow-xl transition-all">
+          <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
+            <CardTitle className="text-sm font-medium">Active Requests</CardTitle>
+            <Users className="h-4 w-4 text-muted-foreground" />
+          </CardHeader>
+          <CardContent>
+            <div className="text-2xl font-bold">8</div>
+            <p className="text-xs text-muted-foreground">3 require response</p>
+          </CardContent>
+        </Card>
+
+        <Card className="rounded-3xl border-border/50 shadow-lg hover:shadow-xl transition-all">
+          <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
+            <CardTitle className="text-sm font-medium">Completed Jobs</CardTitle>
+            <Briefcase className="h-4 w-4 text-muted-foreground" />
+          </CardHeader>
+          <CardContent>
+            <div className="text-2xl font-bold">45</div>
+            <p className="text-xs text-muted-foreground">+5 this month</p>
+          </CardContent>
+        </Card>
+
+        <Card className="rounded-3xl border-border/50 shadow-lg hover:shadow-xl transition-all">
+          <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
+            <CardTitle className="text-sm font-medium">Average Rating</CardTitle>
+            <Heart className="h-4 w-4 text-muted-foreground" />
+          </CardHeader>
+          <CardContent>
+            <div className="text-2xl font-bold">4.9/5</div>
+            <p className="text-xs text-muted-foreground">Based on 32 reviews</p>
+          </CardContent>
+        </Card>
+
+        <Card className="rounded-3xl border-border/50 shadow-lg hover:shadow-xl transition-all">
+          <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
+            <CardTitle className="text-sm font-medium">Earnings</CardTitle>
+            <DollarSign className="h-4 w-4 text-muted-foreground" />
+          </CardHeader>
+          <CardContent>
+            <div className="text-2xl font-bold">£4,200</div>
+            <p className="text-xs text-muted-foreground">This month</p>
+          </CardContent>
+        </Card>
+      </div>
+
+      {/* Quick Actions */}
+      <Card className="rounded-3xl border-border/50 shadow-lg hover:shadow-xl transition-all">
+        <CardHeader>
+          <CardTitle>Quick Actions</CardTitle>
+          <CardDescription>Shortcuts to manage your services</CardDescription>
+        </CardHeader>
+        <CardContent>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+            <Button asChild className="primary-btn h-20 flex flex-col space-y-2 rounded-2xl shadow-lg shadow-primary/20">
+              <Link href="/dashboard/requests">
+                <Users className="w-6 h-6" />
+                <span>Client Requests</span>
+              </Link>
+            </Button>
+            <Button asChild variant="outline" className="h-20 flex flex-col space-y-2">
+              <Link href="/dashboard/services">
+                <Briefcase className="w-6 h-6" />
+                <span>My Services</span>
+              </Link>
+            </Button>
+            <Button asChild variant="outline" className="h-20 flex flex-col space-y-2">
+              <Link href="/dashboard/profile">
+                <Settings className="w-6 h-6" />
+                <span>Edit Profile</span>
+              </Link>
+            </Button>
+          </div>
+        </CardContent>
+      </Card>
+    </div>
+  );
+}
+
+// API Partner Dashboard Component
+function ApiPartnerDashboard() {
+  return (
+    <div className="space-y-8">
+      {/* Welcome Section */}
+      <div className="bg-primary rounded-3xl p-8 text-white shadow-xl shadow-primary/20 relative overflow-hidden">
+        <div className="absolute top-0 right-0 h-32 w-32 bg-white/5 rounded-full -mr-16 -mt-16" />
+        <h1 className="text-3xl font-bold mb-2 uppercase tracking-tight">Welcome back, API Partner!</h1>
+        <p className="text-white/80 font-medium italic">
+          Monitor your API consumption, manage tokens, and view endpoint statuses.
+        </p>
+      </div>
+
+      {/* Quick Stats */}
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <Card className="rounded-3xl border-border/50 shadow-lg hover:shadow-xl transition-all">
+          <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
+            <CardTitle className="text-sm font-medium">API Requests</CardTitle>
+            <BarChart3 className="h-4 w-4 text-muted-foreground" />
+          </CardHeader>
+          <CardContent>
+            <div className="text-2xl font-bold">124.5k</div>
+            <p className="text-xs text-muted-foreground">This month (300k limit)</p>
+          </CardContent>
+        </Card>
+
+        <Card className="rounded-3xl border-border/50 shadow-lg hover:shadow-xl transition-all">
+          <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
+            <CardTitle className="text-sm font-medium">Success Rate</CardTitle>
+            <TrendingUp className="h-4 w-4 text-muted-foreground" />
+          </CardHeader>
+          <CardContent>
+            <div className="text-2xl font-bold">99.98%</div>
+            <p className="text-xs text-muted-foreground">Uptime robust</p>
+          </CardContent>
+        </Card>
+
+        <Card className="rounded-3xl border-border/50 shadow-lg hover:shadow-xl transition-all">
+          <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
+            <CardTitle className="text-sm font-medium">Active Tokens</CardTitle>
+            <Settings className="h-4 w-4 text-muted-foreground" />
+          </CardHeader>
+          <CardContent>
+            <div className="text-2xl font-bold">3</div>
+            <p className="text-xs text-muted-foreground">Environment: Production</p>
+          </CardContent>
+        </Card>
+
+        <Card className="rounded-3xl border-border/50 shadow-lg hover:shadow-xl transition-all">
+          <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
+            <CardTitle className="text-sm font-medium">Active Webhooks</CardTitle>
+            <Briefcase className="h-4 w-4 text-muted-foreground" />
+          </CardHeader>
+          <CardContent>
+            <div className="text-2xl font-bold">5</div>
+            <p className="text-xs text-muted-foreground">0 failing endpoints</p>
+          </CardContent>
+        </Card>
+      </div>
+
+      {/* Quick Actions */}
+      <Card className="rounded-3xl border-border/50 shadow-lg hover:shadow-xl transition-all">
+        <CardHeader>
+          <CardTitle>Developer Shortcuts</CardTitle>
+          <CardDescription>Tools for managing your integration</CardDescription>
+        </CardHeader>
+        <CardContent>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+            <Button asChild className="primary-btn h-20 flex flex-col space-y-2 rounded-2xl shadow-lg shadow-primary/20">
+              <Link href="/dashboard/api-keys">
+                <Settings className="w-6 h-6" />
+                <span>Manage API Keys</span>
+              </Link>
+            </Button>
+            <Button asChild variant="outline" className="h-20 flex flex-col space-y-2">
+              <Link href="/docs/api">
+                <FileText className="w-6 h-6" />
+                <span>Documentation</span>
+              </Link>
+            </Button>
+            <Button asChild variant="outline" className="h-20 flex flex-col space-y-2">
+              <Link href="/dashboard/webhooks">
+                <Briefcase className="w-6 h-6" />
+                <span>Manage Webhooks</span>
+              </Link>
+            </Button>
+          </div>
+        </CardContent>
+      </Card>
+    </div>
+  );
+}
 
 // Main Dashboard Component
 export default function Dashboard() {
@@ -896,13 +1081,19 @@ export default function Dashboard() {
   switch (user.role) {
     case "agent":
       return <AgentDashboard />;
-    case "property_owner":
+    case "vendor":
+    case "landlord":
+    case "developer":
       return <PropertyOwnerDashboard />;
-    case "property_sourcer":
+    case "sourcer":
       return <PropertySourcerDashboard />;
+    case "service_provider":
+      return <ServiceProviderDashboard />;
+    case "api_partner":
+      return <ApiPartnerDashboard />;
     case "investor":
       return <InvestorDashboard />;
-    case "client":
+    case "buyer":
       return <ClientDashboard />;
     case "guest":
       return (

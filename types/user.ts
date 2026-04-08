@@ -1,10 +1,14 @@
 export type UserRole =
     | "guest"
-    | "client"
-    | "property_owner"
-    | "property_sourcer"
+    | "buyer"
+    | "sourcer"
     | "agent"
-    | "investor";
+    | "vendor"
+    | "landlord"
+    | "developer"
+    | "investor"
+    | "service_provider"
+    | "api_partner";
 
 export type AuthProvider = "local" | "google";
 
@@ -41,7 +45,7 @@ export interface GuestProfile {
     lastKnownConnectionUserAgent?: string;
 }
 
-export type AgentCategory = "property_sourcer" | "property_owner" | "agent";
+export type AgentCategory = "sourcer" | "vendor" | "agent" | "developer";
 export type AgentType = "individual" | "company";
 export type VerificationStatus = "approved" | "on_hold" | "rejected" | "pending";
 

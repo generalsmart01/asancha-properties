@@ -2,12 +2,16 @@ import { UserRole, HouseType, PropertyStatus } from "@/types";
 
 // User Roles and Permissions
 export const USER_ROLES: Record<UserRole, string> = {
-  agent: "Real Estate Agent",
+  buyer: "Buyer",
   investor: "Investor",
-  client: "Client",
-  property_owner: "Property Owner",
-  property_sourcer: "Property Sourcer",
+  sourcer: "Property Sourcer",
+  agent: "Real Estate Agent",
+  vendor: "Property Vendor",
+  landlord: "Landlord",
+  developer: "Property Developer",
   guest: "Guest",
+  service_provider: "Service Provider",
+  api_partner: "API Partner",
 };
 
 export const ROLE_PERMISSIONS = {
@@ -17,12 +21,22 @@ export const ROLE_PERMISSIONS = {
     "manage_own_clients",
     "view_own_analytics",
   ],
-  property_owner: [
+  vendor: [
     "manage_own_listings",
     "view_financial_reports",
     "manage_bookings",
   ],
-  property_sourcer: [
+  landlord: [
+    "manage_own_listings",
+    "view_financial_reports",
+    "manage_bookings",
+  ],
+  developer: [
+    "manage_own_listings",
+    "view_financial_reports",
+    "manage_bookings",
+  ],
+  sourcer: [
     "source_deals",
     "bmv_analysis",
     "manage_leads",
@@ -33,13 +47,21 @@ export const ROLE_PERMISSIONS = {
     "receive_payouts",
     "view_investment_analytics",
   ],
-  client: [
+  buyer: [
     "book_viewings",
     "save_properties",
     "limited_bmv_access",
     "view_own_bookings",
   ],
   guest: ["browse_properties", "limited_bmv_access"],
+  service_provider: [
+    "offer_services",
+    "manage_profile",
+  ],
+  api_partner: [
+    "access_api",
+    "manage_tokens",
+  ],
 };
 
 // Property Types

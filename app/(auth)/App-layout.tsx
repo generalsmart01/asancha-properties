@@ -31,7 +31,7 @@ export default function AuthLayout({ children }: { children: ReactNode }) {
         ></div>
 
         <div className="absolute bottom-12 p-6 max-w-2xl">
-          <div className="mt-6 border-primary bg-background/50 backdrop-blur supports-[backdrop-filter]:bg-background/20 rounded-lg p-4 md:px-8 md:py-6  lg:px-12 lg:py-8">
+          <div className="mt-6 border-primary bg-background/50 backdrop-blur supports-backdrop-filter:bg-background/20 rounded-lg p-4 md:px-8 md:py-6  lg:px-12 lg:py-8">
             <h2 className="text-xl font-bold">Benefits</h2>
             <ul className="mt-4 space-y-2 text-sm">
               <li className="flex items-start">
@@ -104,29 +104,6 @@ export default function AuthLayout({ children }: { children: ReactNode }) {
           {/* Dynamic Content (Login/Register form) */}
           {children}
 
-          {/* Divider */}
-          <div className="mt-6 flex items-center">
-            <div className="flex-1 border-t border-gray-300" />
-            <span className="px-2 text-sm text-gray-500">or</span>
-            <div className="flex-1 border-t border-gray-300" />
-          </div>
-
-          {/* Google Login */}
-          <button
-            type="button"
-            aria-label="Sign in with Google"
-            className="mt-6 w-full flex items-center justify-center gap-2 border border-gray-300 rounded-md py-3 text-sm font-medium text-gray-700 bg-accent hover:bg-accent/80 focus:outline-none focus:ring-2 focus:ring-primary cursor-pointer"
-          >
-            <Image
-              src="/icons/search.png"
-              alt=""
-              className="h-5 w-5"
-              aria-hidden="true"
-              width={50}
-              height={50}
-            />
-            Continue with Google
-          </button>
         </div>
       </section>
     </main>

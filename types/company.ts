@@ -1,10 +1,12 @@
 import { UserRole, VerificationStatus } from "./user";
 
 export type CompanyType =
-    | "property-owner"
-    | "property-sourcer"
+    | "vendor"
+    | "sourcer"
     | "agent"
+    | "developer"
     | "investor"
+    | "buyer"
     | "solicitor"
     | "lender";
 

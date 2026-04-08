@@ -49,7 +49,7 @@ export default function PropertyForm({ initialData, onSubmit, submitButtonText }
     const [formData, setFormData] = useState(initialData || {
         title: "",
         slug: "",
-        source: "property_owner" as PropertySource,
+        source: "vendor" as PropertySource,
         sourceName: "",
         uploadMethod: "direct_upload" as UploadMethod,
         uploadedByUserId: "",

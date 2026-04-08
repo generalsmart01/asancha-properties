@@ -24,7 +24,7 @@ const mockUserData = {
   email: "john@example.com",
   phone: "+1 (555) 123-4567",
   avatar: "/avatars/john-doe.jpg",
-  role: "Client",
+  role: "Buyer",
   memberSince: "2023-06-15",
   lastLogin: "2024-01-12T10:30:00Z",
   preferences: {

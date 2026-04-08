@@ -2,7 +2,7 @@ import { VerificationStatus } from "./user";
 
 // --- Property Enums ---
 
-export type PropertySource = "property_owner" | "property_sourcer" | "agent" | "asancha";
+export type PropertySource = "vendor" | "sourcer" | "agent" | "developer" | "asancha";
 export type UploadMethod = "api" | "direct_upload";
 export type ListingType = "rent" | "sale" | "refurbishment";
 export type ListingCategory = "offMarket" | "bmv" | "marketListings" | "manual";

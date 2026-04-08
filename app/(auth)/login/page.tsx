@@ -144,6 +144,28 @@ export default function LoginPage() {
         </button>
       </form>
 
+      {/* Divider */}
+      <div className="mt-6 flex items-center">
+        <div className="flex-1 border-t border-gray-300" />
+        <span className="px-2 text-sm text-gray-500">or</span>
+        <div className="flex-1 border-t border-gray-300" />
+      </div>
+
+      {/* Google Login */}
+      <button
+        type="button"
+        aria-label="Sign in with Google"
+        className="mt-6 w-full flex items-center justify-center gap-2 border border-gray-300 rounded-md py-3 text-sm font-medium text-gray-700 bg-accent hover:bg-accent/80 focus:outline-none focus:ring-2 focus:ring-primary cursor-pointer"
+      >
+        <img
+          src="/icons/search.png"
+          alt=""
+          className="h-5 w-5"
+          aria-hidden="true"
+        />
+        Continue with Google
+      </button>
+
       {process.env.NODE_ENV !== "production" && (
         <div className="mt-8 border-t pt-6">
           <p className="text-sm text-gray-500 mb-3 text-center">
